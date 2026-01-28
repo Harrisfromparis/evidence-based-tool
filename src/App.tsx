@@ -1,5 +1,36 @@
+import { useState } from 'react'
+import { Layout } from '@/components/Layout'
+import { HomeView } from '@/components/HomeView'
+import { EBPLibraryView } from '@/components/EBPLibraryView'
+import { CaseStudiesView } from '@/components/CaseStudiesView'
+import { RightsEthicsView } from '@/components/RightsEthicsView'
+import { ToolsView } from '@/components/ToolsView'
+
 function App() {
-    return <div></div>
+  const [activeTab, setActiveTab] = useState('home')
+
+  const renderView = () => {
+    switch (activeTab) {
+      case 'home':
+        return <HomeView onNavigate={setActiveTab} />
+      case 'ebps':
+        return <EBPLibraryView />
+      case 'cases':
+        return <CaseStudiesView />
+      case 'rights':
+        return <RightsEthicsView />
+      case 'tools':
+        return <ToolsView />
+      default:
+        return <HomeView onNavigate={setActiveTab} />
+    }
+  }
+
+  return (
+    <Layout activeTab={activeTab} onTabChange={setActiveTab}>
+      {renderView()}
+    </Layout>
+  )
 }
 
 export default App

@@ -1,0 +1,120 @@
+import { useState } from 'react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { ArrowLeft } from '@phosphor-icons/react'
+import { rightsContent } from '@/lib/data'
+import type { RightsContent } from '@/lib/types'
+
+export function RightsEthicsView() {
+  const [selectedContent, setSelectedContent] = useState<RightsContent | null>(null)
+
+  const contentCards = [
+    {
+      category: 'uncrpd' as const,
+      title: 'UNCRPD Article 24',
+      description: 'UN Convention on the Rights of Persons with Disabilities: Right to inclusive education'
+    },
+    {
+      category: 'irish-law' as const,
+      title: 'Irish Legal Framework',
+      description: 'Education Act, EPSEN Act, Disability Act, and Equal Status Acts'
+    },
+    {
+      category: 'masking' as const,
+      title: 'Understanding Masking',
+      description: 'What masking is, why it happens, and how to create environments where students can be authentic'
+    },
+    {
+      category: 'red-flags' as const,
+      title: 'Ethical Red Flags',
+      description: 'Warning signs of harmful practices and interventions to avoid'
+    }
+  ]
+
+  if (selectedContent) {
+    return (
+      <div className="space-y-6">
+        <Button 
+          variant="outline" 
+          onClick={() => setSelectedContent(null)}
+          className="gap-2"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Rights & Ethics
+        </Button>
+
+        <div>
+          <h2 className="text-foreground mb-4">{selectedContent.title}</h2>
+        </div>
+
+        <Card>
+          <CardContent className="pt-6">
+            <div 
+              className="prose prose-slate max-w-none text-muted-foreground"
+              dangerouslySetInnerHTML={{ __html: selectedContent.content.replace(/\n\n/g, '</p><p className="mb-4">').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/^/,'<p className="mb-4">') + '</p>' }}
+            />
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-foreground mb-2">Rights & Ethics</h2>
+        <p className="text-muted-foreground">
+          Ground your practice in rights-based frameworks and ethical principles. All interventions must respect 
+          the dignity, autonomy, and identity of autistic students.
+        </p>
+      </div>
+
+      <div className="bg-accent/10 border-l-4 border-l-accent p-6">
+        <p className="text-foreground font-semibold mb-2">
+          Core Principle
+        </p>
+        <p className="text-muted-foreground">
+          If an intervention would be considered unacceptable for a non-disabled student, it is unacceptable 
+          for an autistic student. Dignity and autonomy are non-negotiable.
+        </p>
+      </div>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {contentCards.map((card) => {
+          const content = rightsContent.find(rc => rc.category === card.category)
+          return (
+            <Card 
+              key={card.category}
+              className="cursor-pointer transition-colors hover:bg-secondary border-2"
+              onClick={() => content && setSelectedContent(content)}
+            >
+              <CardHeader>
+                <CardTitle className="text-xl">{card.title}</CardTitle>
+                <CardDescription className="text-base">
+                  {card.description}
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          )
+        })}
+      </div>
+
+      <Card className="bg-muted">
+        <CardHeader>
+          <CardTitle>Using This Section</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3 text-muted-foreground">
+          <p>
+            This section provides the legal and ethical foundation for all educational practice with autistic students.
+          </p>
+          <ul className="space-y-2 ml-4">
+            <li>• Review UNCRPD Article 24 to understand international human rights standards</li>
+            <li>• Familiarize yourself with Irish legislation to know students' legal entitlements</li>
+            <li>• Learn about masking to recognize when students may be struggling despite appearing "fine"</li>
+            <li>• Know the ethical red flags to identify and challenge harmful practices</li>
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
