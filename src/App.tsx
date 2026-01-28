@@ -5,6 +5,7 @@ import { EBPLibraryView } from '@/components/EBPLibraryView'
 import { CaseStudiesView } from '@/components/CaseStudiesView'
 import { RightsEthicsView } from '@/components/RightsEthicsView'
 import { ToolsView } from '@/components/ToolsView'
+import { Toaster } from '@/components/ui/sonner'
 
 function App() {
   const [activeTab, setActiveTab] = useState('home')
@@ -27,9 +28,12 @@ function App() {
   }
 
   return (
-    <Layout activeTab={activeTab} onTabChange={setActiveTab}>
-      {renderView()}
-    </Layout>
+    <>
+      <Layout activeTab={activeTab} onTabChange={setActiveTab}>
+        {renderView()}
+      </Layout>
+      <Toaster />
+    </>
   )
 }
 

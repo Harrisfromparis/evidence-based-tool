@@ -1,16 +1,25 @@
+import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight } from '@phosphor-icons/react'
+import { ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText } from '@phosphor-icons/react'
 import { tools } from '@/lib/data'
+import { LessonScriptGenerator } from '@/components/LessonScriptGenerator'
 
 const iconMap = {
   ListChecks,
   Eye,
   ChatCircle,
   HandHeart,
-  ArrowsLeftRight
+  ArrowsLeftRight,
+  FileText
 }
 
 export function ToolsView() {
+  const [selectedTool, setSelectedTool] = useState<string | null>(null)
+
+  if (selectedTool === 'lesson-script-generator') {
+    return <LessonScriptGenerator onBack={() => setSelectedTool(null)} />
+  }
+
   return (
     <div className="space-y-6">
       <div>
@@ -34,11 +43,13 @@ export function ToolsView() {
       <div className="grid gap-6 md:grid-cols-2">
         {tools.map((tool) => {
           const IconComponent = iconMap[tool.icon as keyof typeof iconMap]
+          const isInteractive = tool.id === 'lesson-script-generator'
           
           return (
             <Card 
               key={tool.id}
-              className="border-2"
+              className={`border-2 ${isInteractive ? 'cursor-pointer hover:bg-secondary transition-colors' : ''}`}
+              onClick={() => isInteractive && setSelectedTool(tool.id)}
             >
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
@@ -52,12 +63,20 @@ export function ToolsView() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="bg-background p-4 border border-border">
-                  <p className="text-sm text-muted-foreground italic">
-                    Interactive tool interface coming soon. This will provide a guided, step-by-step process 
-                    for {tool.title.toLowerCase()}.
-                  </p>
-                </div>
+                {isInteractive ? (
+                  <div className="bg-accent/5 p-4 border border-accent/20">
+                    <p className="text-sm text-foreground font-medium">
+                      Click to open the interactive lesson script generator
+                    </p>
+                  </div>
+                ) : (
+                  <div className="bg-background p-4 border border-border">
+                    <p className="text-sm text-muted-foreground italic">
+                      Interactive tool interface coming soon. This will provide a guided, step-by-step process 
+                      for {tool.title.toLowerCase()}.
+                    </p>
+                  </div>
+                )}
               </CardContent>
             </Card>
           )

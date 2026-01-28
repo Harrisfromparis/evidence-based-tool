@@ -196,6 +196,13 @@ export const caseStudies: CaseStudy[] = [
 
 export const tools: Tool[] = [
   {
+    id: 'lesson-script-generator',
+    title: 'Lesson Script Generator',
+    description: 'Generate complete, structured lesson scripts based on your chosen teaching approaches',
+    category: 'Planning',
+    icon: 'FileText'
+  },
+  {
     id: 'choose-3-ebps',
     title: 'Choose 3 EBPs Planner',
     description: 'Guided process to select three evidence-based practices for a specific student or situation',
@@ -231,6 +238,37 @@ export const tools: Tool[] = [
     icon: 'ArrowsLeftRight'
   }
 ]
+
+export const teachingApproaches = [
+  'Visual Supports',
+  'Structured Work Systems',
+  'Naturalistic Intervention',
+  'Social Narratives',
+  'Peer-Mediated Instruction',
+  'Self-Management',
+  'Prompting',
+  'Reinforcement',
+  'Time Delay',
+  'Task Analysis',
+  'Video Modeling',
+  'Cognitive Behavioral Intervention',
+  'Differential Reinforcement',
+  'Discrete Trial Training',
+  'Extinction',
+  'Functional Behavior Assessment',
+  'Functional Communication Training',
+  'Parent-Implemented Intervention',
+  'Pivotal Response Training',
+  'Response Interruption/Redirection',
+  'Scripting',
+  'Social Skills Training',
+  'Technology-Aided Instruction',
+  'Augmentative and Alternative Communication',
+  'Antecedent-Based Intervention',
+  'Exercise and Movement',
+  'Music-Mediated Intervention',
+  'Speech-Generating Devices'
+] as const
 
 export const rightsContent: RightsContent[] = [
   {

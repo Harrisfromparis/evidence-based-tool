@@ -34,11 +34,18 @@ The app provides structured navigation through educational content with search, 
 - Success criteria: Legal and ethical information is clear, actionable, and never more than two taps away from any EBP
 
 **Quick-Access Tools**
-- Functionality: Practical planning tools including "Choose 3 EBPs" planner, sensory checklist, behavior analyzer, co-regulation strategies, transition supports
+- Functionality: Practical planning tools including "Choose 3 EBPs" planner, sensory checklist, behavior analyzer, co-regulation strategies, transition supports, and lesson script generator
 - Purpose: Move from information to action with structured decision-making supports
 - Trigger: User navigates to "Tools" section
 - Progression: Tools grid → Select tool → Interactive form or checklist → Complete fields → View guidance or export summary → Save progress locally
 - Success criteria: Each tool can be completed in under 5 minutes; results provide actionable next steps
+
+**Lesson Script Generator**
+- Functionality: AI-powered tool that generates complete, classroom-ready lesson scripts based on teacher's lesson title and selected teaching approaches from the 28 EBPs
+- Purpose: Enable teachers to quickly create pedagogically sound, neuro-affirming lesson plans that integrate evidence-based practices
+- Trigger: User selects "Lesson Script Generator" from Tools section
+- Progression: Enter lesson title → Select one or more of 28 teaching approaches → Generate script → View structured lesson with objectives, activities, timing, differentiation, assessment → Save or export for classroom use
+- Success criteria: Teachers can generate a comprehensive lesson script within 3 minutes; output includes all essential lesson components; scripts are immediately usable without modification
 
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
