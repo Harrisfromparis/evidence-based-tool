@@ -41,11 +41,11 @@ The app provides structured navigation through educational content with search, 
 - Success criteria: Each tool can be completed in under 5 minutes; results provide actionable next steps
 
 **Lesson Script Generator**
-- Functionality: AI-powered tool that generates complete, classroom-ready lesson scripts based on teacher's lesson title and selected teaching approaches from the 28 EBPs
+- Functionality: AI-powered tool that generates complete, classroom-ready lesson scripts based on teacher's lesson title and selected teaching approaches from the 28 EBPs. Includes ability to save scripts for later access, view previously generated scripts, and export scripts.
 - Purpose: Enable teachers to quickly create pedagogically sound, neuro-affirming lesson plans that integrate evidence-based practices
 - Trigger: User selects "Lesson Script Generator" from Tools section
-- Progression: Enter lesson title → Select one or more of 28 teaching approaches → Generate script → View structured lesson with objectives, activities, timing, differentiation, assessment → Save or export for classroom use
-- Success criteria: Teachers can generate a comprehensive lesson script within 3 minutes; output includes all essential lesson components; scripts are immediately usable without modification
+- Progression: Enter lesson title → Select one or more of 28 teaching approaches → Generate script → View structured lesson with objectives, activities, timing, differentiation, assessment → Save script to collection → Export for classroom use OR View saved scripts → Select script from saved collection → View/export saved script → Delete script if no longer needed
+- Success criteria: Teachers can generate a comprehensive lesson script within 3 minutes; output includes all essential lesson components; scripts are immediately usable without modification; saved scripts persist across sessions and can be accessed at any time
 
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
