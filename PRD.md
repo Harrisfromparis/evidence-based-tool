@@ -40,12 +40,47 @@ The app provides structured navigation through educational content with search, 
 - Progression: Tools grid → Select tool → Interactive form or checklist → Complete fields → View guidance or export summary → Save progress locally
 - Success criteria: Each tool can be completed in under 5 minutes; results provide actionable next steps
 
-**Lesson Script Generator**
+**Lesson Script Generator** [IMPLEMENTED]
 - Functionality: AI-powered tool that generates complete, classroom-ready lesson scripts based on teacher's lesson title and selected teaching approaches from the 28 EBPs. Includes ability to save scripts for later access, view previously generated scripts, and export scripts.
 - Purpose: Enable teachers to quickly create pedagogically sound, neuro-affirming lesson plans that integrate evidence-based practices
 - Trigger: User selects "Lesson Script Generator" from Tools section
 - Progression: Enter lesson title → Select one or more of 28 teaching approaches → Generate script → View structured lesson with objectives, activities, timing, differentiation, assessment → Save script to collection → Export for classroom use OR View saved scripts → Select script from saved collection → View/export saved script → Delete script if no longer needed
 - Success criteria: Teachers can generate a comprehensive lesson script within 3 minutes; output includes all essential lesson components; scripts are immediately usable without modification; saved scripts persist across sessions and can be accessed at any time
+
+**Choose 3 EBPs Planner** [PLACEHOLDER]
+- Functionality: Guided multi-step process to help teachers select three evidence-based practices for a specific student or situation
+- Purpose: Structured decision-making framework that prevents overwhelming teachers while ensuring appropriate EBP selection
+- Trigger: User selects "Choose 3 EBPs Planner" from Tools section
+- Progression: Define student/situation → Identify key needs (communication, environment, engagement, emotional safety) → System suggests relevant EBPs from library → Teacher selects 3 EBPs → Plan next steps (who, when, how, review schedule) → Export or save plan
+- Success criteria: Clear step-by-step interface; EBP suggestions are contextually relevant; output provides actionable implementation plan; data structure ready for future interactive implementation
+
+**Sensory Needs Checklist** [PLACEHOLDER]
+- Functionality: Structured observation tool with categories for all sensory domains
+- Purpose: Systematic identification of sensory preferences and sensitivities to inform accommodations
+- Trigger: User selects "Sensory Needs Checklist" from Tools section
+- Progression: Review intro → Work through categories (Visual, Auditory, Tactile, Proprioceptive, Vestibular, Olfactory/Gustatory) → For each, mark "seeks", "avoids", "neutral" and add notes → View summary → Save observations locally → Export if needed
+- Success criteria: All sensory domains covered; interface supports observation notes; data stored locally; ready for future interactive implementation
+
+**Behaviour = Communication Analyser** [PLACEHOLDER]
+- Functionality: ABC (Antecedent-Behavior-Consequence) framework with neuro-affirming interpretation guidance
+- Purpose: Shift perspective from "problem behavior" to understanding communication and unmet needs
+- Trigger: User selects "Behaviour = Communication Analyser" from Tools section
+- Progression: Describe what happened before (antecedent) → Describe what student did (behavior) → Describe what happened after (consequence) → Reflect on possible communication message → Identify possible unmet need → System suggests relevant EBPs to consider → Save analysis → Export if needed
+- Success criteria: Interface reinforces communication framework; no punitive language; suggests EBPs based on analysis; data structure ready for future implementation
+
+**Co-Regulation Strategies** [PLACEHOLDER]
+- Functionality: Categorized collection of regulation support strategies
+- Purpose: Provide practical, immediate strategies for supporting student regulation through adult co-regulation
+- Trigger: User selects "Co-Regulation Strategies" from Tools section
+- Progression: View intro → Browse categories (Environment, Adult Presence, Sensory Supports, Predictability/Pacing, Language Scripts) → Select strategies relevant to situation → Save selected strategies → Export if needed
+- Success criteria: Strategies organized by category; emphasis on adult role in regulation; calm, validating language scripts provided; ready for future interactive implementation
+
+**Transition Support Builder** [PLACEHOLDER]
+- Functionality: Step-by-step planning guide for transitions (activity-to-activity, class-to-class, school-to-school)
+- Purpose: Proactive transition planning to reduce anxiety and increase success
+- Trigger: User selects "Transition Support Builder" from Tools section
+- Progression: Define transition (what/when/where/who) → Identify potential stress points → Choose supports (visuals, rehearsal, social narratives, co-regulation, timing adjustments) → Plan communication with student and family → Set review schedule → Save plan → Export if needed
+- Success criteria: Covers all transition types; structured but flexible; emphasizes student and family communication; data structure ready for future implementation
 
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
