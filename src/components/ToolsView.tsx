@@ -3,11 +3,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Button } from '@/components/ui/button'
 import { 
   ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText, UserCircle, CalendarCheck, Smiley,
   Image, Book, ListNumbers, ChatsCircle, Star, ArrowBendDownRight, ChartLine, Folders,
   UsersThree, Presentation, Video, DeviceMobile, Lightning, Brain, PersonSimpleRun,
-  MusicNotes, Laptop, Target, Leaf, MagnifyingGlass
+  MusicNotes, Laptop, Target, Leaf, MagnifyingGlass, FloppyDisk
 } from '@phosphor-icons/react'
 import { tools } from '@/lib/data'
 import { LessonScriptGenerator } from '@/components/LessonScriptGenerator'
@@ -39,6 +40,7 @@ import { MusicInterventionPlanner } from '@/components/MusicInterventionPlanner'
 import { TechnologyIntegrationPlanner } from '@/components/TechnologyIntegrationPlanner'
 import { DTTSessionPlanner } from '@/components/DTTSessionPlanner'
 import { NaturalisticTeachingPlanner } from '@/components/NaturalisticTeachingPlanner'
+import { SavedPlansManager } from '@/components/SavedPlansManager'
 
 const iconMap = {
   ListChecks,
@@ -88,6 +90,10 @@ export function ToolsView() {
   })
 
   const categories = ['all', ...Array.from(new Set(tools.map(t => t.category)))]
+
+  if (selectedTool === 'saved-plans-manager') {
+    return <SavedPlansManager onBack={() => setSelectedTool(null)} />
+  }
 
   if (selectedTool === 'lesson-script-generator') {
     return <LessonScriptGenerator onBack={() => setSelectedTool(null)} />
@@ -246,6 +252,26 @@ export function ToolsView() {
           for planning, assessment, and action across all 28 NCAEP evidence-based practices.
         </p>
       </div>
+
+      <Card className="bg-accent/10 border-accent">
+        <CardContent className="pt-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="font-semibold text-foreground mb-1 flex items-center gap-2">
+                <FloppyDisk className="w-5 h-5 text-accent" />
+                Manage Your Saved Plans
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                View all saved plans in one place and export multiple plans as a combined PDF
+              </p>
+            </div>
+            <Button onClick={() => setSelectedTool('saved-plans-manager')} className="gap-2 flex-shrink-0">
+              <FloppyDisk className="w-4 h-4" />
+              View Saved Plans
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
 
       <Card className="bg-muted">
         <CardContent className="pt-6">

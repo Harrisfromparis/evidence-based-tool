@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { BookBookmark, FolderOpen, Scales, Wrench } from '@phosphor-icons/react'
+import { BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk } from '@phosphor-icons/react'
 
 interface HomeViewProps {
   onNavigate: (tab: string) => void
@@ -86,6 +86,22 @@ export function HomeView({ onNavigate }: HomeViewProps) {
               <CardDescription>
                 Practical planning tools including the "Choose 3 EBPs" planner, sensory checklist, 
                 behavior-as-communication analyzer, and transition support builder.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card 
+            className="cursor-pointer transition-colors hover:bg-secondary border-2 border-accent/50 bg-accent/5"
+            onClick={() => onNavigate('saved-plans')}
+          >
+            <CardHeader>
+              <div className="flex items-center gap-3 mb-2">
+                <FloppyDisk className="w-6 h-6 text-accent" />
+                <CardTitle className="text-xl">Saved Plans</CardTitle>
+              </div>
+              <CardDescription>
+                View and manage all your saved plans from across all tools. Export multiple plans 
+                as a combined PDF for easy sharing and documentation.
               </CardDescription>
             </CardHeader>
           </Card>
