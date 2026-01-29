@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText, UserCircle, CalendarCheck } from '@phosphor-icons/react'
+import { ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText, UserCircle, CalendarCheck, Smiley } from '@phosphor-icons/react'
 import { tools } from '@/lib/data'
 import { LessonScriptGenerator } from '@/components/LessonScriptGenerator'
 import { Choose3EBPsPlanner } from '@/components/Choose3EBPsPlanner'
@@ -10,6 +10,7 @@ import { CoRegulationStrategies } from '@/components/CoRegulationStrategies'
 import { TransitionSupportBuilder } from '@/components/TransitionSupportBuilder'
 import { ParentEBPAssessment } from '@/components/ParentEBPAssessment'
 import { SchoolPlanner } from '@/components/SchoolPlanner'
+import { StudentInput } from '@/components/StudentInput'
 
 const iconMap = {
   ListChecks,
@@ -19,7 +20,8 @@ const iconMap = {
   ArrowsLeftRight,
   FileText,
   UserCircle,
-  CalendarCheck
+  CalendarCheck,
+  Smiley
 }
 
 export function ToolsView() {
@@ -57,6 +59,10 @@ export function ToolsView() {
     return <SchoolPlanner onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'student-input') {
+    return <StudentInput onBack={() => setSelectedTool(null)} />
+  }
+
   return (
     <div className="space-y-6">
       <div>
@@ -80,7 +86,7 @@ export function ToolsView() {
       <div className="grid gap-6 md:grid-cols-2">
         {tools.map((tool) => {
           const IconComponent = iconMap[tool.icon as keyof typeof iconMap]
-          const isInteractive = tool.id === 'lesson-script-generator' || tool.id === 'transition-support' || tool.id === 'co-regulation' || tool.id === 'choose-3-ebps' || tool.id === 'sensory-checklist' || tool.id === 'behavior-communication' || tool.id === 'parent-ebp-assessment' || tool.id === 'school-planner'
+          const isInteractive = tool.id === 'lesson-script-generator' || tool.id === 'transition-support' || tool.id === 'co-regulation' || tool.id === 'choose-3-ebps' || tool.id === 'sensory-checklist' || tool.id === 'behavior-communication' || tool.id === 'parent-ebp-assessment' || tool.id === 'school-planner' || tool.id === 'student-input'
           
           return (
             <Card 

@@ -96,6 +96,13 @@ The app provides structured navigation through educational content with search, 
 - Progression: View available parent assessments → Select student → Review parent's effective strategies summary → Enter plan details (date, staff name/role) → Add scheduled activities (time, duration, activity name) → For each activity, select relevant EBPs from parent's effective strategies list → Add accommodations, materials, and staff notes → Save complete daily plan → Access saved plans → View detailed plan with all activities and strategies
 - Success criteria: Seamless access to parent assessment data; clear presentation of effective strategies with parent context notes; flexible activity builder; plans persist across sessions; school staff can create multiple plans for same student over time; clear connection between parent insights and daily implementation
 
+**Student Voice: My Triggers & Supports** [IMPLEMENTED]
+- Functionality: Interactive tool for students to share their own experiences with all 28 evidence-based practices. Students rate each teaching approach (helpful, neutral, unhelpful) and describe specific triggers, needed supports, and personal insights. Multi-step guided process with student-friendly language and visual feedback.
+- Purpose: Center student voice in educational planning by capturing first-hand experience of what works and what doesn't. Enable students to express triggers and supports in their own words, creating authentic data for person-centered planning.
+- Trigger: User selects "Student Voice: My Triggers & Supports" from Tools section
+- Progression: Enter student information (name, age, class, completed with) → Review tool instructions → Work through all 28 EBPs → For each EBP, rate feeling (helpful/neutral/unhelpful) → Describe triggers and challenges → Describe what helps or would help → Add additional notes → Review summary → Save profile → Access saved profiles → View categorized feedback (helpful, unhelpful, neutral, or all)
+- Success criteria: Student-friendly language throughout; visual rating system with emojis; optional fields to reduce pressure; progress tracking; profiles persist across sessions; clear categorization of helpful vs unhelpful strategies; supports can be completed independently or with trusted adult; creates actionable insights for teachers and parents
+
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
 - Purpose: Enable personalized resource curation and rapid information retrieval

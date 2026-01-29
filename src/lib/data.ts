@@ -250,6 +250,13 @@ export const tools: Tool[] = [
     description: 'Teachers and SNAs create personalized daily schedules using parent assessment insights',
     category: 'Planning',
     icon: 'CalendarCheck'
+  },
+  {
+    id: 'student-input',
+    title: 'Student Voice: My Triggers & Supports',
+    description: 'Students share their own experiences with teaching strategies, expressing what helps and what causes stress',
+    category: 'Collaboration',
+    icon: 'Smiley'
   }
 ]
 
