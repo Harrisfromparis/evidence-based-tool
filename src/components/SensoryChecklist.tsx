@@ -6,10 +6,11 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { openEmailClient } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface SensoryChecklistProps {
   onBack: () => void
@@ -316,6 +317,92 @@ ${familyInput || 'Not collected'}
     const subject = `Sensory Needs Profile: ${studentName}`
     openEmailClient(subject, planText)
     toast.success('Opening email client...')
+  }
+
+  const printPlan = () => {
+    const formatCategory = (categoryTitle: string, categoryData: any, items: any[]) => {
+      const responses = items.map(item => {
+        const data = categoryData[item.id]
+        if (!data || !data.response) return ''
+        const badgeClass = data.response === 'seeks' ? 'success' : data.response === 'avoids' ? 'danger' : 'warning'
+        return `<div class="list-item">
+          <div class="list-item-title">${item.label} <span class="badge ${badgeClass}">${data.response.toUpperCase()}</span></div>
+          <div class="list-item-content">
+            <em>${item.description}</em><br>
+            ${data.notes ? `<strong>Notes:</strong> ${data.notes}` : '<em>No additional notes</em>'}
+          </div>
+        </div>`
+      }).filter(Boolean).join('')
+      
+      return responses || '<em>No responses recorded for this category</em>'
+    }
+
+    const sections: PrintSection[] = [
+      {
+        title: 'Student & Observation Context',
+        content: [
+          { label: 'Student', value: studentName },
+          { label: 'Age', value: studentAge },
+          { label: 'Observation Period', value: observationPeriod },
+          { label: 'Observers', value: observers },
+          { label: 'Contexts', value: contexts }
+        ]
+      },
+      {
+        title: 'Visual Sensory Responses',
+        content: formatCategory('Visual', visual, SENSORY_CATEGORIES[0].items)
+      },
+      {
+        title: 'Auditory Sensory Responses',
+        content: formatCategory('Auditory', auditory, SENSORY_CATEGORIES[1].items)
+      },
+      {
+        title: 'Tactile Sensory Responses',
+        content: formatCategory('Tactile', tactile, SENSORY_CATEGORIES[2].items)
+      },
+      {
+        title: 'Proprioceptive Sensory Responses',
+        content: formatCategory('Proprioceptive', proprioceptive, SENSORY_CATEGORIES[3].items)
+      },
+      {
+        title: 'Vestibular Sensory Responses',
+        content: formatCategory('Vestibular', vestibular, SENSORY_CATEGORIES[4].items)
+      },
+      {
+        title: 'Olfactory/Gustatory Sensory Responses',
+        content: formatCategory('Olfactory/Gustatory', olfactoryGustatory, SENSORY_CATEGORIES[5].items)
+      },
+      {
+        title: 'Patterns & Themes',
+        content: patterns
+      },
+      {
+        title: 'Recommended Accommodations',
+        content: accommodations
+      }
+    ]
+
+    if (studentVoice) {
+      sections.push({
+        title: 'Student Voice',
+        content: studentVoice
+      })
+    }
+
+    if (familyInput) {
+      sections.push({
+        title: 'Family Input',
+        content: familyInput
+      })
+    }
+
+    openPrintPreview({
+      title: 'Sensory Needs Profile',
+      subtitle: `${studentName} • ${new Date().toLocaleDateString('en-IE')}`,
+      sections,
+      footer: 'Irish EBP Navigator • Sensory Needs Assessment'
+    })
+    toast.success('Opening print preview...')
   }
 
   const resetForm = () => {
@@ -761,6 +848,10 @@ ${familyInput || 'Not collected'}
                 <Button variant="outline" onClick={savePlan} disabled={!canProgressStep3}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Profile
+                </Button>
+                <Button variant="outline" onClick={printPlan} disabled={!canProgressStep3}>
+                  <Printer className="w-4 h-4 mr-2" />
+                  Print
                 </Button>
                 <Button variant="outline" onClick={emailPlan} disabled={!canProgressStep3}>
                   <EnvelopeSimple className="w-4 h-4 mr-2" />

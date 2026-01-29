@@ -7,11 +7,12 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Checkbox } from '@/components/ui/checkbox'
-import { ArrowLeft, FloppyDisk, Info, Plus, Trash, Clock, UserCircle, EnvelopeSimple, Download } from '@phosphor-icons/react'
+import { ArrowLeft, FloppyDisk, Info, Plus, Trash, Clock, UserCircle, EnvelopeSimple, Download, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { ebps } from '@/lib/data'
 import { openEmailClient } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface SchoolPlannerProps {
   onBack: () => void
@@ -225,6 +226,61 @@ Created By: ${plan.plannerName} (${plan.plannerRole})
     toast.success('Opening email client...')
   }
 
+  const printPlan = (plan: DailyPlan) => {
+    const sections: PrintSection[] = [
+      {
+        title: 'Plan Information',
+        content: [
+          { label: 'Student', value: plan.studentName },
+          { label: 'Date', value: new Date(plan.date).toLocaleDateString('en-IE', { day: 'numeric', month: 'long', year: 'numeric' }) },
+          { label: 'Created By', value: `${plan.plannerName}${plan.plannerRole ? ` (${plan.plannerRole})` : ''}` },
+          { label: 'Created On', value: new Date(plan.timestamp).toLocaleDateString('en-IE', { day: 'numeric', month: 'long', year: 'numeric' }) }
+        ]
+      }
+    ]
+
+    let scheduleContent = ''
+    plan.activities.forEach((activity, idx) => {
+      const ebpList = activity.selectedEBPs.length > 0
+        ? activity.selectedEBPs.map(id => {
+            const ebp = ebps.find(e => e.id === id)
+            return ebp?.title || id
+          }).map(title => `<span class="badge">${title}</span>`).join(' ')
+        : '<em>No EBPs selected</em>'
+
+      scheduleContent += `<div class="list-item">
+        <div class="list-item-title">${activity.time} - ${activity.activity}</div>
+        <div class="list-item-content">
+          <strong>Duration:</strong> ${activity.duration}<br>
+          <strong>Evidence-Based Practices:</strong><br>${ebpList}<br>
+          ${activity.accommodations ? `<strong>Accommodations:</strong> ${activity.accommodations}<br>` : ''}
+          ${activity.materials ? `<strong>Materials:</strong> ${activity.materials}<br>` : ''}
+          ${activity.staffNotes ? `<strong>Staff Notes:</strong> ${activity.staffNotes}` : ''}
+        </div>
+      </div>`
+    })
+
+    sections.push({
+      title: 'Daily Schedule',
+      content: scheduleContent
+    })
+
+    if (plan.generalNotes) {
+      sections.push({
+        title: 'General Notes',
+        content: plan.generalNotes
+      })
+    }
+
+    openPrintPreview({
+      title: 'Daily School Plan',
+      subtitle: `${plan.studentName} • ${new Date(plan.date).toLocaleDateString('en-IE')}`,
+      sections,
+      footer: 'Irish EBP Navigator • Daily School Plan'
+    })
+    toast.success('Opening print preview...')
+  }
+
   const getEffectiveEBPs = (assessment: ParentAssessment | null) => {
     if (!assessment) return []
     return assessment.ratings
@@ -251,6 +307,10 @@ Created By: ${plan.plannerName} (${plan.plannerRole})
               Back to Plans
             </Button>
             <div className="flex gap-2">
+              <Button variant="outline" onClick={() => printPlan(viewingPlan)}>
+                <Printer className="w-4 h-4 mr-2" />
+                Print
+              </Button>
               <Button variant="outline" onClick={() => emailPlan(viewingPlan)}>
                 <EnvelopeSimple className="w-4 h-4 mr-2" />
                 Email

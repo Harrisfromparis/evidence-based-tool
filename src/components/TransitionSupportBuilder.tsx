@@ -6,10 +6,11 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, EnvelopeSimple, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { openEmailClient } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface TransitionSupportBuilderProps {
   onBack: () => void
@@ -183,6 +184,65 @@ Student Voice Method: ${studentVoiceMethod}
     const subject = `Transition Support Plan: ${transitionType}`
     openEmailClient(subject, planText)
     toast.success('Opening email client...')
+  }
+
+  const printPlan = () => {
+    const allStressPoints = [...stressPoints, customStressPoint].filter(Boolean)
+    const allSupports = [...supports, customSupport].filter(Boolean)
+
+    const sections: PrintSection[] = [
+      {
+        title: 'Transition Overview',
+        content: [
+          { label: 'Transition Type', value: transitionType },
+          { label: 'What', value: what },
+          { label: 'When', value: when },
+          { label: 'Where', value: where },
+          { label: 'Who', value: who }
+        ]
+      },
+      {
+        title: 'Identified Stress Points',
+        content: '<ul>' + allStressPoints.map(p => `<li>${p}</li>`).join('') + '</ul>'
+      },
+      {
+        title: 'Chosen Supports',
+        content: allSupports.length > 0
+          ? '<ul>' + allSupports.map(s => `<li>${s}</li>`).join('') + '</ul>'
+          : '<em>No supports selected</em>'
+      },
+      {
+        title: 'Communication Plan',
+        content: `
+          <h3>With Student</h3>
+          <div class="list-item">${studentCommunication.replace(/\n/g, '<br>')}</div>
+          <h3>With Family</h3>
+          <div class="list-item">${familyCommunication.replace(/\n/g, '<br>')}</div>
+          ${receivingStaffInfo ? `
+            <h3>With Receiving Staff</h3>
+            <div class="list-item">${receivingStaffInfo.replace(/\n/g, '<br>')}</div>
+          ` : ''}
+        `
+      },
+      {
+        title: 'Review & Adjustment Plan',
+        content: [
+          { label: 'Review Schedule', value: reviewSchedule },
+          { label: 'Monitor Person', value: reviewPerson },
+          { label: 'Signs of Success', value: successSigns },
+          { label: 'Signs Adjustment Needed', value: adjustmentSigns },
+          { label: 'Student Voice Method', value: studentVoiceMethod }
+        ]
+      }
+    ]
+
+    openPrintPreview({
+      title: 'Transition Support Plan',
+      subtitle: `${transitionType} • ${new Date().toLocaleDateString('en-IE')}`,
+      sections,
+      footer: 'Irish EBP Navigator • Transition Support Planning Tool'
+    })
+    toast.success('Opening print preview...')
   }
 
   const resetForm = () => {
@@ -656,6 +716,10 @@ Student Voice Method: ${studentVoiceMethod}
                 <Button variant="outline" onClick={savePlan} disabled={!canProgressStep5}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Plan
+                </Button>
+                <Button variant="outline" onClick={printPlan} disabled={!canProgressStep5}>
+                  <Printer className="w-4 h-4 mr-2" />
+                  Print
                 </Button>
                 <Button variant="outline" onClick={emailPlan} disabled={!canProgressStep5}>
                   <EnvelopeSimple className="w-4 h-4 mr-2" />

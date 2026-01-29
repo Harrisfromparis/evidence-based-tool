@@ -7,12 +7,13 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ArrowLeft, ArrowRight, Check, FloppyDisk, Smiley, SmileyMeh, SmileySad, Heart, Warning, Info, EnvelopeSimple, Download } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, FloppyDisk, Smiley, SmileyMeh, SmileySad, Heart, Warning, Info, EnvelopeSimple, Download, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { teachingApproaches } from '@/lib/data'
 import { ebpStudentGuides } from '@/lib/ebp-student-guide'
 import { openEmailClient } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface StudentInputProps {
   onBack: () => void
@@ -137,6 +138,93 @@ Completed With: ${profile.completedWith || 'Student completed independently'}
     toast.success('Opening email client...')
   }
 
+  const printProfile = (profile: StudentProfile) => {
+    const feelingLabels = {
+      'helpful': '✓ Helpful',
+      'neutral': '~ Neutral',
+      'unhelpful': '✗ Unhelpful'
+    }
+
+    const sections: PrintSection[] = [
+      {
+        title: 'Student Information',
+        content: [
+          { label: 'Student Name', value: profile.studentName },
+          { label: 'Age', value: profile.age || 'Not specified' },
+          { label: 'Class', value: profile.class || 'Not specified' },
+          { label: 'Completed With', value: profile.completedWith || 'Student completed independently' },
+          { label: 'Completion Date', value: new Date(profile.timestamp).toLocaleDateString('en-IE', { day: 'numeric', month: 'long', year: 'numeric' }) }
+        ]
+      }
+    ]
+
+    const helpfulEBPs = profile.feedback.filter(f => f.feeling === 'helpful')
+    const unhelpfulEBPs = profile.feedback.filter(f => f.feeling === 'unhelpful')
+    const neutralEBPs = profile.feedback.filter(f => f.feeling === 'neutral')
+
+    if (helpfulEBPs.length > 0) {
+      let helpfulContent = ''
+      helpfulEBPs.forEach(fb => {
+        helpfulContent += `<div class="list-item">
+          <div class="list-item-title"><span class="badge success">${fb.ebpName}</span></div>
+          <div class="list-item-content">
+            ${fb.triggers ? `<strong>What Makes Things Hard:</strong> ${fb.triggers}<br>` : ''}
+            ${fb.supports ? `<strong>What Helps Me:</strong> ${fb.supports}<br>` : ''}
+            ${fb.notes ? `<strong>Other Notes:</strong> ${fb.notes}` : ''}
+          </div>
+        </div>`
+      })
+      sections.push({
+        title: `Helpful Supports (${helpfulEBPs.length})`,
+        content: helpfulContent
+      })
+    }
+
+    if (unhelpfulEBPs.length > 0) {
+      let unhelpfulContent = ''
+      unhelpfulEBPs.forEach(fb => {
+        unhelpfulContent += `<div class="list-item">
+          <div class="list-item-title"><span class="badge danger">${fb.ebpName}</span></div>
+          <div class="list-item-content">
+            ${fb.triggers ? `<strong>What Makes Things Hard:</strong> ${fb.triggers}<br>` : ''}
+            ${fb.supports ? `<strong>What Helps Me:</strong> ${fb.supports}<br>` : ''}
+            ${fb.notes ? `<strong>Other Notes:</strong> ${fb.notes}` : ''}
+          </div>
+        </div>`
+      })
+      sections.push({
+        title: `Unhelpful Supports (${unhelpfulEBPs.length})`,
+        content: unhelpfulContent
+      })
+    }
+
+    if (neutralEBPs.length > 0) {
+      let neutralContent = ''
+      neutralEBPs.forEach(fb => {
+        neutralContent += `<div class="list-item">
+          <div class="list-item-title"><span class="badge warning">${fb.ebpName}</span></div>
+          <div class="list-item-content">
+            ${fb.triggers ? `<strong>What Makes Things Hard:</strong> ${fb.triggers}<br>` : ''}
+            ${fb.supports ? `<strong>What Helps Me:</strong> ${fb.supports}<br>` : ''}
+            ${fb.notes ? `<strong>Other Notes:</strong> ${fb.notes}` : ''}
+          </div>
+        </div>`
+      })
+      sections.push({
+        title: `Neutral Supports (${neutralEBPs.length})`,
+        content: neutralContent
+      })
+    }
+
+    openPrintPreview({
+      title: `Student Voice: ${profile.studentName}`,
+      subtitle: `What Works for Me • ${new Date(profile.timestamp).toLocaleDateString('en-IE')}`,
+      sections,
+      footer: 'Irish EBP Navigator • Student Input Report'
+    })
+    toast.success('Opening print preview...')
+  }
+
   const resetForm = () => {
     setStudentName('')
     setAge('')
@@ -206,6 +294,10 @@ Completed With: ${profile.completedWith || 'Student completed independently'}
             Back to List
           </Button>
           <div className="flex gap-2">
+            <Button variant="outline" onClick={() => printProfile(viewingProfile)}>
+              <Printer className="w-4 h-4 mr-2" />
+              Print
+            </Button>
             <Button variant="outline" onClick={() => emailProfile(viewingProfile)}>
               <EnvelopeSimple className="w-4 h-4 mr-2" />
               Email

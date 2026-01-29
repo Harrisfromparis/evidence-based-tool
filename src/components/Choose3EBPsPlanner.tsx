@@ -6,11 +6,12 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { ebps } from '@/lib/data'
 import { openEmailClient } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface Choose3EBPsPlannerProps {
   onBack: () => void
@@ -222,6 +223,77 @@ ${reviewSchedule}
     const subject = `Choose 3 EBPs Implementation Plan: ${studentName}`
     openEmailClient(subject, planText)
     toast.success('Opening email client...')
+  }
+
+  const printPlan = () => {
+    const selectedFocusDetails = focusAreas.map(id => {
+      const area = FOCUS_AREAS.find(a => a.id === id)
+      return area ? `<span class="badge">${area.label}</span>` : ''
+    }).join(' ')
+
+    const selectedEBPDetails = selectedEBPs.map(id => {
+      const ebp = ebps.find(e => e.id === id)
+      return ebp ? `<div class="list-item">
+        <div class="list-item-title">${ebp.title}</div>
+        <div class="list-item-content">${ebp.description}</div>
+      </div>` : ''
+    }).join('')
+
+    const sections: PrintSection[] = [
+      {
+        title: 'Student Information',
+        content: [
+          { label: 'Student Name', value: studentName },
+          { label: 'Age', value: studentAge || 'Not specified' },
+          { label: 'Setting', value: setting || 'Not specified' },
+          { label: 'Plan Date', value: new Date().toLocaleDateString('en-IE', { day: 'numeric', month: 'long', year: 'numeric' }) }
+        ]
+      },
+      {
+        title: 'Current Context',
+        content: `
+          <h3>Current Challenges</h3>
+          <div class="list-item">${currentChallenges.replace(/\n/g, '<br>')}</div>
+          <h3>Support Goals</h3>
+          <div class="list-item">${supportGoals.replace(/\n/g, '<br>')}</div>
+        `
+      },
+      {
+        title: 'Focus Areas',
+        content: selectedFocusDetails || '<em>No focus areas selected</em>'
+      },
+      {
+        title: 'Selected Evidence-Based Practices',
+        content: selectedEBPDetails || '<em>No EBPs selected</em>'
+      },
+      {
+        title: 'Implementation Plan',
+        content: `
+          <h3>Who Will Implement?</h3>
+          <div class="list-item">${implementationWho.replace(/\n/g, '<br>')}</div>
+          <h3>When?</h3>
+          <div class="list-item">${implementationWhen.replace(/\n/g, '<br>')}</div>
+          <h3>How?</h3>
+          <div class="list-item">${implementationHow.replace(/\n/g, '<br>')}</div>
+        `
+      },
+      {
+        title: 'Success Measures',
+        content: successMeasures
+      },
+      {
+        title: 'Review Schedule',
+        content: reviewSchedule
+      }
+    ]
+
+    openPrintPreview({
+      title: 'Choose 3 EBPs Implementation Plan',
+      subtitle: `${studentName} • ${new Date().toLocaleDateString('en-IE')}`,
+      sections,
+      footer: 'Irish EBP Navigator • EBP Implementation Planning Tool'
+    })
+    toast.success('Opening print preview...')
   }
 
   const resetForm = () => {
@@ -695,6 +767,10 @@ ${reviewSchedule}
                 <Button variant="outline" onClick={savePlan} disabled={!canProgressStep4}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Plan
+                </Button>
+                <Button variant="outline" onClick={printPlan} disabled={!canProgressStep4}>
+                  <Printer className="w-4 h-4 mr-2" />
+                  Print
                 </Button>
                 <Button variant="outline" onClick={emailPlan} disabled={!canProgressStep4}>
                   <EnvelopeSimple className="w-4 h-4 mr-2" />

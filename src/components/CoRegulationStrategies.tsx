@@ -5,10 +5,11 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, EnvelopeSimple, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { openEmailClient } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface CoRegulationStrategiesProps {
   onBack: () => void
@@ -251,6 +252,76 @@ ${reviewPlan}
     const subject = `Co-Regulation Support Plan: ${studentName}`
     openEmailClient(subject, planText)
     toast.success('Opening email client...')
+  }
+
+  const printPlan = () => {
+    const allTriggers = [...triggers, customTrigger].filter(Boolean)
+    const allEnvironment = [...environmentStrategies, customEnvironment].filter(Boolean)
+    const allAdultPresence = [...adultPresenceStrategies, customAdultPresence].filter(Boolean)
+    const allSensory = [...sensoryStrategies, customSensory].filter(Boolean)
+    const allPredictability = [...predictabilityStrategies, customPredictability].filter(Boolean)
+
+    const sections: PrintSection[] = [
+      {
+        title: 'Student & Situation',
+        content: [
+          { label: 'Student', value: studentName },
+          { label: 'Situation', value: situation }
+        ]
+      },
+      {
+        title: 'Identified Triggers',
+        content: '<ul>' + allTriggers.map(t => `<li>${t}</li>`).join('') + '</ul>'
+      },
+      {
+        title: 'Environment Strategies',
+        content: allEnvironment.length > 0 
+          ? '<ul>' + allEnvironment.map(s => `<li>${s}</li>`).join('') + '</ul>'
+          : '<em>No environment strategies selected</em>'
+      },
+      {
+        title: 'Adult Presence Strategies',
+        content: allAdultPresence.length > 0
+          ? '<ul>' + allAdultPresence.map(s => `<li>${s}</li>`).join('') + '</ul>'
+          : '<em>No adult presence strategies selected</em>'
+      },
+      {
+        title: 'Sensory Strategies',
+        content: allSensory.length > 0
+          ? '<ul>' + allSensory.map(s => `<li>${s}</li>`).join('') + '</ul>'
+          : '<em>No sensory strategies selected</em>'
+      },
+      {
+        title: 'Predictability & Pacing Strategies',
+        content: allPredictability.length > 0
+          ? '<ul>' + allPredictability.map(s => `<li>${s}</li>`).join('') + '</ul>'
+          : '<em>No predictability strategies selected</em>'
+      },
+      {
+        title: 'Language Scripts',
+        content: languageScripts
+      },
+      {
+        title: 'Success Measures',
+        content: successMeasures
+      },
+      {
+        title: 'Implementation Notes',
+        content: implementationNotes
+      },
+      {
+        title: 'Review Plan',
+        content: reviewPlan
+      }
+    ]
+
+    openPrintPreview({
+      title: 'Co-Regulation Support Plan',
+      subtitle: `${studentName} • ${new Date().toLocaleDateString('en-IE')}`,
+      sections,
+      footer: 'Irish EBP Navigator • Co-Regulation Strategies Tool'
+    })
+    toast.success('Opening print preview...')
   }
 
   const resetForm = () => {
@@ -725,6 +796,10 @@ ${reviewPlan}
                 <Button variant="outline" onClick={savePlan} disabled={!canProgressStep5}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Plan
+                </Button>
+                <Button variant="outline" onClick={printPlan} disabled={!canProgressStep5}>
+                  <Printer className="w-4 h-4 mr-2" />
+                  Print
                 </Button>
                 <Button variant="outline" onClick={emailPlan} disabled={!canProgressStep5}>
                   <EnvelopeSimple className="w-4 h-4 mr-2" />

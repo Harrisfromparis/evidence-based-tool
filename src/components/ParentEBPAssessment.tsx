@@ -7,11 +7,12 @@ import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import { ArrowLeft, ArrowRight, Check, FloppyDisk, Info, EnvelopeSimple, Download } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, FloppyDisk, Info, EnvelopeSimple, Download, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { ebps } from '@/lib/data'
 import { openEmailClient } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface ParentEBPAssessmentProps {
   onBack: () => void
@@ -191,6 +192,65 @@ Relationship: ${assessment.relationship || 'Not specified'}
     toast.success('Opening email client...')
   }
 
+  const printAssessment = (assessment: ParentAssessment) => {
+    const effectivenessLabels = {
+      'very-effective': 'Very Effective',
+      'somewhat-effective': 'Somewhat Effective',
+      'not-effective': 'Not Effective',
+      'never-tried': 'Never Tried'
+    }
+
+    const sections: PrintSection[] = [
+      {
+        title: 'Child Information',
+        content: [
+          { label: 'Child Name', value: assessment.childName },
+          { label: 'Age', value: assessment.childAge || 'Not specified' },
+          { label: 'Completed By', value: assessment.parentName },
+          { label: 'Relationship', value: assessment.relationship || 'Not specified' },
+          { label: 'Assessment Date', value: new Date(assessment.timestamp).toLocaleDateString('en-IE', { day: 'numeric', month: 'long', year: 'numeric' }) }
+        ]
+      }
+    ]
+
+    ebpsByCategory.forEach(catGroup => {
+      const categoryRatings = assessment.ratings.filter(r =>
+        catGroup.ebps.some(e => e.id === r.ebpId) && r.effectiveness
+      )
+      
+      if (categoryRatings.length > 0) {
+        let categoryContent = ''
+        
+        categoryRatings.forEach(rating => {
+          const ebp = ebps.find(e => e.id === rating.ebpId)
+          if (!ebp) return
+          
+          categoryContent += `<div class="list-item">
+            <div class="list-item-title">${ebp.title}</div>
+            <div class="list-item-content">
+              <strong>Effectiveness:</strong> <span class="badge ${rating.effectiveness === 'very-effective' ? 'success' : rating.effectiveness === 'somewhat-effective' ? 'warning' : ''}">${effectivenessLabels[rating.effectiveness]}</span><br>
+              ${rating.context ? `<strong>Context:</strong> ${rating.context}<br>` : ''}
+              ${rating.notes ? `<strong>Notes:</strong> ${rating.notes}` : ''}
+            </div>
+          </div>`
+        })
+        
+        sections.push({
+          title: `${catGroup.category} Practices`,
+          content: categoryContent
+        })
+      }
+    })
+
+    openPrintPreview({
+      title: 'Parent/Caregiver EBP Assessment',
+      subtitle: `${assessment.childName} • Generated ${new Date().toLocaleDateString('en-IE')}`,
+      sections,
+      footer: 'Irish EBP Navigator • Parent/Caregiver Assessment Report'
+    })
+    toast.success('Opening print preview...')
+  }
+
   const progressPercentage = currentStep === 0 
     ? 0 
     : ((currentCategory + 1) / ebpsByCategory.length) * 100
@@ -207,6 +267,10 @@ Relationship: ${assessment.relationship || 'Not specified'}
             Back to List
           </Button>
           <div className="flex gap-2">
+            <Button variant="outline" onClick={() => printAssessment(viewingAssessment)}>
+              <Printer className="w-4 h-4 mr-2" />
+              Print
+            </Button>
             <Button variant="outline" onClick={() => emailAssessment(viewingAssessment)}>
               <EnvelopeSimple className="w-4 h-4 mr-2" />
               Email

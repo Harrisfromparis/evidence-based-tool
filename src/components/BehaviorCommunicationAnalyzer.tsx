@@ -6,10 +6,11 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple, Printer } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { openEmailClient, formatDateForEmail, createSectionHeader } from '@/lib/email-export'
+import { openPrintPreview, type PrintSection } from '@/lib/print-export'
 
 interface BehaviorCommunicationAnalyzerProps {
   onBack: () => void
@@ -246,6 +247,111 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
     const subject = `Behaviour = Communication Analysis: ${studentName} (${dateTime})`
     openEmailClient(subject, analysisText)
     toast.success('Opening email client...')
+  }
+
+  const printAnalysis = () => {
+    const selectedMessages = possibleMessages.map(id => {
+      const msg = POSSIBLE_MESSAGES.find(m => m.id === id)
+      return msg ? `<li>${msg.label}</li>` : ''
+    }).filter(Boolean).join('')
+
+    const selectedNeeds = unmetNeeds.map(id => {
+      const need = UNMET_NEEDS.find(n => n.id === id)
+      return need ? `<li>${need.label}</li>` : ''
+    }).filter(Boolean).join('')
+
+    const sections: PrintSection[] = [
+      {
+        title: 'Observation Context',
+        content: [
+          { label: 'Student', value: studentName },
+          { label: 'Date/Time', value: dateTime },
+          { label: 'Observers', value: observers },
+          { label: 'Context', value: context }
+        ]
+      },
+      {
+        title: 'A — Antecedent (What Happened Before?)',
+        content: `
+          <div class="list-item">
+            <strong>Environment:</strong> ${antecedentEnvironment}<br>
+            <strong>Activity/Demand:</strong> ${antecedentActivity}<br>
+            ${antecedentPeople ? `<strong>People Present:</strong> ${antecedentPeople}<br>` : ''}
+            ${antecedentTime ? `<strong>Time of Day:</strong> ${antecedentTime}<br>` : ''}
+            ${antecedentSensory ? `<strong>Sensory Factors:</strong> ${antecedentSensory}<br>` : ''}
+            ${antecedentChanges ? `<strong>Changes to Routine:</strong> ${antecedentChanges}` : ''}
+          </div>
+        `
+      },
+      {
+        title: 'B — Behavior (What Did the Student Do?)',
+        content: `
+          <div class="list-item">
+            <strong>Description:</strong> ${behaviorDescription}<br>
+            ${behaviorDuration ? `<strong>Duration:</strong> ${behaviorDuration}<br>` : ''}
+            ${behaviorWarnings ? `<strong>Warning Signs:</strong> ${behaviorWarnings}` : ''}
+          </div>
+        `
+      },
+      {
+        title: 'C — Consequence (What Happened After?)',
+        content: `
+          <div class="list-item">
+            <strong>Adult Response:</strong> ${consequenceAdultResponse}<br>
+            ${consequencePeerResponse ? `<strong>Peer Response:</strong> ${consequencePeerResponse}<br>` : ''}
+            ${consequenceEnvironmentalChange ? `<strong>Environmental Change:</strong> ${consequenceEnvironmentalChange}<br>` : ''}
+            ${consequenceOutcome ? `<strong>Outcome/Resolution:</strong> ${consequenceOutcome}` : ''}
+          </div>
+        `
+      },
+      {
+        title: 'Interpretation',
+        content: `
+          <h3>Possible Messages Being Communicated</h3>
+          <ul>${selectedMessages}</ul>
+          <h3>Unmet Needs Identified</h3>
+          <ul>${selectedNeeds}</ul>
+          <div class="note-box">
+            <div class="note-box-title">Hypothesized Function</div>
+            <div class="note-box-content">${hypothesizedFunction}</div>
+          </div>
+        `
+      },
+      {
+        title: 'Support Plan',
+        content: `
+          <h3>Suggested EBPs & Supports</h3>
+          <div class="list-item">
+            ${suggestedSupports.replace(/\n/g, '<br>')}
+          </div>
+          <h3>Preventative Strategies (Antecedent Modifications)</h3>
+          <div class="list-item">
+            ${preventativeStrategies.replace(/\n/g, '<br>')}
+          </div>
+          ${teachingAlternatives ? `
+            <h3>Teaching Alternative Communication</h3>
+            <div class="list-item">
+              ${teachingAlternatives.replace(/\n/g, '<br>')}
+            </div>
+          ` : ''}
+        `
+      }
+    ]
+
+    if (collaborationNotes) {
+      sections.push({
+        title: 'Collaboration Notes',
+        content: collaborationNotes
+      })
+    }
+
+    openPrintPreview({
+      title: 'Behaviour = Communication Analysis',
+      subtitle: `${studentName} • ${dateTime}`,
+      sections,
+      footer: 'Irish EBP Navigator • This analysis prioritizes understanding and supporting the student\'s needs, respecting student dignity and autonomy.'
+    })
+    toast.success('Opening print preview...')
   }
 
   const resetForm = () => {
@@ -852,6 +958,10 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
                 <Button variant="outline" onClick={saveAnalysis} disabled={!canProgressStep6}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Analysis
+                </Button>
+                <Button variant="outline" onClick={printAnalysis} disabled={!canProgressStep6}>
+                  <Printer className="w-4 h-4 mr-2" />
+                  Print
                 </Button>
                 <Button variant="outline" onClick={emailAnalysis} disabled={!canProgressStep6}>
                   <EnvelopeSimple className="w-4 h-4 mr-2" />
