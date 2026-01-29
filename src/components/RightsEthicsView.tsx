@@ -74,8 +74,8 @@ export function RightsEthicsView() {
           Core Principle
         </p>
         <p className="text-muted-foreground">
-          If an intervention would be considered unacceptable for a non-disabled student, it is unacceptable 
-          for an autistic student. Dignity and autonomy are non-negotiable.
+          If an intervention would be considered unacceptable for a neurotypical student, it is unacceptable 
+          for a neurodivergent student. Dignity and autonomy are non-negotiable.
         </p>
       </div>
 
