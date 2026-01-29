@@ -6,9 +6,10 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, EnvelopeSimple } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
+import { openEmailClient } from '@/lib/email-export'
 
 interface TransitionSupportBuilderProps {
   onBack: () => void
@@ -132,8 +133,8 @@ export function TransitionSupportBuilder({ onBack }: TransitionSupportBuilderPro
     toast.success('Transition plan saved successfully')
   }
 
-  const exportPlan = () => {
-    const planText = `TRANSITION SUPPORT PLAN
+  const generatePlanText = () => {
+    return `TRANSITION SUPPORT PLAN
 Generated: ${new Date().toLocaleDateString('en-IE')}
 
 === TRANSITION DEFINITION ===
@@ -163,7 +164,10 @@ Signs of Success: ${successSigns}
 Signs Adjustment Needed: ${adjustmentSigns}
 Student Voice Method: ${studentVoiceMethod}
 `
-    
+  }
+
+  const exportPlan = () => {
+    const planText = generatePlanText()
     const blob = new Blob([planText], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -172,6 +176,13 @@ Student Voice Method: ${studentVoiceMethod}
     a.click()
     URL.revokeObjectURL(url)
     toast.success('Plan exported successfully')
+  }
+
+  const emailPlan = () => {
+    const planText = generatePlanText()
+    const subject = `Transition Support Plan: ${transitionType}`
+    openEmailClient(subject, planText)
+    toast.success('Opening email client...')
   }
 
   const resetForm = () => {
@@ -645,6 +656,10 @@ Student Voice Method: ${studentVoiceMethod}
                 <Button variant="outline" onClick={savePlan} disabled={!canProgressStep5}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Plan
+                </Button>
+                <Button variant="outline" onClick={emailPlan} disabled={!canProgressStep5}>
+                  <EnvelopeSimple className="w-4 h-4 mr-2" />
+                  Email Plan
                 </Button>
                 <Button onClick={exportPlan} disabled={!canProgressStep5}>
                   <Download className="w-4 h-4 mr-2" />

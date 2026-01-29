@@ -6,9 +6,10 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
+import { openEmailClient, formatDateForEmail, createSectionHeader } from '@/lib/email-export'
 
 interface BehaviorCommunicationAnalyzerProps {
   onBack: () => void
@@ -157,7 +158,7 @@ export function BehaviorCommunicationAnalyzer({ onBack }: BehaviorCommunicationA
     toast.success('Behavior analysis saved successfully')
   }
 
-  const exportAnalysis = () => {
+  const generateAnalysisText = () => {
     const selectedMessages = possibleMessages.map(id => {
       const msg = POSSIBLE_MESSAGES.find(m => m.id === id)
       return msg ? `• ${msg.label}` : ''
@@ -168,7 +169,7 @@ export function BehaviorCommunicationAnalyzer({ onBack }: BehaviorCommunicationA
       return need ? `• ${need.label}` : ''
     }).filter(Boolean).join('\n')
 
-    const analysisText = `BEHAVIOUR = COMMUNICATION ANALYSIS
+    return `BEHAVIOUR = COMMUNICATION ANALYSIS
 Generated: ${new Date().toLocaleDateString('en-IE')}
 
 === OBSERVATION CONTEXT ===
@@ -226,7 +227,10 @@ ${collaborationNotes || 'None'}
 ---
 Ethical Reminder: This analysis prioritizes understanding and supporting the student's needs, not eliminating behavior that adults find inconvenient. All strategies must respect student dignity and autonomy.
 `
-    
+  }
+
+  const exportAnalysis = () => {
+    const analysisText = generateAnalysisText()
     const blob = new Blob([analysisText], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -235,6 +239,13 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
     a.click()
     URL.revokeObjectURL(url)
     toast.success('Analysis exported successfully')
+  }
+
+  const emailAnalysis = () => {
+    const analysisText = generateAnalysisText()
+    const subject = `Behaviour = Communication Analysis: ${studentName} (${dateTime})`
+    openEmailClient(subject, analysisText)
+    toast.success('Opening email client...')
   }
 
   const resetForm = () => {
@@ -841,6 +852,10 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
                 <Button variant="outline" onClick={saveAnalysis} disabled={!canProgressStep6}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Analysis
+                </Button>
+                <Button variant="outline" onClick={emailAnalysis} disabled={!canProgressStep6}>
+                  <EnvelopeSimple className="w-4 h-4 mr-2" />
+                  Email Analysis
                 </Button>
                 <Button onClick={exportAnalysis} disabled={!canProgressStep6}>
                   <Download className="w-4 h-4 mr-2" />

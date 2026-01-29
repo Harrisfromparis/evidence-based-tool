@@ -7,11 +7,12 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ArrowLeft, ArrowRight, Check, FloppyDisk, Smiley, SmileyMeh, SmileySad, Heart, Warning, Info } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, FloppyDisk, Smiley, SmileyMeh, SmileySad, Heart, Warning, Info, EnvelopeSimple, Download } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { teachingApproaches } from '@/lib/data'
 import { ebpStudentGuides } from '@/lib/ebp-student-guide'
+import { openEmailClient } from '@/lib/email-export'
 
 interface StudentInputProps {
   onBack: () => void
@@ -83,6 +84,59 @@ export function StudentInput({ onBack }: StudentInputProps) {
     resetForm()
   }
 
+  const generateProfileText = (profile: StudentProfile) => {
+    const feelingLabels = {
+      'helpful': '✓ Helpful',
+      'neutral': '~ Neutral',
+      'unhelpful': '✗ Unhelpful'
+    }
+
+    let text = `STUDENT INPUT: WHAT WORKS FOR ME
+Generated: ${new Date().toLocaleDateString('en-IE')}
+
+=== STUDENT INFORMATION ===
+Student Name: ${profile.studentName}
+Age: ${profile.age || 'Not specified'}
+Class: ${profile.class || 'Not specified'}
+Completed With: ${profile.completedWith || 'Student completed independently'}
+
+=== MY FEEDBACK ON SUPPORTS ===
+
+`
+
+    profile.feedback.forEach(fb => {
+      if (fb.feeling || fb.triggers || fb.supports || fb.notes) {
+        text += `\n${fb.ebpName.toUpperCase()}\n${'='.repeat(50)}\n`
+        if (fb.feeling) text += `How I Feel: ${feelingLabels[fb.feeling]}\n`
+        if (fb.triggers) text += `What Makes Things Hard: ${fb.triggers}\n`
+        if (fb.supports) text += `What Helps Me: ${fb.supports}\n`
+        if (fb.notes) text += `Other Notes: ${fb.notes}\n`
+        text += '\n'
+      }
+    })
+
+    return text
+  }
+
+  const exportProfile = (profile: StudentProfile) => {
+    const profileText = generateProfileText(profile)
+    const blob = new Blob([profileText], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `student-input-${profile.studentName}-${Date.now()}.txt`
+    a.click()
+    URL.revokeObjectURL(url)
+    toast.success('Student input exported successfully')
+  }
+
+  const emailProfile = (profile: StudentProfile) => {
+    const profileText = generateProfileText(profile)
+    const subject = `Student Input: What Works for ${profile.studentName}`
+    openEmailClient(subject, profileText)
+    toast.success('Opening email client...')
+  }
+
   const resetForm = () => {
     setStudentName('')
     setAge('')
@@ -146,11 +200,21 @@ export function StudentInput({ onBack }: StudentInputProps) {
 
     return (
       <div className="space-y-6">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between gap-4">
           <Button variant="outline" onClick={() => setViewMode('list')}>
             <ArrowLeft className="mr-2" />
             Back to List
           </Button>
+          <div className="flex gap-2">
+            <Button variant="outline" onClick={() => emailProfile(viewingProfile)}>
+              <EnvelopeSimple className="w-4 h-4 mr-2" />
+              Email
+            </Button>
+            <Button variant="outline" onClick={() => exportProfile(viewingProfile)}>
+              <Download className="w-4 h-4 mr-2" />
+              Export
+            </Button>
+          </div>
         </div>
 
         <Card>

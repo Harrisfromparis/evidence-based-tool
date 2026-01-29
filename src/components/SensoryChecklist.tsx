@@ -6,9 +6,10 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Badge } from '@/components/ui/badge'
-import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, Download, FloppyDisk, Info, EnvelopeSimple } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
+import { openEmailClient } from '@/lib/email-export'
 
 interface SensoryChecklistProps {
   onBack: () => void
@@ -252,7 +253,7 @@ export function SensoryChecklist({ onBack }: SensoryChecklistProps) {
     toast.success('Sensory profile saved successfully')
   }
 
-  const exportPlan = () => {
+  const generatePlanText = () => {
     const formatCategory = (categoryTitle: string, categoryData: any, items: any[]) => {
       return `=== ${categoryTitle.toUpperCase()} ===\n` + 
         items.map(item => {
@@ -262,7 +263,7 @@ export function SensoryChecklist({ onBack }: SensoryChecklistProps) {
         }).filter(Boolean).join('\n')
     }
 
-    const planText = `SENSORY NEEDS PROFILE
+    return `SENSORY NEEDS PROFILE
 Generated: ${new Date().toLocaleDateString('en-IE')}
 
 === STUDENT & OBSERVATION CONTEXT ===
@@ -296,7 +297,10 @@ ${studentVoice || 'Not collected'}
 === FAMILY INPUT ===
 ${familyInput || 'Not collected'}
 `
-    
+  }
+
+  const exportPlan = () => {
+    const planText = generatePlanText()
     const blob = new Blob([planText], { type: 'text/plain' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -305,6 +309,13 @@ ${familyInput || 'Not collected'}
     a.click()
     URL.revokeObjectURL(url)
     toast.success('Profile exported successfully')
+  }
+
+  const emailPlan = () => {
+    const planText = generatePlanText()
+    const subject = `Sensory Needs Profile: ${studentName}`
+    openEmailClient(subject, planText)
+    toast.success('Opening email client...')
   }
 
   const resetForm = () => {
@@ -750,6 +761,10 @@ ${familyInput || 'Not collected'}
                 <Button variant="outline" onClick={savePlan} disabled={!canProgressStep3}>
                   <FloppyDisk className="w-4 h-4 mr-2" />
                   Save Profile
+                </Button>
+                <Button variant="outline" onClick={emailPlan} disabled={!canProgressStep3}>
+                  <EnvelopeSimple className="w-4 h-4 mr-2" />
+                  Email Profile
                 </Button>
                 <Button onClick={exportPlan} disabled={!canProgressStep3}>
                   <Download className="w-4 h-4 mr-2" />

@@ -7,10 +7,11 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Checkbox } from '@/components/ui/checkbox'
-import { ArrowLeft, FloppyDisk, Info, Plus, Trash, Clock, UserCircle } from '@phosphor-icons/react'
+import { ArrowLeft, FloppyDisk, Info, Plus, Trash, Clock, UserCircle, EnvelopeSimple, Download } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { ebps } from '@/lib/data'
+import { openEmailClient } from '@/lib/email-export'
 
 interface SchoolPlannerProps {
   onBack: () => void
@@ -161,6 +162,69 @@ export function SchoolPlanner({ onBack }: SchoolPlannerProps) {
     }
   }
 
+  const generatePlanText = (plan: DailyPlan) => {
+    let text = `DAILY SCHOOL PLAN
+Generated: ${new Date().toLocaleDateString('en-IE')}
+
+=== PLAN INFORMATION ===
+Student: ${plan.studentName}
+Date: ${new Date(plan.date).toLocaleDateString()}
+Created By: ${plan.plannerName} (${plan.plannerRole})
+
+=== DAILY SCHEDULE ===
+
+`
+
+    plan.activities.forEach((activity, idx) => {
+      text += `\n${idx + 1}. ${activity.time} - ${activity.activity}\n`
+      text += `   Duration: ${activity.duration}\n`
+      
+      if (activity.selectedEBPs.length > 0) {
+        text += `   EBPs: ${activity.selectedEBPs.map(id => {
+          const ebp = ebps.find(e => e.id === id)
+          return ebp?.title || id
+        }).join(', ')}\n`
+      }
+      
+      if (activity.accommodations) {
+        text += `   Accommodations: ${activity.accommodations}\n`
+      }
+      
+      if (activity.materials) {
+        text += `   Materials: ${activity.materials}\n`
+      }
+      
+      if (activity.staffNotes) {
+        text += `   Staff Notes: ${activity.staffNotes}\n`
+      }
+    })
+
+    if (plan.generalNotes) {
+      text += `\n\n=== GENERAL NOTES ===\n${plan.generalNotes}`
+    }
+
+    return text
+  }
+
+  const exportPlan = (plan: DailyPlan) => {
+    const planText = generatePlanText(plan)
+    const blob = new Blob([planText], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `daily-plan-${plan.studentName}-${Date.now()}.txt`
+    a.click()
+    URL.revokeObjectURL(url)
+    toast.success('Plan exported successfully')
+  }
+
+  const emailPlan = (plan: DailyPlan) => {
+    const planText = generatePlanText(plan)
+    const subject = `Daily School Plan: ${plan.studentName} (${new Date(plan.date).toLocaleDateString()})`
+    openEmailClient(subject, planText)
+    toast.success('Opening email client...')
+  }
+
   const getEffectiveEBPs = (assessment: ParentAssessment | null) => {
     if (!assessment) return []
     return assessment.ratings
@@ -178,7 +242,7 @@ export function SchoolPlanner({ onBack }: SchoolPlannerProps) {
       
       return (
         <div className="space-y-6">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center justify-between gap-4">
             <Button variant="outline" onClick={() => {
               setViewingPlan(null)
               setViewMode('view-plans')
@@ -186,6 +250,16 @@ export function SchoolPlanner({ onBack }: SchoolPlannerProps) {
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Plans
             </Button>
+            <div className="flex gap-2">
+              <Button variant="outline" onClick={() => emailPlan(viewingPlan)}>
+                <EnvelopeSimple className="w-4 h-4 mr-2" />
+                Email
+              </Button>
+              <Button variant="outline" onClick={() => exportPlan(viewingPlan)}>
+                <Download className="w-4 h-4 mr-2" />
+                Export
+              </Button>
+            </div>
           </div>
 
           <Card>

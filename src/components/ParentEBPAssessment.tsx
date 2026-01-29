@@ -7,10 +7,11 @@ import { Label } from '@/components/ui/label'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import { ArrowLeft, ArrowRight, Check, FloppyDisk, Info } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, FloppyDisk, Info, EnvelopeSimple, Download } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { ebps } from '@/lib/data'
+import { openEmailClient } from '@/lib/email-export'
 
 interface ParentEBPAssessmentProps {
   onBack: () => void
@@ -127,6 +128,69 @@ export function ParentEBPAssessment({ onBack }: ParentEBPAssessmentProps) {
     }
   }
 
+  const generateAssessmentText = (assessment: ParentAssessment) => {
+    const effectivenessLabels = {
+      'very-effective': 'Very Effective',
+      'somewhat-effective': 'Somewhat Effective',
+      'not-effective': 'Not Effective',
+      'never-tried': 'Never Tried'
+    }
+
+    let text = `PARENT/CAREGIVER EBP ASSESSMENT
+Generated: ${new Date().toLocaleDateString('en-IE')}
+
+=== CHILD INFORMATION ===
+Child Name: ${assessment.childName}
+Age: ${assessment.childAge || 'Not specified'}
+Completed By: ${assessment.parentName}
+Relationship: ${assessment.relationship || 'Not specified'}
+
+=== EBP RATINGS & FEEDBACK ===
+
+`
+
+    ebpsByCategory.forEach(catGroup => {
+      const categoryRatings = assessment.ratings.filter(r =>
+        catGroup.ebps.some(e => e.id === r.ebpId) && r.effectiveness
+      )
+      
+      if (categoryRatings.length > 0) {
+        text += `\n${catGroup.category.toUpperCase()} PRACTICES:\n${'='.repeat(50)}\n`
+        
+        categoryRatings.forEach(rating => {
+          const ebp = ebps.find(e => e.id === rating.ebpId)
+          if (!ebp) return
+          
+          text += `\n${ebp.title}\n`
+          text += `Effectiveness: ${effectivenessLabels[rating.effectiveness]}\n`
+          if (rating.context) text += `Context: ${rating.context}\n`
+          if (rating.notes) text += `Notes: ${rating.notes}\n`
+        })
+      }
+    })
+
+    return text
+  }
+
+  const exportAssessment = (assessment: ParentAssessment) => {
+    const assessmentText = generateAssessmentText(assessment)
+    const blob = new Blob([assessmentText], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `parent-assessment-${assessment.childName}-${Date.now()}.txt`
+    a.click()
+    URL.revokeObjectURL(url)
+    toast.success('Assessment exported successfully')
+  }
+
+  const emailAssessment = (assessment: ParentAssessment) => {
+    const assessmentText = generateAssessmentText(assessment)
+    const subject = `Parent/Caregiver EBP Assessment: ${assessment.childName}`
+    openEmailClient(subject, assessmentText)
+    toast.success('Opening email client...')
+  }
+
   const progressPercentage = currentStep === 0 
     ? 0 
     : ((currentCategory + 1) / ebpsByCategory.length) * 100
@@ -134,7 +198,7 @@ export function ParentEBPAssessment({ onBack }: ParentEBPAssessmentProps) {
   if (viewMode === 'view' && viewingAssessment) {
     return (
       <div className="space-y-6">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between gap-4">
           <Button variant="outline" onClick={() => {
             setViewMode('list')
             setViewingAssessment(null)
@@ -142,6 +206,16 @@ export function ParentEBPAssessment({ onBack }: ParentEBPAssessmentProps) {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to List
           </Button>
+          <div className="flex gap-2">
+            <Button variant="outline" onClick={() => emailAssessment(viewingAssessment)}>
+              <EnvelopeSimple className="w-4 h-4 mr-2" />
+              Email
+            </Button>
+            <Button variant="outline" onClick={() => exportAssessment(viewingAssessment)}>
+              <Download className="w-4 h-4 mr-2" />
+              Export
+            </Button>
+          </div>
         </div>
 
         <Card>
