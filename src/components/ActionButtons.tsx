@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Printer, FloppyDisk, EnvelopeSimple } from '@phosphor-icons/react'
+import { Printer, FloppyDisk, EnvelopeSimple, Copy } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 
 interface ActionButtonsProps {
@@ -83,8 +83,21 @@ export function ActionButtons({ content, title, emailSubject }: ActionButtonsPro
     toast.success('Opening email client...')
   }
 
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(content)
+      toast.success('Copied to clipboard!')
+    } catch (err) {
+      toast.error('Failed to copy to clipboard')
+    }
+  }
+
   return (
     <div className="flex gap-2 flex-wrap">
+      <Button onClick={handleCopy} variant="default" className="gap-2">
+        <Copy className="w-4 h-4" />
+        Copy
+      </Button>
       <Button onClick={handlePrint} variant="outline" className="gap-2">
         <Printer className="w-4 h-4" />
         Print
