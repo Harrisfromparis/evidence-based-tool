@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ArrowLeft, Plus, X } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { ActionButtons } from '@/components/ActionButtons'
 
 interface TaskAnalysisBuilderProps {
   onBack: () => void
@@ -194,6 +195,16 @@ export function TaskAnalysisBuilder({ onBack }: TaskAnalysisBuilderProps) {
             </CardContent>
           </Card>
 
+          {steps.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <ActionButtons
+                content={`${taskName}\n\n${steps.map(s => `${s.stepNumber}. ${s.description}`).join('\n')}`}
+                title={`Task Analysis: ${taskName}`}
+                emailSubject={`Task Analysis - ${taskName}`}
+              />
+            </div>
+          )}
+
           <div className="flex justify-end">
             <Button onClick={saveTask} disabled={!taskName || steps.length === 0}>
               Save Task Analysis
@@ -239,6 +250,13 @@ export function TaskAnalysisBuilder({ onBack }: TaskAnalysisBuilderProps) {
                           <p className="flex-1 pt-1">{step.description}</p>
                         </div>
                       ))}
+                      <div className="pt-3">
+                        <ActionButtons
+                          content={`${task.taskName}\n\n${task.steps.map(s => `${s.stepNumber}. ${s.description}`).join('\n')}`}
+                          title={`Task Analysis: ${task.taskName}`}
+                          emailSubject={`Task Analysis - ${task.taskName}`}
+                        />
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

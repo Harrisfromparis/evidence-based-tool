@@ -9,6 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ArrowLeft, X, Plus } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { ActionButtons } from '@/components/ActionButtons'
 
 interface ReinforcementMenuBuilderProps {
   onBack: () => void
@@ -224,6 +225,16 @@ export function ReinforcementMenuBuilder({ onBack }: ReinforcementMenuBuilderPro
             </CardContent>
           </Card>
 
+          {reinforcers.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <ActionButtons
+                content={`Reinforcement Menu - ${studentName}\n\nReinforcers:\n${reinforcers.map(r => `- ${r.name} (${r.type}) - Effectiveness: ${r.effectiveness}/10`).join('\n')}${fadingPlan ? `\n\nFading Plan:\n${fadingPlan}` : ''}`}
+                title={`Reinforcement Menu - ${studentName}`}
+                emailSubject={`Reinforcement Menu - ${studentName}`}
+              />
+            </div>
+          )}
+
           <div className="flex justify-end">
             <Button onClick={saveMenu} disabled={!studentName || reinforcers.length === 0}>
               Save Reinforcement Menu
@@ -282,6 +293,13 @@ export function ReinforcementMenuBuilder({ onBack }: ReinforcementMenuBuilderPro
                         <p className="text-muted-foreground">{menu.fadingPlan}</p>
                       </div>
                     )}
+                    <div className="pt-2">
+                      <ActionButtons
+                        content={`Reinforcement Menu - ${menu.studentName}\n\nReinforcers:\n${menu.reinforcers.map(r => `- ${r.name} (${r.type}) - Effectiveness: ${r.effectiveness}/10`).join('\n')}${menu.fadingPlan ? `\n\nFading Plan:\n${menu.fadingPlan}` : ''}`}
+                        title={`Reinforcement Menu - ${menu.studentName}`}
+                        emailSubject={`Reinforcement Menu - ${menu.studentName}`}
+                      />
+                    </div>
                   </CardContent>
                 </Card>
               ))}

@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ArrowLeft, X, Sparkle } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { ActionButtons } from '@/components/ActionButtons'
 
 interface GenericPlannerProps {
   onBack: () => void
@@ -174,11 +175,18 @@ export function GenericPlanner({
                   rows={16}
                 />
 
-                <div className="flex gap-2">
-                  <Button onClick={savePlan}>Save Plan</Button>
-                  <Button variant="outline" onClick={generate} disabled={isGenerating}>
-                    Regenerate
-                  </Button>
+                <div className="flex flex-col gap-3">
+                  <ActionButtons
+                    content={generatedContent}
+                    title={title}
+                    emailSubject={`${title} - ${Object.values(inputs)[0] || 'Plan'}`}
+                  />
+                  <div className="flex gap-2">
+                    <Button onClick={savePlan}>Save Plan</Button>
+                    <Button variant="outline" onClick={generate} disabled={isGenerating}>
+                      Regenerate
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -231,6 +239,11 @@ export function GenericPlanner({
                         <h4 className="font-semibold text-sm text-muted-foreground mb-1">Generated Plan:</h4>
                         <p className="text-foreground whitespace-pre-wrap">{plan.generatedContent}</p>
                       </div>
+                      <ActionButtons
+                        content={plan.generatedContent}
+                        title={title}
+                        emailSubject={`${title} - ${Object.values(plan.inputs)[0] || 'Plan'}`}
+                      />
                     </div>
                   </CardContent>
                 </Card>

@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ArrowLeft, X, Sparkle } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { ActionButtons } from '@/components/ActionButtons'
 
 interface SocialNarrativeCreatorProps {
   onBack: () => void
@@ -180,11 +181,18 @@ Format the narrative as readable text with line breaks between sentences.`
                   className="font-serif text-base leading-relaxed"
                 />
 
-                <div className="flex gap-2">
-                  <Button onClick={saveNarrative}>Save Narrative</Button>
-                  <Button variant="outline" onClick={generateNarrative} disabled={isGenerating}>
-                    Regenerate
-                  </Button>
+                <div className="flex flex-col gap-3">
+                  <ActionButtons
+                    content={narrative}
+                    title={`Social Narrative - ${situation.substring(0, 50)}`}
+                    emailSubject={`Social Narrative - ${situation.substring(0, 50)}`}
+                  />
+                  <div className="flex gap-2">
+                    <Button onClick={saveNarrative}>Save Narrative</Button>
+                    <Button variant="outline" onClick={generateNarrative} disabled={isGenerating}>
+                      Regenerate
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -231,6 +239,11 @@ Format the narrative as readable text with line breaks between sentences.`
                           {item.narrative}
                         </p>
                       </div>
+                      <ActionButtons
+                        content={item.narrative}
+                        title={`Social Narrative - ${item.title}`}
+                        emailSubject={`Social Narrative - ${item.title}`}
+                      />
                     </div>
                   </CardContent>
                 </Card>

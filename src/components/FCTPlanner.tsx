@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ArrowLeft, X, Sparkle } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { ActionButtons } from '@/components/ActionButtons'
 
 interface FCTPlannerProps {
   onBack: () => void
@@ -220,11 +221,18 @@ Format your response as clear, actionable text.`
                   />
                 </div>
 
-                <div className="flex gap-2">
-                  <Button onClick={savePlan}>Save FCT Plan</Button>
-                  <Button variant="outline" onClick={generatePlan} disabled={isGenerating}>
-                    Regenerate
-                  </Button>
+                <div className="flex flex-col gap-3">
+                  <ActionButtons
+                    content={`FCT Plan - ${studentName || 'Student'}\n\nChallenging Behavior:\n${challengingBehavior}\n\nFunction:\n${behaviorFunction}\n\n${newCommunication ? `Replacement Communication:\n${newCommunication}\n\n` : ''}Teaching Plan:\n${teachingPlan}`}
+                    title={`FCT Plan - ${studentName || 'Student'}`}
+                    emailSubject={`FCT Plan - ${studentName || 'Student'}`}
+                  />
+                  <div className="flex gap-2">
+                    <Button onClick={savePlan}>Save FCT Plan</Button>
+                    <Button variant="outline" onClick={generatePlan} disabled={isGenerating}>
+                      Regenerate
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -278,6 +286,11 @@ Format your response as clear, actionable text.`
                       <h4 className="font-semibold text-sm text-muted-foreground mb-1">Teaching Plan:</h4>
                       <p className="text-foreground whitespace-pre-wrap">{plan.teachingPlan}</p>
                     </div>
+                    <ActionButtons
+                      content={`FCT Plan - ${plan.studentName}\n\nChallenging Behavior:\n${plan.challengingBehavior}\n\nFunction:\n${plan.function}\n\n${plan.newCommunication ? `Replacement Communication:\n${plan.newCommunication}\n\n` : ''}Teaching Plan:\n${plan.teachingPlan}`}
+                      title={`FCT Plan - ${plan.studentName}`}
+                      emailSubject={`FCT Plan - ${plan.studentName}`}
+                    />
                   </CardContent>
                 </Card>
               ))}

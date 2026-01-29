@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { ArrowLeft, Plus, X, Download } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { ActionButtons } from '@/components/ActionButtons'
 
 interface VisualSupportsBuilderProps {
   onBack: () => void
@@ -214,6 +215,16 @@ export function VisualSupportsBuilder({ onBack }: VisualSupportsBuilderProps) {
             </CardContent>
           </Card>
 
+          {items.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <ActionButtons
+                content={`${title}\n${getSupportTypeLabel(supportType)}\n\n${items.map((item, i) => `${i + 1}. ${item.text}`).join('\n')}`}
+                title={title}
+                emailSubject={`${getSupportTypeLabel(supportType)} - ${title}`}
+              />
+            </div>
+          )}
+
           <div className="flex justify-end">
             <Button onClick={saveSupport} disabled={!title || items.length === 0}>
               Save Visual Support
@@ -258,6 +269,13 @@ export function VisualSupportsBuilder({ onBack }: VisualSupportsBuilderProps) {
                         </li>
                       ))}
                     </ol>
+                    <div className="pt-4">
+                      <ActionButtons
+                        content={`${support.title}\n${getSupportTypeLabel(support.type)}\n\n${support.items.map((item: VisualItem, i: number) => `${i + 1}. ${item.text}`).join('\n')}`}
+                        title={support.title}
+                        emailSubject={`${getSupportTypeLabel(support.type)} - ${support.title}`}
+                      />
+                    </div>
                   </CardContent>
                 </Card>
               ))}
