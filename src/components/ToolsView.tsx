@@ -68,7 +68,7 @@ export function ToolsView() {
       <div className="grid gap-6 md:grid-cols-2">
         {tools.map((tool) => {
           const IconComponent = iconMap[tool.icon as keyof typeof iconMap]
-          const isInteractive = tool.id === 'lesson-script-generator' || tool.id === 'transition-support'
+          const isInteractive = tool.id === 'lesson-script-generator' || tool.id === 'transition-support' || tool.id === 'co-regulation'
           
           return (
             <Card 
