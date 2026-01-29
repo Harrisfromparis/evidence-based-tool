@@ -236,6 +236,20 @@ export const tools: Tool[] = [
     description: 'Step-by-step guide to planning successful transitions between activities, classes, or schools',
     category: 'Planning',
     icon: 'ArrowsLeftRight'
+  },
+  {
+    id: 'parent-ebp-assessment',
+    title: 'Parent/Caregiver EBP Assessment',
+    description: 'Parents and caregivers share what works at home by rating all 28 evidence-based practices',
+    category: 'Collaboration',
+    icon: 'UserCircle'
+  },
+  {
+    id: 'school-planner',
+    title: 'School Daily Planner',
+    description: 'Teachers and SNAs create personalized daily schedules using parent assessment insights',
+    category: 'Planning',
+    icon: 'CalendarCheck'
   }
 ]
 

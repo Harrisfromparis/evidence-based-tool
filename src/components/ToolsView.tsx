@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText } from '@phosphor-icons/react'
+import { ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText, UserCircle, CalendarCheck } from '@phosphor-icons/react'
 import { tools } from '@/lib/data'
 import { LessonScriptGenerator } from '@/components/LessonScriptGenerator'
 import { Choose3EBPsPlanner } from '@/components/Choose3EBPsPlanner'
@@ -8,6 +8,8 @@ import { SensoryChecklist } from '@/components/SensoryChecklist'
 import { BehaviorCommunicationAnalyzer } from '@/components/BehaviorCommunicationAnalyzer'
 import { CoRegulationStrategies } from '@/components/CoRegulationStrategies'
 import { TransitionSupportBuilder } from '@/components/TransitionSupportBuilder'
+import { ParentEBPAssessment } from '@/components/ParentEBPAssessment'
+import { SchoolPlanner } from '@/components/SchoolPlanner'
 
 const iconMap = {
   ListChecks,
@@ -15,7 +17,9 @@ const iconMap = {
   ChatCircle,
   HandHeart,
   ArrowsLeftRight,
-  FileText
+  FileText,
+  UserCircle,
+  CalendarCheck
 }
 
 export function ToolsView() {
@@ -45,6 +49,14 @@ export function ToolsView() {
     return <TransitionSupportBuilder onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'parent-ebp-assessment') {
+    return <ParentEBPAssessment onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'school-planner') {
+    return <SchoolPlanner onBack={() => setSelectedTool(null)} />
+  }
+
   return (
     <div className="space-y-6">
       <div>
@@ -68,7 +80,7 @@ export function ToolsView() {
       <div className="grid gap-6 md:grid-cols-2">
         {tools.map((tool) => {
           const IconComponent = iconMap[tool.icon as keyof typeof iconMap]
-          const isInteractive = tool.id === 'lesson-script-generator' || tool.id === 'transition-support' || tool.id === 'co-regulation' || tool.id === 'choose-3-ebps' || tool.id === 'sensory-checklist' || tool.id === 'behavior-communication'
+          const isInteractive = tool.id === 'lesson-script-generator' || tool.id === 'transition-support' || tool.id === 'co-regulation' || tool.id === 'choose-3-ebps' || tool.id === 'sensory-checklist' || tool.id === 'behavior-communication' || tool.id === 'parent-ebp-assessment' || tool.id === 'school-planner'
           
           return (
             <Card 

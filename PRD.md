@@ -82,6 +82,20 @@ The app provides structured navigation through educational content with search, 
 - Progression: Define transition (what/when/where/who) → Identify potential stress points (checklist + custom) → Choose supports (checklist + custom) → Plan communication with student, family, and staff → Set review schedule, monitoring person, success/adjustment signs → Save plan OR Export plan → Access saved plans from main screen
 - Success criteria: All transition types covered; structured but flexible; emphasizes student and family communication; plans persist across sessions; export functionality provides shareable text format
 
+**Parent/Caregiver EBP Assessment** [IMPLEMENTED]
+- Functionality: Comprehensive assessment tool allowing parents and caregivers to rate all 28 evidence-based practices based on their effectiveness at home and in other settings. Multi-step guided process with progress tracking and local storage of completed assessments.
+- Purpose: Capture valuable parent insights about what strategies work (or don't work) for their child to inform school-based planning and create collaborative, family-centered support
+- Trigger: User selects "Parent/Caregiver EBP Assessment" from Tools section
+- Progression: Enter child and parent information → Work through 6 categories of EBPs → For each EBP, rate effectiveness (very effective, somewhat effective, not effective, never tried) → Add context notes and tips → Review summary → Save assessment → View saved assessments with detailed breakdown by category
+- Success criteria: Complete coverage of all 28 EBPs; intuitive rating system; optional but valuable context fields; clear progress indicators; assessments persist across sessions; assessments are accessible to school staff for planning purposes
+
+**School Daily Planner** [IMPLEMENTED]
+- Functionality: Dual-access planning tool for teachers, SNAs, and school liaison staff to create personalized daily schedules based on parent/caregiver assessment insights. Select a student's parent assessment, view effective strategies, build activity-by-activity schedules incorporating parent-recommended EBPs.
+- Purpose: Bridge home-school collaboration by enabling school staff to create evidence-informed daily plans that reflect what parents know works for their child
+- Trigger: User selects "School Daily Planner" from Tools section
+- Progression: View available parent assessments → Select student → Review parent's effective strategies summary → Enter plan details (date, staff name/role) → Add scheduled activities (time, duration, activity name) → For each activity, select relevant EBPs from parent's effective strategies list → Add accommodations, materials, and staff notes → Save complete daily plan → Access saved plans → View detailed plan with all activities and strategies
+- Success criteria: Seamless access to parent assessment data; clear presentation of effective strategies with parent context notes; flexible activity builder; plans persist across sessions; school staff can create multiple plans for same student over time; clear connection between parent insights and daily implementation
+
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
 - Purpose: Enable personalized resource curation and rapid information retrieval
