@@ -12,9 +12,9 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border bg-background">
         <div className="mx-auto max-w-5xl px-6 py-8">
-          <h1 className="text-foreground">Irish EBP Navigator</h1>
+          <h1 className="text-foreground">Autism and Me</h1>
           <p className="mt-2 text-muted-foreground text-sm">
-            Evidence-Based Practices for Neuro-Affirming Autism Support
+            Evidence Based Practice for Autism Support
           </p>
         </div>
       </header>
@@ -72,7 +72,7 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
       <footer className="border-t border-border bg-background mt-auto">
         <div className="mx-auto max-w-5xl px-6 py-8">
           <p className="text-sm text-muted-foreground">
-            This resource supports neuro-affirming practice in Irish schools. All practices are grounded in the UNCRPD Article 24 and Irish educational legislation.
+            This resource supports neuro-affirming practice in schools. All practices are grounded in the UNCRPD Article 24 and educational legislation.
           </p>
         </div>
       </footer>

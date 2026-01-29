@@ -1,6 +1,6 @@
 # Planning Guide
 
-A professional tool for Irish educators to access evidence-based practices for neuro-affirming autism support, presented with the calm authority of a policy document.
+Autism and Me - A professional tool for educators to access evidence-based practices for neuro-affirming autism support, presented with the calm authority of a policy document.
 
 **Experience Qualities**:
 1. **Professional** - Feels like a well-crafted government resource, not a consumer app; conveys expertise and institutional trust
@@ -125,17 +125,17 @@ The design should evoke the feeling of opening a well-organized, professionally 
 
 ## Color Selection
 
-A restrained palette that feels institutional yet warm, accessible yet professional.
+A bold, distinctive palette using the brand colors of black, green, and orange that feels professional yet approachable.
 
-- **Primary Color**: Deep Navy (oklch(0.22 0.04 250)) — Conveys authority, professionalism, and seriousness appropriate for educational policy content; used for headings and primary navigation
-- **Secondary Colors**: Slate Grey (oklch(0.45 0.01 250)) for body text; Soft White (oklch(0.98 0 0)) for backgrounds — Creates hierarchy without contrast harshness
-- **Accent Color**: Muted Teal (oklch(0.55 0.08 200)) — A calm, focused highlight for interactive elements and important callouts; non-playful and grounded
-- **Supporting Colors**: Warm Sand (oklch(0.88 0.03 80)) for subtle section backgrounds and hover states; creates warmth without brightness
+- **Primary Color**: Black (oklch(0.15 0 0)) — Conveys authority, professionalism, and clarity appropriate for educational content; used for headings and primary elements
+- **Secondary Color**: Forest Green (oklch(0.55 0.15 150)) — A grounding, natural color for interactive elements and secondary actions; represents growth and calm support
+- **Accent Color**: Warm Orange (oklch(0.65 0.18 55)) — An energizing highlight for important callouts and attention-drawing elements; creates warmth and approachability
+- **Supporting Colors**: Soft Grey (oklch(0.45 0 0)) for body text; Light Green Tint (oklch(0.92 0.01 150)) for subtle section backgrounds and hover states
 - **Foreground/Background Pairings**: 
-  - Background White (oklch(0.98 0 0)): Deep Navy text (oklch(0.22 0.04 250)) - Ratio 11.2:1 ✓
-  - Muted Teal accent (oklch(0.55 0.08 200)): White text (oklch(0.98 0 0)) - Ratio 5.1:1 ✓
-  - Warm Sand background (oklch(0.88 0.03 80)): Deep Navy text (oklch(0.22 0.04 250)) - Ratio 9.8:1 ✓
-  - Slate Grey text (oklch(0.45 0.01 250)): White background - Ratio 7.2:1 ✓
+  - Background White (oklch(0.98 0 0)): Black text (oklch(0.15 0 0)) - Ratio 14.8:1 ✓
+  - Forest Green (oklch(0.55 0.15 150)): White text (oklch(0.98 0 0)) - Ratio 4.9:1 ✓
+  - Warm Orange accent (oklch(0.65 0.18 55)): Black text (oklch(0.15 0 0)) - Ratio 5.2:1 ✓
+  - Soft Grey text (oklch(0.45 0 0)): White background - Ratio 7.5:1 ✓
 
 ## Font Selection
 
@@ -173,10 +173,10 @@ Motion should be minimal and purposeful — a subtle acknowledgment of interacti
   - Breadcrumb component for navigation context
   
 - **States**: 
-  - Buttons: Navy background → Darker navy on hover (no shadow, no transform)
-  - Cards: Flat with border → Subtle sand background on hover (no elevation)
-  - Inputs: Border only → Border + subtle sand background on focus
-  - Bookmarks: Outline star → Filled star (instant, no animation)
+  - Buttons: Black background → Forest Green on hover (no shadow, no transform)
+  - Cards: Flat with border → Subtle light green background on hover (no elevation)
+  - Inputs: Border only → Border + subtle light green background on focus
+  - Bookmarks: Outline star → Filled orange star (instant, no animation)
   
 - **Icon Selection**: 
   - Phosphor icons (regular weight) used sparingly: MagnifyingGlass (search), BookmarkSimple (saved items), Funnel (filters), X (close), CaretLeft (back navigation), House (home)
