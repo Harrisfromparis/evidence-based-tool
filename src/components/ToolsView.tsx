@@ -19,6 +19,26 @@ import { TransitionSupportBuilder } from '@/components/TransitionSupportBuilder'
 import { ParentEBPAssessment } from '@/components/ParentEBPAssessment'
 import { SchoolPlanner } from '@/components/SchoolPlanner'
 import { StudentInput } from '@/components/StudentInput'
+import { VisualSupportsBuilder } from '@/components/VisualSupportsBuilder'
+import { SocialNarrativeCreator } from '@/components/SocialNarrativeCreator'
+import { TaskAnalysisBuilder } from '@/components/TaskAnalysisBuilder'
+import { FCTPlanner } from '@/components/FCTPlanner'
+import { ReinforcementMenuBuilder } from '@/components/ReinforcementMenuBuilder'
+import { PromptingHierarchyPlanner } from '@/components/PromptingHierarchyPlanner'
+import { SelfManagementSystemDesigner } from '@/components/SelfManagementSystemDesigner'
+import { StructuredWorkPlanner } from '@/components/StructuredWorkPlanner'
+import { PeerMediationGuide } from '@/components/PeerMediationGuide'
+import { ParentTrainingPlanner } from '@/components/ParentTrainingPlanner'
+import { SocialSkillsLessonPlanner } from '@/components/SocialSkillsLessonPlanner'
+import { VideoModelingScriptGenerator } from '@/components/VideoModelingScriptGenerator'
+import { AACImplementationPlanner } from '@/components/AACImplementationPlanner'
+import { AntecedentModificationPlanner } from '@/components/AntecedentModificationPlanner'
+import { CBTActivityPlanner } from '@/components/CBTActivityPlanner'
+import { ExerciseMovementSchedule } from '@/components/ExerciseMovementSchedule'
+import { MusicInterventionPlanner } from '@/components/MusicInterventionPlanner'
+import { TechnologyIntegrationPlanner } from '@/components/TechnologyIntegrationPlanner'
+import { DTTSessionPlanner } from '@/components/DTTSessionPlanner'
+import { NaturalisticTeachingPlanner } from '@/components/NaturalisticTeachingPlanner'
 
 const iconMap = {
   ListChecks,
@@ -105,6 +125,86 @@ export function ToolsView() {
     return <StudentInput onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'visual-supports-builder') {
+    return <VisualSupportsBuilder onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'social-narrative-creator') {
+    return <SocialNarrativeCreator onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'task-analysis-builder') {
+    return <TaskAnalysisBuilder onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'fct-planner') {
+    return <FCTPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'reinforcement-menu') {
+    return <ReinforcementMenuBuilder onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'prompting-hierarchy') {
+    return <PromptingHierarchyPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'self-management-system') {
+    return <SelfManagementSystemDesigner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'structured-work-planner') {
+    return <StructuredWorkPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'peer-mediation-guide') {
+    return <PeerMediationGuide onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'parent-training-planner') {
+    return <ParentTrainingPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'social-skills-lesson') {
+    return <SocialSkillsLessonPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'video-modeling-script') {
+    return <VideoModelingScriptGenerator onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'aac-implementation') {
+    return <AACImplementationPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'antecedent-modification') {
+    return <AntecedentModificationPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'cbt-activity-planner') {
+    return <CBTActivityPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'exercise-movement-schedule') {
+    return <ExerciseMovementSchedule onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'music-intervention-planner') {
+    return <MusicInterventionPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'technology-integration') {
+    return <TechnologyIntegrationPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'dtt-session-planner') {
+    return <DTTSessionPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'naturalistic-teaching') {
+    return <NaturalisticTeachingPlanner onBack={() => setSelectedTool(null)} />
+  }
+
   const implementedTools = [
     'lesson-script-generator', 
     'transition-support', 
@@ -114,7 +214,27 @@ export function ToolsView() {
     'behavior-communication', 
     'parent-ebp-assessment', 
     'school-planner', 
-    'student-input'
+    'student-input',
+    'visual-supports-builder',
+    'social-narrative-creator',
+    'task-analysis-builder',
+    'fct-planner',
+    'reinforcement-menu',
+    'prompting-hierarchy',
+    'self-management-system',
+    'structured-work-planner',
+    'peer-mediation-guide',
+    'parent-training-planner',
+    'social-skills-lesson',
+    'video-modeling-script',
+    'aac-implementation',
+    'antecedent-modification',
+    'cbt-activity-planner',
+    'exercise-movement-schedule',
+    'music-intervention-planner',
+    'technology-integration',
+    'dtt-session-planner',
+    'naturalistic-teaching'
   ]
 
   return (
