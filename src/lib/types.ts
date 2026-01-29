@@ -30,6 +30,7 @@ export interface Tool {
   description: string
   category: string
   icon: string
+  ebpCategories: string[]
 }
 
 export interface RightsContent {
