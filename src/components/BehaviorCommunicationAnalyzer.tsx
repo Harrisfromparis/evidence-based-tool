@@ -156,7 +156,7 @@ export function BehaviorCommunicationAnalyzer({ onBack }: BehaviorCommunicationA
     }
     
     setSavedAnalyses(prev => [newAnalysis, ...(prev || [])])
-    toast.success('Behavior analysis saved successfully')
+    toast.success('Behaviour analysis saved successfully')
   }
 
   const generateAnalysisText = () => {
@@ -189,7 +189,7 @@ Time of Day: ${antecedentTime || 'Not specified'}
 Sensory Factors: ${antecedentSensory || 'Not specified'}
 Changes to Routine: ${antecedentChanges || 'Not specified'}
 
-B — BEHAVIOR (What Did the Student Do?)
+B — BEHAVIOUR (What Did the Student Do?)
 Description: ${behaviorDescription}
 Duration: ${behaviorDuration || 'Not specified'}
 Warning Signs: ${behaviorWarnings || 'None observed'}
@@ -226,7 +226,7 @@ ${teachingAlternatives || 'Not specified'}
 ${collaborationNotes || 'None'}
 
 ---
-Ethical Reminder: This analysis prioritizes understanding and supporting the student's needs, not eliminating behavior that adults find inconvenient. All strategies must respect student dignity and autonomy.
+Ethical Reminder: This analysis prioritises understanding and supporting the student's needs, not eliminating behaviour that adults find inconvenient. All strategies must respect student dignity and autonomy.
 `
   }
 
@@ -236,7 +236,7 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = `behavior-analysis-${Date.now()}.txt`
+    a.download = `behaviour-analysis-${Date.now()}.txt`
     a.click()
     URL.revokeObjectURL(url)
     toast.success('Analysis exported successfully')
@@ -284,7 +284,7 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
         `
       },
       {
-        title: 'B — Behavior (What Did the Student Do?)',
+        title: 'B — Behaviour (What Did the Student Do?)',
         content: `
           <div class="list-item">
             <strong>Description:</strong> ${behaviorDescription}<br>
@@ -349,7 +349,7 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
       title: 'Behaviour = Communication Analysis',
       subtitle: `${studentName} • ${dateTime}`,
       sections,
-      footer: 'Irish EBP Navigator • This analysis prioritizes understanding and supporting the student\'s needs, respecting student dignity and autonomy.'
+      footer: 'Irish EBP Navigator • This analysis prioritises understanding and supporting the student\'s needs, respecting student dignity and autonomy.'
     })
     toast.success('Opening print preview...')
   }
@@ -426,9 +426,9 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
             Back to Analyzer
           </Button>
           <div className="flex-1">
-            <h2 className="text-foreground">Saved Behavior Analyses</h2>
+            <h2 className="text-foreground">Saved Behaviour Analyses</h2>
             <p className="text-sm text-muted-foreground mt-1">
-              View and manage your saved behavior analyses
+              View and manage your saved behaviour analyses
             </p>
           </div>
         </div>
@@ -487,7 +487,7 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
         <div className="flex-1">
           <h2 className="text-foreground">Behaviour = Communication Analyser</h2>
           <p className="text-sm text-muted-foreground mt-1">
-            Step-by-step framework for understanding behavior as communication
+            Step-by-step framework for understanding behaviour as communication
           </p>
         </div>
         {savedAnalyses && savedAnalyses.length > 0 && (
@@ -520,7 +520,7 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
           <p className="text-sm text-foreground text-center">
             {currentStep === 1 && 'Step 1: Context'}
             {currentStep === 2 && 'Step 2: Antecedent (A)'}
-            {currentStep === 3 && 'Step 3: Behavior (B)'}
+            {currentStep === 3 && 'Step 3: Behaviour (B)'}
             {currentStep === 4 && 'Step 4: Consequence (C)'}
             {currentStep === 5 && 'Step 5: Interpretation'}
             {currentStep === 6 && 'Step 6: Support Plan'}
@@ -532,8 +532,8 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
         <CardContent className="pt-6 flex items-start gap-3">
           <Info className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
           <div className="text-sm text-muted-foreground">
-            <p className="font-semibold text-foreground mb-2">Core Principle: All Behavior is Communication</p>
-            <p>When we observe behavior that challenges us, our role is not to eliminate it, but to understand what the student is communicating and address the underlying need.</p>
+            <p className="font-semibold text-foreground mb-2">Core Principle: All Behaviour is Communication</p>
+            <p>When we observe behaviour that challenges us, our role is not to eliminate it, but to understand what the student is communicating and address the underlying need.</p>
           </div>
         </CardContent>
       </Card>
@@ -603,7 +603,7 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
           <CardHeader>
             <CardTitle>Step 2: A — Antecedent (What Happened Before?)</CardTitle>
             <CardDescription>
-              Document environmental factors, activities, and conditions present immediately before the behavior
+              Document environmental factors, activities, and conditions present immediately before the behaviour
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -677,7 +677,7 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
                 Previous
               </Button>
               <Button onClick={() => setCurrentStep(3)} disabled={!canProgressStep2}>
-                Next: Behavior
+                Next: Behaviour
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </div>
@@ -688,9 +688,9 @@ Ethical Reminder: This analysis prioritizes understanding and supporting the stu
       {currentStep === 3 && (
         <Card>
           <CardHeader>
-            <CardTitle>Step 3: B — Behavior (What Did the Student Do?)</CardTitle>
+            <CardTitle>Step 3: B — Behaviour (What Did the Student Do?)</CardTitle>
             <CardDescription>
-              Describe the behavior objectively and specifically, without interpretation or judgment
+              Describe the behaviour objectively and specifically, without interpretation or judgement
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">

@@ -85,7 +85,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
               </div>
               <CardDescription>
                 Practical planning tools including the "Choose 3 EBPs" planner, sensory checklist, 
-                behavior-as-communication analyzer, and transition support builder.
+                behaviour-as-communication analyzer, and transition support builder.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -113,7 +113,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
         <ul className="space-y-2 text-muted-foreground">
           <li>• Autism is a neurological difference, not a deficit or disorder to cure</li>
           <li>• Autistic students have the right to inclusive education (UNCRPD Article 24)</li>
-          <li>• Behavior is communication—our role is to understand, not eliminate</li>
+          <li>• Behaviour is communication—our role is to understand, not eliminate</li>
           <li>• Masking harms wellbeing—we create environments where students can be authentic</li>
           <li>• Evidence-based practices must respect dignity, autonomy, and identity</li>
         </ul>

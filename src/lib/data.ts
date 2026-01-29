@@ -5,7 +5,7 @@ export const ebps: EBP[] = [
     id: 'antecedent-based-intervention',
     title: 'Antecedent-Based Intervention',
     category: 'Environmental Support',
-    description: 'Modifying the environment or activity before behavior occurs to prevent challenges and promote engagement.',
+    description: 'Modifying the environment or activity before behaviour occurs to prevent challenges and promote engagement.',
     overview: 'Antecedent-based interventions proactively adjust settings, schedules, or materials to reduce triggers and set students up for success. This includes environmental modifications, choice-making, priming, and incorporating special interests.',
     quickStart: [
       'Identify patterns: when and where does the student struggle?',
@@ -33,18 +33,18 @@ export const ebps: EBP[] = [
     id: 'cognitive-behavioral-intervention',
     title: 'Cognitive Behavioral Intervention',
     category: 'Social-Emotional',
-    description: 'Teaching students to recognize thoughts, feelings, and behaviors, and develop coping strategies.',
-    overview: 'CBT-based approaches help students identify emotions, understand connections between thoughts and reactions, and practice alternative responses. This supports anxiety management, emotional regulation, and problem-solving.',
+    description: 'Teaching students to recognise thoughts, feelings, and behaviours, and develop coping strategies.',
+    overview: 'CBT-based approaches help students identify emotions, understand connections between thoughts and reactions, and practise alternative responses. This supports anxiety management, emotional regulation, and problem-solving.',
     quickStart: [
       'Teach basic emotion identification using visuals or scales',
       'Help student connect feelings to situations ("When X happens, I feel Y")',
       'Introduce one simple coping strategy (deep breathing, taking space, using words)',
-      'Practice strategy when calm, not during distress',
+      'Practise strategy when calm, not during distress',
       'Review and reinforce when student uses strategy'
     ],
     irishExamples: [
       'Fifth class: Student uses "feelings thermometer" to rate anxiety before tests; teacher offers breaks when rating is high',
-      'First year: Counselor teaches thought-challenging for social anxiety ("Everyone thinks I\'m weird" → "Some people are friendly to me")',
+      'First year: Counsellor teaches thought-challenging for social anxiety ("Everyone thinks I\'m weird" → "Some people are friendly to me")',
       'ASD unit: Student creates personal "calm-down plan" with drawings of strategies that work',
       'Sixth class: Student keeps mood diary; notices pattern between sleep and school mood'
     ],
@@ -60,29 +60,29 @@ export const ebps: EBP[] = [
   {
     id: 'differential-reinforcement',
     title: 'Differential Reinforcement',
-    category: 'Behavioral Support',
-    description: 'Reinforcing desired behaviors while withholding reinforcement for unwanted behaviors.',
-    overview: 'Differential reinforcement strategically provides attention, praise, or access to preferred activities for specific behaviors while reducing reinforcement for others. Types include DRA (alternative behavior), DRI (incompatible behavior), and DRO (other behavior).',
+    category: 'Behavioural Support',
+    description: 'Reinforcing desired behaviours while withholding reinforcement for unwanted behaviours.',
+    overview: 'Differential reinforcement strategically provides attention, praise, or access to preferred activities for specific behaviours while reducing reinforcement for others. Types include DRA (alternative behaviour), DRI (incompatible behaviour), and DRO (other behaviour).',
     quickStart: [
-      'Identify what currently reinforces the unwanted behavior (attention, escape, access to items)',
-      'Choose an alternative behavior to reinforce instead',
-      'Provide immediate, consistent reinforcement when alternative behavior occurs',
-      'Minimize reinforcement for unwanted behavior',
-      'Monitor and adjust based on whether alternative behavior increases'
+      'Identify what currently reinforces the unwanted behaviour (attention, escape, access to items)',
+      'Choose an alternative behaviour to reinforce instead',
+      'Provide immediate, consistent reinforcement when alternative behaviour occurs',
+      'Minimise reinforcement for unwanted behaviour',
+      'Monitor and adjust based on whether alternative behaviour increases'
     ],
     irishExamples: [
       'Junior Infants: Student shouts for help; teacher reinforces hand-raising instead, ignores shouting when safe to do so',
-      'Third class: Student gets break after completing 10 minutes work (DRO - reinforcing absence of off-task behavior)',
+      'Third class: Student gets break after completing 10 minutes work (DRO - reinforcing absence of off-task behaviour)',
       'TY student: Reinforced for asking for break verbally instead of leaving class without permission',
       'ASD unit: Student receives preferred sensory toy for sitting during group time, not for elopement attempts'
     ],
     ethicalConsiderations: [
       'Never ignore communication about genuine needs (pain, distress, safety)',
-      'Ensure alternative behavior is within student\'s current abilities',
-      'Avoid extinction that increases distress or escalates behavior',
-      'Consider that behavior may serve important self-regulation functions'
+      'Ensure alternative behaviour is within student\'s current abilities',
+      'Avoid extinction that increases distress or escalates behaviour',
+      'Consider that behaviour may serve important self-regulation functions'
     ],
-    whenToUse: 'Use when unwanted behavior is reinforced by predictable consequences and a clear alternative exists.',
+    whenToUse: 'Use when unwanted behaviour is reinforced by predictable consequences and a clear alternative exists.',
     relatedEBPs: ['functional-behavior-assessment', 'functional-communication-training', 'reinforcement']
   },
   {
@@ -107,7 +107,7 @@ export const ebps: EBP[] = [
     ethicalConsiderations: [
       'Avoid making sessions overly long or aversive',
       'Balance structured teaching with naturalistic learning',
-      'Ensure skills taught are meaningful and generalizable',
+      'Ensure skills taught are meaningful and generalisable',
       'Respect student\'s signals of frustration or disengagement',
       'Do not use compliance training that erodes autonomy'
     ],
@@ -145,15 +145,15 @@ export const ebps: EBP[] = [
   {
     id: 'extinction',
     title: 'Extinction',
-    category: 'Behavioral Support',
-    description: 'Withdrawing reinforcement for a behavior to reduce its occurrence over time.',
-    overview: 'Extinction involves no longer providing the consequence that maintains a behavior. It must be used carefully, consistently, and only when safe and ethical to do so. Extinction bursts (temporary increase) are common.',
+    category: 'Behavioural Support',
+    description: 'Withdrawing reinforcement for a behaviour to reduce its occurrence over time.',
+    overview: 'Extinction involves no longer providing the consequence that maintains a behaviour. It must be used carefully, consistently, and only when safe and ethical to do so. Extinction bursts (temporary increase) are common.',
     quickStart: [
-      'Conduct functional assessment to confirm what reinforces the behavior',
-      'Ensure behavior is not communicating urgent needs',
+      'Conduct functional assessment to confirm what reinforces the behaviour',
+      'Ensure behaviour is not communicating urgent needs',
       'Consistently withhold reinforcement',
-      'Prepare for extinction burst (behavior may temporarily worsen)',
-      'Simultaneously reinforce alternative appropriate behavior'
+      'Prepare for extinction burst (behaviour may temporarily worsen)',
+      'Simultaneously reinforce alternative appropriate behaviour'
     ],
     irishExamples: [
       'Junior Infants: Student calls out for attention; teacher attends only to hand-raising',
@@ -163,25 +163,25 @@ export const ebps: EBP[] = [
     ],
     ethicalConsiderations: [
       'NEVER use extinction for communication about pain, fear, or genuine distress',
-      'NEVER use if behavior serves important self-regulation function',
-      'Do not ignore dangerous behaviors',
-      'Must be combined with teaching and reinforcing alternative behaviors',
+      'NEVER use if behaviour serves important self-regulation function',
+      'Do not ignore dangerous behaviours',
+      'Must be combined with teaching and reinforcing alternative behaviours',
       'Monitor closely for distress or escalation'
     ],
-    whenToUse: 'Use cautiously when behavior is maintained by predictable reinforcement and only when safe and ethical.',
+    whenToUse: 'Use cautiously when behaviour is maintained by predictable reinforcement and only when safe and ethical.',
     relatedEBPs: ['functional-behavior-assessment', 'differential-reinforcement', 'functional-communication-training']
   },
   {
     id: 'functional-behavior-assessment',
-    title: 'Functional Behavior Assessment',
+    title: 'Functional Behaviour Assessment',
     category: 'Assessment & Planning',
-    description: 'Systematic process to understand why a behavior occurs by identifying its function or purpose.',
-    overview: 'FBA involves observing, collecting data, and analyzing patterns to determine what triggers behavior and what consequences maintain it. This understanding guides ethical, effective intervention.',
+    description: 'Systematic process to understand why a behaviour occurs by identifying its function or purpose.',
+    overview: 'FBA involves observing, collecting data, and analysing patterns to determine what triggers behaviour and what consequences maintain it. This understanding guides ethical, effective intervention.',
     quickStart: [
-      'Define the specific behavior clearly',
+      'Define the specific behaviour clearly',
       'Observe and record when, where, and with whom it occurs',
       'Note what happens right before (antecedent) and right after (consequence)',
-      'Identify patterns and hypothesize function (escape, attention, sensory, access)',
+      'Identify patterns and hypothesise function (escape, attention, sensory, access)',
       'Design intervention addressing the function'
     ],
     irishExamples: [
@@ -191,26 +191,26 @@ export const ebps: EBP[] = [
       'Sixth class: Student refuses group work; FBA reveals social anxiety, not laziness'
     ],
     ethicalConsiderations: [
-      'View behavior as communication, not as willful misbehavior',
+      'View behaviour as communication, not as wilful misbehaviour',
       'Include student perspective when possible',
-      'Avoid interventions that punish behavior without addressing function',
+      'Avoid interventions that punish behaviour without addressing function',
       'Consider whether environment or expectations need to change, not just student'
     ],
-    whenToUse: 'Use when behavior is persistent, distressing, or when previous interventions have not worked.',
+    whenToUse: 'Use when behaviour is persistent, distressing, or when previous interventions have not worked.',
     relatedEBPs: ['functional-communication-training', 'antecedent-based-intervention', 'differential-reinforcement']
   },
   {
     id: 'functional-communication-training',
     title: 'Functional Communication Training',
     category: 'Communication',
-    description: 'Teaching an appropriate communication method to replace challenging behavior that serves a communicative function.',
-    overview: 'FCT identifies what a behavior is communicating (e.g., "I need a break," "I want help") and teaches a socially acceptable way to express that need. The new communication must be easier and more effective than the behavior.',
+    description: 'Teaching an appropriate communication method to replace challenging behaviour that serves a communicative function.',
+    overview: 'FCT identifies what a behaviour is communicating (e.g., "I need a break," "I want help") and teaches a socially acceptable way to express that need. The new communication must be easier and more effective than the behaviour.',
     quickStart: [
-      'Conduct FBA to identify what behavior is communicating',
+      'Conduct FBA to identify what behaviour is communicating',
       'Choose a simple, accessible communication method (word, sign, picture card)',
       'Teach the new communication explicitly',
-      'Immediately honor the communication every time',
-      'Gradually reduce reinforcement for the challenging behavior'
+      'Immediately honour the communication every time',
+      'Gradually reduce reinforcement for the challenging behaviour'
     ],
     irishExamples: [
       'Junior Infants: Student screams to escape loud activities; taught to hand "break card" to teacher',
@@ -219,22 +219,22 @@ export const ebps: EBP[] = [
       'ASD unit: Student drops to floor to access iPad; taught to exchange picture card for iPad time'
     ],
     ethicalConsiderations: [
-      'Always honor the new communication promptly and consistently',
-      'Ensure new method is truly easier than the challenging behavior',
+      'Always honour the new communication promptly and consistently',
+      'Ensure new method is truly easier than the challenging behaviour',
       'Respect that the underlying need is valid',
       'Do not use FCT to suppress justified protest or communication about mistreatment'
     ],
-    whenToUse: 'Use when challenging behavior serves a clear communicative function and student needs a better way to express needs.',
+    whenToUse: 'Use when challenging behaviour serves a clear communicative function and student needs a better way to express needs.',
     relatedEBPs: ['functional-behavior-assessment', 'augmentative-alternative-communication', 'differential-reinforcement']
   },
   {
     id: 'modeling',
     title: 'Modeling',
     category: 'Instructional Strategy',
-    description: 'Demonstrating a skill or behavior for the student to observe and imitate.',
-    overview: 'Modeling involves showing the student what to do through demonstration by adults, peers, or video. It makes implicit expectations explicit and provides a clear example to follow.',
+    description: 'Demonstrating a skill or behaviour for the student to observe and imitate.',
+    overview: 'Modelling involves showing the student what to do through demonstration by adults, peers, or video. It makes implicit expectations explicit and provides a clear example to follow.',
     quickStart: [
-      'Identify the specific skill or behavior to model',
+      'Identify the specific skill or behaviour to model',
       'Demonstrate clearly while student observes',
       'Think aloud to make your process visible ("I\'m checking the board for instructions")',
       'Invite student to try with support',
@@ -243,12 +243,12 @@ export const ebps: EBP[] = [
     irishExamples: [
       'Infants: Teacher models hand-washing routine, narrating each step',
       'Fourth class: Peer models asking to join a game during break',
-      'Secondary: Teacher models organizing copybook with dividers and labels',
+      'Secondary: Teacher models organising copybook with dividers and labels',
       'ASD unit: SNA models using "I feel..." sentence strip to express emotions'
     ],
     ethicalConsiderations: [
-      'Model authentic, not performative, behavior',
-      'Avoid modeling compliance that undermines autonomy',
+      'Model authentic, not performative, behaviour',
+      'Avoid modelling compliance that undermines autonomy',
       'Ensure models are relatable and realistic for student',
       'Respect if student chooses alternative approach that also works'
     ],
@@ -304,11 +304,11 @@ export const ebps: EBP[] = [
     ],
     ethicalConsiderations: [
       'Respect when student prefers solitary activity; do not force interaction',
-      'Prioritize authentic communication over scripted responses',
+      'Prioritise authentic communication over scripted responses',
       'Avoid manipulating access to preferred items as "motivation"',
       'Ensure learning goals are meaningful to the student, not just convenient for adults'
     ],
-    whenToUse: 'Use to support communication, social interaction, and skill generalization in contexts that matter to the student.',
+    whenToUse: 'Use to support communication, social interaction, and skill generalisation in contexts that matter to the student.',
     relatedEBPs: ['peer-mediated-instruction', 'prompting', 'reinforcement']
   },
   {
@@ -316,7 +316,7 @@ export const ebps: EBP[] = [
     title: 'Parent-Implemented Intervention',
     category: 'Collaboration',
     description: 'Teaching parents and caregivers to use evidence-based strategies in home and community settings.',
-    overview: 'Parent-implemented interventions involve training families to support their child\'s learning and development outside school. This promotes consistency, generalization, and empowers families as partners.',
+    overview: 'Parent-implemented interventions involve training families to support their child\'s learning and development outside school. This promotes consistency, generalisation, and empowers families as partners.',
     quickStart: [
       'Identify one strategy that would be useful at home',
       'Explain strategy clearly with examples',
@@ -361,10 +361,10 @@ export const ebps: EBP[] = [
     ethicalConsiderations: [
       'Ensure autistic student is not positioned as a "project" or charity case',
       'Monitor power dynamics; avoid exploitation of autistic student\'s vulnerability',
-      'Prioritize mutual relationships, not one-way helping',
+      'Prioritise mutual relationships, not one-way helping',
       'Provide autistic student with autonomy to decline interactions'
     ],
-    whenToUse: 'Use to increase authentic social opportunities, build inclusive classroom culture, and support generalization of social skills.',
+    whenToUse: 'Use to increase authentic social opportunities, build inclusive classroom culture, and support generalisation of social skills.',
     relatedEBPs: ['naturalistic-intervention', 'social-skills-training', 'reinforcement']
   },
   {
@@ -390,9 +390,9 @@ export const ebps: EBP[] = [
       'Ensure student choice is genuine, not manipulated',
       'Avoid withholding preferred items to create "motivation"',
       'Respect student\'s autonomy over which activities they engage with',
-      'Prioritize intrinsic motivation over compliance'
+      'Prioritise intrinsic motivation over compliance'
     ],
-    whenToUse: 'Use to support motivation, communication initiation, and generalization across settings.',
+    whenToUse: 'Use to support motivation, communication initiation, and generalisation across settings.',
     relatedEBPs: ['naturalistic-intervention', 'reinforcement', 'prompting']
   },
   {
@@ -426,12 +426,12 @@ export const ebps: EBP[] = [
   {
     id: 'reinforcement',
     title: 'Reinforcement',
-    category: 'Behavioral Support',
-    description: 'Providing consequences that increase the likelihood a behavior will occur again.',
+    category: 'Behavioural Support',
+    description: 'Providing consequences that increase the likelihood a behaviour will occur again.',
     overview: 'Reinforcement can be social (praise, attention), tangible (preferred items), activity-based (access to preferred activities), or sensory. Effective reinforcement is immediate, consistent, and meaningful to the student.',
     quickStart: [
       'Identify what is genuinely reinforcing for this specific student',
-      'Provide reinforcement immediately after desired behavior',
+      'Provide reinforcement immediately after desired behaviour',
       'Be specific about what earned the reinforcement',
       'Vary reinforcers to maintain effectiveness',
       'Gradually shift to more natural, sustainable reinforcement'
@@ -446,23 +446,23 @@ export const ebps: EBP[] = [
       'Avoid bribery (reinforcement after behavior, not before)',
       'Do not withhold basic needs as "motivation"',
       'Respect dignity; avoid infantilizing reinforcers for older students',
-      'Monitor whether reinforcement is truly increasing desired behavior'
+      'Monitor whether reinforcement is truly increasing desired behaviour'
     ],
-    whenToUse: 'Use to strengthen new or emerging skills and maintain positive behaviors.',
+    whenToUse: 'Use to strengthen new or emerging skills and maintain positive behaviours.',
     relatedEBPs: ['differential-reinforcement', 'functional-communication-training', 'self-management']
   },
   {
     id: 'response-interruption-redirection',
     title: 'Response Interruption/Redirection',
-    category: 'Behavioral Support',
-    description: 'Interrupting an interfering behavior and redirecting to a more appropriate activity.',
-    overview: 'RIR involves briefly stopping a repetitive or interfering behavior and prompting engagement with alternative activity. It should be used respectfully and only when behavior significantly interferes with learning or safety.',
+    category: 'Behavioural Support',
+    description: 'Interrupting an interfering behaviour and redirecting to a more appropriate activity.',
+    overview: 'RIR involves briefly stopping a repetitive or interfering behaviour and prompting engagement with alternative activity. It should be used respectfully and only when behaviour significantly interferes with learning or safety.',
     quickStart: [
-      'Identify repetitive behavior that interferes with learning or participation',
-      'When behavior occurs, gently interrupt with neutral prompt',
+      'Identify repetitive behaviour that interferes with learning or participation',
+      'When behaviour occurs, gently interrupt with neutral prompt',
       'Immediately redirect to functional alternative',
       'Reinforce engagement with alternative',
-      'Monitor whether behavior decreases over time'
+      'Monitor whether behaviour decreases over time'
     ],
     irishExamples: [
       'Junior Infants: Student repeatedly flips pages instead of looking at pictures; teacher gently closes book, asks "What do you see here?"',
@@ -471,12 +471,12 @@ export const ebps: EBP[] = [
       'ASD unit: Student scripting instead of responding; teacher interrupts gently: "I asked about your weekend—what did you do?"'
     ],
     ethicalConsiderations: [
-      'Do not interrupt behaviors that serve important self-regulation functions without offering alternative',
-      'Respect that some repetitive behaviors (stimming) are not problems to eliminate',
-      'Use only when behavior genuinely interferes with functioning',
+      'Do not interrupt behaviours that serve important self-regulation functions without offering alternative',
+      'Respect that some repetitive behaviours (stimming) are not problems to eliminate',
+      'Use only when behaviour genuinely interferes with functioning',
       'Avoid punitive tone; keep interactions neutral and supportive'
     ],
-    whenToUse: 'Use when repetitive behaviors significantly interfere with learning or social situations.',
+    whenToUse: 'Use when repetitive behaviours significantly interfere with learning or social situations.',
     relatedEBPs: ['differential-reinforcement', 'functional-communication-training', 'antecedent-based-intervention']
   },
   {
@@ -511,10 +511,10 @@ export const ebps: EBP[] = [
     id: 'self-management',
     title: 'Self-Management',
     category: 'Independence & Regulation',
-    description: 'Teaching students to monitor, evaluate, and reinforce their own behavior independently.',
+    description: 'Teaching students to monitor, evaluate, and reinforce their own behaviour independently.',
     overview: 'Self-management strategies help students track their own actions, assess performance against goals, and self-reinforce. This promotes autonomy, self-awareness, and reduces reliance on adult monitoring.',
     quickStart: [
-      'Choose one specific, observable behavior to self-monitor',
+      'Choose one specific, observable behaviour to self-monitor',
       'Create simple tracking system (checklist, tally, rating scale)',
       'Teach student to use system',
       'Student self-monitors and self-evaluates at set intervals',
@@ -532,7 +532,7 @@ export const ebps: EBP[] = [
       'Ensure student has skills and support to improve, not just track failures',
       'Celebrate progress, not just perfect performance'
     ],
-    whenToUse: 'Use to promote independence, self-awareness, and autonomy in managing behavior or tasks.',
+    whenToUse: 'Use to promote independence, self-awareness, and autonomy in managing behaviour or tasks.',
     relatedEBPs: ['visual-supports', 'reinforcement', 'cognitive-behavioral-intervention']
   },
   {
@@ -707,8 +707,8 @@ export const ebps: EBP[] = [
     id: 'video-modeling',
     title: 'Video Modeling',
     category: 'Instructional Strategy',
-    description: 'Using video recordings to demonstrate skills or behaviors for students to learn through observation.',
-    overview: 'Video modeling shows students what to do through recorded demonstrations. Videos can feature adults, peers, or the student themselves (video self-modeling). It supports visual learners and allows repeated viewing.',
+    description: 'Using video recordings to demonstrate skills or behaviours for students to learn through observation.',
+    overview: 'Video modelling shows students what to do through recorded demonstrations. Videos can feature adults, peers, or the student themselves (video self-modelling). It supports visual learners and allows repeated viewing.',
     quickStart: [
       'Identify skill to teach',
       'Create or find clear video demonstration (1-3 minutes)',
@@ -724,12 +724,12 @@ export const ebps: EBP[] = [
     ],
     ethicalConsiderations: [
       'Obtain consent before recording students',
-      'Ensure videos show respectful, authentic behavior',
+      'Ensure videos show respectful, authentic behaviour',
       'Avoid videos that promote masking distress or forcing conformity',
       'Use age-appropriate models'
     ],
-    whenToUse: 'Use for teaching new skills, clarifying expectations, or building confidence through self-modeling.',
-    relatedEBPs: ['modeling', 'social-skills-training', 'task-analysis']
+    whenToUse: 'Use for teaching new skills, clarifying expectations, or building confidence through self-modelling.',
+    relatedEBPs: ['modelling', 'social-skills-training', 'task-analysis']
   },
   {
     id: 'visual-activity-schedules',
@@ -953,15 +953,15 @@ export const tools: Tool[] = [
     description: 'Use FBA framework to understand behaviour and plan function-based interventions',
     category: 'Assessment',
     icon: 'ChatCircle',
-    ebpCategories: ['Assessment & Planning', 'Behavioral Support']
+    ebpCategories: ['Assessment & Planning', 'Behavioural Support']
   },
   {
     id: 'fct-planner',
     title: 'Functional Communication Training Planner',
-    description: 'Design FCT interventions that teach appropriate communication to replace challenging behavior',
+    description: 'Design FCT interventions that teach appropriate communication to replace challenging behaviour',
     category: 'Implementation',
     icon: 'ChatsCircle',
-    ebpCategories: ['Communication', 'Behavioral Support']
+    ebpCategories: ['Communication', 'Behavioural Support']
   },
   {
     id: 'reinforcement-menu',
@@ -969,7 +969,7 @@ export const tools: Tool[] = [
     description: 'Identify effective reinforcers and create reinforcement systems with fading plans',
     category: 'Implementation',
     icon: 'Star',
-    ebpCategories: ['Behavioral Support']
+    ebpCategories: ['Behavioural Support']
   },
   {
     id: 'prompting-hierarchy',
