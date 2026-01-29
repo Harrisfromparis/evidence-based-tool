@@ -101,3 +101,13 @@ h3 {
   line-height: 1.4;
   letter-spacing: 0;
 }
+
+.narration-highlight {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 2px var(--accent);
+  font-weight: 600;
+  transform: scale(1.05);
+}

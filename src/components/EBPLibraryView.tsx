@@ -9,6 +9,7 @@ import { MagnifyingGlass, BookmarkSimple, ArrowLeft } from '@phosphor-icons/reac
 import { ebps } from '@/lib/data'
 import type { EBP } from '@/lib/types'
 import { NarrationControls } from '@/components/NarrationControls'
+import { NarrationText } from '@/components/NarrationText'
 
 export function EBPLibraryView() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -86,11 +87,11 @@ export function EBPLibraryView() {
             </div>
             <div>
               <h3 className="mb-3">What It Is</h3>
-              <p className="text-muted-foreground leading-relaxed">{selectedEBP.overview}</p>
+              <NarrationText text={selectedEBP.overview} className="text-muted-foreground leading-relaxed" />
             </div>
             <div>
               <h3 className="mb-3">When to Use</h3>
-              <p className="text-muted-foreground leading-relaxed">{selectedEBP.whenToUse}</p>
+              <NarrationText text={selectedEBP.whenToUse} className="text-muted-foreground leading-relaxed" />
             </div>
           </TabsContent>
 
@@ -105,7 +106,7 @@ export function EBPLibraryView() {
                   <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded bg-accent text-accent-foreground font-semibold">
                     {index + 1}
                   </span>
-                  <p className="text-muted-foreground leading-relaxed pt-1">{step}</p>
+                  <NarrationText text={step} className="text-muted-foreground leading-relaxed pt-1" />
                 </li>
               ))}
             </ol>
@@ -120,7 +121,7 @@ export function EBPLibraryView() {
               {selectedEBP.irishExamples.map((example, index) => (
                 <Card key={index} className="border-l-4 border-l-accent">
                   <CardContent className="pt-6">
-                    <p className="text-muted-foreground leading-relaxed">{example}</p>
+                    <NarrationText text={example} className="text-muted-foreground leading-relaxed" />
                   </CardContent>
                 </Card>
               ))}
@@ -137,7 +138,7 @@ export function EBPLibraryView() {
                 {selectedEBP.ethicalConsiderations.map((consideration, index) => (
                   <li key={index} className="flex gap-3">
                     <span className="text-accent mt-1">•</span>
-                    <p className="text-muted-foreground leading-relaxed">{consideration}</p>
+                    <NarrationText text={consideration} className="text-muted-foreground leading-relaxed" />
                   </li>
                 ))}
               </ul>

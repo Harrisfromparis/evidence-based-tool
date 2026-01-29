@@ -11,6 +11,7 @@ import { ArrowLeft, X, Sparkle } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import { ActionButtons } from '@/components/ActionButtons'
 import { NarrationControls } from '@/components/NarrationControls'
+import { NarrationText } from '@/components/NarrationText'
 
 interface SocialNarrativeCreatorProps {
   onBack: () => void
@@ -382,9 +383,10 @@ Format with clear spacing between sections.`
                               <h4 className="font-semibold text-sm text-muted-foreground">Educator Narrative:</h4>
                               <NarrationControls text={item.narrative} variant="minimal" />
                             </div>
-                            <p className="text-foreground whitespace-pre-wrap font-serif leading-relaxed">
-                              {item.narrative}
-                            </p>
+                            <NarrationText 
+                              text={item.narrative}
+                              className="text-foreground whitespace-pre-wrap font-serif leading-relaxed"
+                            />
                           </div>
                         </TabsContent>
 
@@ -398,8 +400,11 @@ Format with clear spacing between sections.`
                                   variant="minimal" 
                                 />
                               </div>
-                              <div className="text-foreground whitespace-pre-wrap font-body text-lg leading-relaxed bg-muted/30 p-4 rounded-md">
-                                {item.studentFriendlyNarrative}
+                              <div className="bg-muted/30 p-4 rounded-md">
+                                <NarrationText 
+                                  text={item.studentFriendlyNarrative}
+                                  className="text-foreground whitespace-pre-wrap font-body text-lg leading-relaxed"
+                                />
                               </div>
                             </div>
                           ) : (

@@ -5,6 +5,7 @@ import { ArrowLeft } from '@phosphor-icons/react'
 import { rightsContent } from '@/lib/data'
 import type { RightsContent } from '@/lib/types'
 import { NarrationControls } from '@/components/NarrationControls'
+import { NarrationText } from '@/components/NarrationText'
 
 export function RightsEthicsView() {
   const [selectedContent, setSelectedContent] = useState<RightsContent | null>(null)
@@ -34,6 +35,7 @@ export function RightsEthicsView() {
 
   if (selectedContent) {
     const plainText = selectedContent.content.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\n\n/g, ' ')
+    const paragraphs = selectedContent.content.split(/\n\n/)
     
     return (
       <div className="space-y-6">
@@ -56,10 +58,18 @@ export function RightsEthicsView() {
 
         <Card>
           <CardContent className="pt-6">
-            <div 
-              className="prose prose-slate max-w-none text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: selectedContent.content.replace(/\n\n/g, '</p><p className="mb-4">').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/^/,'<p className="mb-4">') + '</p>' }}
-            />
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              {paragraphs.map((para, index) => {
+                const parts = para.split(/(\*\*.*?\*\*)/)
+                return (
+                  <NarrationText
+                    key={index}
+                    text={para.replace(/\*\*/g, '')}
+                    className="mb-4"
+                  />
+                )
+              })}
+            </div>
           </CardContent>
         </Card>
       </div>

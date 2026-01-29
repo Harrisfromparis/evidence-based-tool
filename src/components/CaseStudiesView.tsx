@@ -7,6 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { BookmarkSimple, ArrowLeft } from '@phosphor-icons/react'
 import { caseStudies } from '@/lib/data'
 import type { CaseStudy } from '@/lib/types'
+import { NarrationControls } from '@/components/NarrationControls'
+import { NarrationText } from '@/components/NarrationText'
 
 export function CaseStudiesView() {
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null)
@@ -41,6 +43,8 @@ export function CaseStudiesView() {
   }
 
   if (selectedCase) {
+    const fullCaseText = `${selectedCase.title}. Setting: ${selectedCase.setting}. Challenge: ${selectedCase.challenge}. Context: ${selectedCase.context}. Approach: ${selectedCase.approach}. Evidence-Based Practices Used: ${selectedCase.ebpsUsed.join(', ')}. Outcome: ${selectedCase.outcome}.`
+
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
@@ -52,14 +56,17 @@ export function CaseStudiesView() {
             <ArrowLeft className="w-4 h-4" />
             Back to Case Studies
           </Button>
-          <Button
-            variant={isBookmarked(selectedCase.id) ? 'default' : 'outline'}
-            onClick={() => toggleBookmark(selectedCase.id)}
-            className="gap-2"
-          >
-            <BookmarkSimple className="w-5 h-5" weight={isBookmarked(selectedCase.id) ? 'fill' : 'regular'} />
-            {isBookmarked(selectedCase.id) ? 'Bookmarked' : 'Bookmark'}
-          </Button>
+          <div className="flex gap-2">
+            <NarrationControls text={fullCaseText} variant="minimal" />
+            <Button
+              variant={isBookmarked(selectedCase.id) ? 'default' : 'outline'}
+              onClick={() => toggleBookmark(selectedCase.id)}
+              className="gap-2"
+            >
+              <BookmarkSimple className="w-5 h-5" weight={isBookmarked(selectedCase.id) ? 'fill' : 'regular'} />
+              {isBookmarked(selectedCase.id) ? 'Bookmarked' : 'Bookmark'}
+            </Button>
+          </div>
         </div>
 
         <div>
@@ -78,11 +85,11 @@ export function CaseStudiesView() {
             <CardContent className="space-y-4">
               <div>
                 <p className="text-sm font-semibold text-foreground mb-1">Setting</p>
-                <p className="text-muted-foreground">{selectedCase.setting}</p>
+                <NarrationText text={selectedCase.setting} className="text-muted-foreground" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground mb-1">Challenge</p>
-                <p className="text-muted-foreground">{selectedCase.challenge}</p>
+                <NarrationText text={selectedCase.challenge} className="text-muted-foreground" />
               </div>
             </CardContent>
           </Card>
@@ -92,7 +99,7 @@ export function CaseStudiesView() {
               <CardTitle>Context</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">{selectedCase.context}</p>
+              <NarrationText text={selectedCase.context} className="text-muted-foreground leading-relaxed" />
             </CardContent>
           </Card>
 
@@ -101,7 +108,7 @@ export function CaseStudiesView() {
               <CardTitle>Approach</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">{selectedCase.approach}</p>
+              <NarrationText text={selectedCase.approach} className="text-muted-foreground leading-relaxed" />
             </CardContent>
           </Card>
 
@@ -125,7 +132,7 @@ export function CaseStudiesView() {
               <CardTitle>Outcome</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground leading-relaxed">{selectedCase.outcome}</p>
+              <NarrationText text={selectedCase.outcome} className="text-muted-foreground leading-relaxed" />
             </CardContent>
           </Card>
         </div>

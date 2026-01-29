@@ -7,6 +7,7 @@ interface NarrationSettings {
   pitch: number
   volume: number
   voice: string | null
+  highlightText: boolean
 }
 
 export function useAudioNarration() {
@@ -15,11 +16,13 @@ export function useAudioNarration() {
     rate: 1.0,
     pitch: 1.0,
     volume: 1.0,
-    voice: null
+    voice: null,
+    highlightText: true
   })
 
   const [isPlaying, setIsPlaying] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
+  const [currentWordIndex, setCurrentWordIndex] = useState<number>(-1)
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([])
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null)
 
@@ -41,7 +44,9 @@ export function useAudioNarration() {
     if (!text || !settings) return
 
     window.speechSynthesis.cancel()
+    setCurrentWordIndex(-1)
 
+    const words = text.split(/\s+/)
     const utterance = new SpeechSynthesisUtterance(text)
     utterance.rate = settings.rate
     utterance.pitch = settings.pitch
@@ -57,17 +62,41 @@ export function useAudioNarration() {
     utterance.onstart = () => {
       setIsPlaying(true)
       setIsPaused(false)
+      setCurrentWordIndex(0)
+    }
+
+    if (settings.highlightText) {
+      utterance.onboundary = (event) => {
+        if (event.name === 'word') {
+          const charIndex = event.charIndex
+          let wordCount = 0
+          let currentIndex = 0
+          
+          for (let i = 0; i < words.length; i++) {
+            currentIndex = text.indexOf(words[i], currentIndex)
+            if (currentIndex <= charIndex && charIndex < currentIndex + words[i].length) {
+              wordCount = i
+              break
+            }
+            currentIndex += words[i].length
+          }
+          
+          setCurrentWordIndex(wordCount)
+        }
+      }
     }
 
     utterance.onend = () => {
       setIsPlaying(false)
       setIsPaused(false)
+      setCurrentWordIndex(-1)
       utteranceRef.current = null
     }
 
     utterance.onerror = () => {
       setIsPlaying(false)
       setIsPaused(false)
+      setCurrentWordIndex(-1)
       utteranceRef.current = null
     }
 
@@ -93,6 +122,7 @@ export function useAudioNarration() {
     window.speechSynthesis.cancel()
     setIsPlaying(false)
     setIsPaused(false)
+    setCurrentWordIndex(-1)
     utteranceRef.current = null
   }, [])
 
@@ -104,9 +134,10 @@ export function useAudioNarration() {
         pitch: 1.0,
         volume: 1.0,
         voice: null,
+        highlightText: true,
         ...newSettings
       }
-      return { ...current, ...newSettings }
+      return { ...current, ...newSettings } as NarrationSettings
     })
   }, [setSettings])
 
@@ -119,6 +150,7 @@ export function useAudioNarration() {
     stop,
     isPlaying,
     isPaused,
+    currentWordIndex,
     availableVoices
   }
 }

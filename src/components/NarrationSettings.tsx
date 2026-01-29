@@ -53,6 +53,22 @@ export function NarrationSettings() {
 
           {settings.enabled && (
             <>
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <Label htmlFor="highlight-enabled" className="text-base">
+                    Highlight Narrated Text
+                  </Label>
+                  <p className="text-sm text-muted-foreground">
+                    Visually highlight words as they are spoken
+                  </p>
+                </div>
+                <Switch
+                  id="highlight-enabled"
+                  checked={settings.highlightText}
+                  onCheckedChange={(checked) => updateSettings({ highlightText: checked })}
+                />
+              </div>
+
               <div className="space-y-3">
                 <Label htmlFor="voice-select">Voice</Label>
                 <Select
