@@ -42,6 +42,7 @@ import { DTTSessionPlanner } from '@/components/DTTSessionPlanner'
 import { NaturalisticTeachingPlanner } from '@/components/NaturalisticTeachingPlanner'
 import { VRScenarioPlanner } from '@/components/VRScenarioPlanner'
 import { VRTransitionPrep } from '@/components/VRTransitionPrep'
+import { VRDemonstrations } from '@/components/VRDemonstrations'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
 
 const iconMap = {
@@ -221,6 +222,10 @@ export function ToolsView() {
     return <VRTransitionPrep onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'vr-demonstrations') {
+    return <VRDemonstrations onBack={() => setSelectedTool(null)} />
+  }
+
   const implementedTools = [
     'lesson-script-generator', 
     'transition-support', 
@@ -252,7 +257,8 @@ export function ToolsView() {
     'dtt-session-planner',
     'naturalistic-teaching',
     'vr-scenario-planner',
-    'vr-transition-prep'
+    'vr-transition-prep',
+    'vr-demonstrations'
   ]
 
   return (

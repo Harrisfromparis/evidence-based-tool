@@ -1176,6 +1176,14 @@ export const tools: Tool[] = [
     category: 'Planning',
     icon: 'ArrowsLeftRight',
     ebpCategories: ['Technology', 'Environmental Support']
+  },
+  {
+    id: 'vr-demonstrations',
+    title: 'VR Demonstrations',
+    description: 'Watch video demonstrations of virtual reality being used for autism support in real-world settings',
+    category: 'Learning',
+    icon: 'Video',
+    ebpCategories: ['Technology', 'Social & Communication']
   }
 ]
 

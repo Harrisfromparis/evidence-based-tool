@@ -124,6 +124,13 @@ The app provides structured navigation through educational content with search, 
 - Progression: Specify transition type → Describe new environment → Identify student concerns/anxieties → Add timeframe → Generate comprehensive transition plan → Review VR environment design, virtual tour structure, interactive elements, concern-addressing strategies, supporting materials, real-world connection plan, key people introduction, session structure, student agency options, and progress monitoring → Save plan → Access saved transition plans
 - Success criteria: Plans address specific student anxieties; include detailed VR tour structure; connect virtual to real-world visits; incorporate key people and locations; emphasise student control of pace; include backup plans for VR discomfort; plans persist across sessions
 
+**VR Demonstrations** [IMPLEMENTED]
+- Functionality: Curated collection of 6+ embedded video demonstrations showing Virtual Reality being used for autism support in real-world educational and vocational settings. Videos cover social skills training, job interview practice, classroom familiarisation, public space navigation, school tours, and classroom behaviour skills. Each video includes context, duration, age range, category badges, and direct YouTube links.
+- Purpose: Provide educators with concrete, visual examples of VR implementation for autism support. Bridge the gap between theoretical VR planning and practical application by showing real students using VR technology safely and effectively.
+- Trigger: User selects "VR Demonstrations" from Tools section
+- Progression: View introduction and important considerations about VR use → Browse video demonstrations organised by category → Watch embedded videos or open on YouTube → Read video descriptions and implementation context → Access links to VR planning tools (VR Scenario Planner, VR Transition Prep)
+- Success criteria: All videos are embedded and playable; clear categorisation by social/transition/vocational/classroom; ethical considerations prominently displayed; videos demonstrate diverse VR applications; links connect to related planning tools; introduction emphasises student agency and comfort; UK English spelling and euro references throughout
+
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
 - Purpose: Enable personalized resource curation and rapid information retrieval
