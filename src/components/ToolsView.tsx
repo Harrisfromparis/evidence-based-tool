@@ -40,6 +40,8 @@ import { MusicInterventionPlanner } from '@/components/MusicInterventionPlanner'
 import { TechnologyIntegrationPlanner } from '@/components/TechnologyIntegrationPlanner'
 import { DTTSessionPlanner } from '@/components/DTTSessionPlanner'
 import { NaturalisticTeachingPlanner } from '@/components/NaturalisticTeachingPlanner'
+import { VRScenarioPlanner } from '@/components/VRScenarioPlanner'
+import { VRTransitionPrep } from '@/components/VRTransitionPrep'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
 
 const iconMap = {
@@ -211,6 +213,14 @@ export function ToolsView() {
     return <NaturalisticTeachingPlanner onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'vr-scenario-planner') {
+    return <VRScenarioPlanner onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'vr-transition-prep') {
+    return <VRTransitionPrep onBack={() => setSelectedTool(null)} />
+  }
+
   const implementedTools = [
     'lesson-script-generator', 
     'transition-support', 
@@ -240,13 +250,15 @@ export function ToolsView() {
     'music-intervention-planner',
     'technology-integration',
     'dtt-session-planner',
-    'naturalistic-teaching'
+    'naturalistic-teaching',
+    'vr-scenario-planner',
+    'vr-transition-prep'
   ]
 
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-foreground mb-2">Implementation Tools for All 28 EBPs</h2>
+        <h2 className="text-foreground mb-2">Implementation Tools for All 29 EBPs</h2>
         <p className="text-muted-foreground">
           Practical tools to implement evidence-based practices. Each tool provides structured guidance
           for planning, assessment, and action across all 28 NCAEP evidence-based practices.

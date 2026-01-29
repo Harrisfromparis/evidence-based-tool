@@ -775,7 +775,7 @@ export const ebps: EBP[] = [
     irishExamples: [
       'Primary school classroom: Visual timetable showing subjects using Boardmaker symbols, placed on each student\'s desk',
       'Secondary school: First-Then board for homework completion (First: Maths worksheet, Then: Break with preferred activity)',
-      'SEN setting: Photo sequence showing steps for washing hands, laminated and placed beside sink',
+      'SEN setting: Photo sequence showing steps for washing hands, displayed beside sink',
       'Whole school: Visual map of building showing "quiet zones" and "busy zones" for breaks'
     ],
     ethicalConsiderations: [
@@ -844,6 +844,36 @@ export const ebps: EBP[] = [
     ],
     whenToUse: 'Use when student needs voice output for functional communication and other AAC methods are insufficient.',
     relatedEBPs: ['augmentative-alternative-communication', 'technology-aided-instruction', 'functional-communication-training']
+  },
+  {
+    id: 'virtual-reality-learning',
+    title: 'Virtual Reality Learning',
+    category: 'Technology',
+    description: 'Using VR technology to create immersive, controlled learning environments for practising social skills, exploring new situations, and building confidence.',
+    overview: 'Virtual Reality (VR) provides safe, repeatable environments where autistic students can practise skills, explore anxiety-provoking situations at their own pace, and experience scenarios before encountering them in real life. VR can support social skills practice, transition preparation, situational rehearsal, and sensory exploration with full student control.',
+    quickStart: [
+      'Identify specific skill or situation that would benefit from safe practice',
+      'Choose age-appropriate VR application or create custom scenario',
+      'Introduce VR equipment gradually; allow student to explore at own pace',
+      'Start with short sessions (5-10 minutes) and build tolerance',
+      'Debrief after VR session; connect virtual practice to real-world application'
+    ],
+    irishExamples: [
+      'Transition preparation: Sixth class students use VR to explore their new secondary school building before starting, walking virtual corridors and locating key rooms',
+      'Social skills practice: Small group uses VR scenarios to practise ordering food in a café, with teacher pausing to discuss choices and strategies',
+      'Anxiety management: First year student with public transport anxiety uses VR bus simulator to practise the school bus journey in a controlled setting',
+      'Job skills training: TY students practise workplace scenarios (interviews, customer service, following instructions) in VR before work experience placement'
+    ],
+    ethicalConsiderations: [
+      'Student must have full control to pause, stop, or remove headset at any time',
+      'Monitor for sensory overwhelm; VR can be intense for some autistic individuals',
+      'Never use VR as "exposure therapy" to force tolerance of distressing stimuli',
+      'Ensure VR scenarios are realistic and respectful, not stigmatising',
+      'VR is a practice tool, not a replacement for real-world support and accommodation',
+      'Consider accessibility: some students experience motion sickness or visual discomfort'
+    ],
+    whenToUse: 'Use when safe, repeatable practice would build confidence, when preparing for new situations, or when real-world practice is not yet feasible.',
+    relatedEBPs: ['video-modeling', 'social-skills-training', 'technology-aided-instruction', 'antecedent-based-intervention']
   }
 ]
 
@@ -1130,6 +1160,22 @@ export const tools: Tool[] = [
     category: 'Implementation',
     icon: 'Leaf',
     ebpCategories: ['Social & Communication', 'Instructional Strategy']
+  },
+  {
+    id: 'vr-scenario-planner',
+    title: 'VR Scenario Planner',
+    description: 'Design virtual reality learning experiences for social skills, transitions, and anxiety management',
+    category: 'Implementation',
+    icon: 'Laptop',
+    ebpCategories: ['Technology', 'Social & Communication']
+  },
+  {
+    id: 'vr-transition-prep',
+    title: 'VR Transition Preparation',
+    description: 'Create VR-based transition plans for new schools, classrooms, or environments',
+    category: 'Planning',
+    icon: 'ArrowsLeftRight',
+    ebpCategories: ['Technology', 'Environmental Support']
   }
 ]
 
@@ -1162,6 +1208,7 @@ export const teachingApproaches = [
   'Technology-Aided Instruction and Intervention',
   'Time Delay',
   'Video Modeling',
+  'Virtual Reality Learning',
   'Visual Activity Schedules',
   'Visual Supports'
 ] as const

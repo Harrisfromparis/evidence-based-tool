@@ -13,7 +13,7 @@ The app provides structured navigation through educational content with search, 
 ## Essential Features
 
 **EBP Library Browser**
-- Functionality: Browse and search 28 evidence-based practices with plain-English definitions, Irish examples, quick-start guides, and ethical considerations
+- Functionality: Browse and search 29 evidence-based practices (including Virtual Reality Learning) with plain-English definitions, Irish examples, quick-start guides, and ethical considerations
 - Purpose: Rapid access to practical, contextualized guidance for classroom implementation
 - Trigger: User opens app or taps "EBP Library" navigation
 - Progression: Landing view with search bar and categorized list → Select EBP card → Full detail view with tabs (Overview, Quick Start, Ethics, Examples) → Option to bookmark or return to list
@@ -41,10 +41,10 @@ The app provides structured navigation through educational content with search, 
 - Success criteria: Each tool can be completed in under 5 minutes; results provide actionable next steps
 
 **Lesson Script Generator** [IMPLEMENTED]
-- Functionality: AI-powered tool that generates complete, classroom-ready lesson scripts based on teacher's lesson title and selected teaching approaches from the 28 EBPs. Includes ability to save scripts for later access, view previously generated scripts, and export scripts.
+- Functionality: AI-powered tool that generates complete, classroom-ready lesson scripts based on teacher's lesson title and selected teaching approaches from the 29 EBPs (including VR). Includes ability to save scripts for later access, view previously generated scripts, and export scripts.
 - Purpose: Enable teachers to quickly create pedagogically sound, neuro-affirming lesson plans that integrate evidence-based practices
 - Trigger: User selects "Lesson Script Generator" from Tools section
-- Progression: Enter lesson title → Select one or more of 28 teaching approaches → Generate script → View structured lesson with objectives, activities, timing, differentiation, assessment → Save script to collection → Export for classroom use OR View saved scripts → Select script from saved collection → View/export saved script → Delete script if no longer needed
+- Progression: Enter lesson title → Select one or more of 29 teaching approaches → Generate script → View structured lesson with objectives, activities, timing, differentiation, assessment → Save script to collection → Export for classroom use OR View saved scripts → Select script from saved collection → View/export saved script → Delete script if no longer needed
 - Success criteria: Teachers can generate a comprehensive lesson script within 3 minutes; output includes all essential lesson components; scripts are immediately usable without modification; saved scripts persist across sessions and can be accessed at any time
 
 **Choose 3 EBPs Planner** [PLACEHOLDER]
@@ -83,11 +83,11 @@ The app provides structured navigation through educational content with search, 
 - Success criteria: All transition types covered; structured but flexible; emphasizes student and family communication; plans persist across sessions; export functionality provides shareable text format
 
 **Parent/Caregiver EBP Assessment** [IMPLEMENTED]
-- Functionality: Comprehensive assessment tool allowing parents and caregivers to rate all 28 evidence-based practices based on their effectiveness at home and in other settings. Multi-step guided process with progress tracking and local storage of completed assessments.
+- Functionality: Comprehensive assessment tool allowing parents and caregivers to rate all 29 evidence-based practices (including VR) based on their effectiveness at home and in other settings. Multi-step guided process with progress tracking and local storage of completed assessments.
 - Purpose: Capture valuable parent insights about what strategies work (or don't work) for their child to inform school-based planning and create collaborative, family-centered support
 - Trigger: User selects "Parent/Caregiver EBP Assessment" from Tools section
 - Progression: Enter child and parent information → Work through 6 categories of EBPs → For each EBP, rate effectiveness (very effective, somewhat effective, not effective, never tried) → Add context notes and tips → Review summary → Save assessment → View saved assessments with detailed breakdown by category
-- Success criteria: Complete coverage of all 28 EBPs; intuitive rating system; optional but valuable context fields; clear progress indicators; assessments persist across sessions; assessments are accessible to school staff for planning purposes
+- Success criteria: Complete coverage of all 29 EBPs; intuitive rating system; optional but valuable context fields; clear progress indicators; assessments persist across sessions; assessments are accessible to school staff for planning purposes
 
 **School Daily Planner** [IMPLEMENTED]
 - Functionality: Dual-access planning tool for teachers, SNAs, and school liaison staff to create personalized daily schedules based on parent/caregiver assessment insights. Select a student's parent assessment, view effective strategies, build activity-by-activity schedules incorporating parent-recommended EBPs.
@@ -97,10 +97,10 @@ The app provides structured navigation through educational content with search, 
 - Success criteria: Seamless access to parent assessment data; clear presentation of effective strategies with parent context notes; flexible activity builder; plans persist across sessions; school staff can create multiple plans for same student over time; clear connection between parent insights and daily implementation
 
 **Student Voice: My Triggers & Supports** [IMPLEMENTED]
-- Functionality: Interactive tool for students to share their own experiences with all 28 evidence-based practices. Students rate each teaching approach (helpful, neutral, unhelpful) and describe specific triggers, needed supports, and personal insights. Multi-step guided process with student-friendly language and visual feedback.
+- Functionality: Interactive tool for students to share their own experiences with all 29 evidence-based practices (including VR). Students rate each teaching approach (helpful, neutral, unhelpful) and describe specific triggers, needed supports, and personal insights. Multi-step guided process with student-friendly language and visual feedback.
 - Purpose: Center student voice in educational planning by capturing first-hand experience of what works and what doesn't. Enable students to express triggers and supports in their own words, creating authentic data for person-centered planning.
 - Trigger: User selects "Student Voice: My Triggers & Supports" from Tools section
-- Progression: Enter student information (name, age, class, completed with) → Review tool instructions → Work through all 28 EBPs → For each EBP, rate feeling (helpful/neutral/unhelpful) → Describe triggers and challenges → Describe what helps or would help → Add additional notes → Review summary → Save profile → Access saved profiles → View categorized feedback (helpful, unhelpful, neutral, or all)
+- Progression: Enter student information (name, age, class, completed with) → Review tool instructions → Work through all 29 EBPs → For each EBP, rate feeling (helpful/neutral/unhelpful) → Describe triggers and challenges → Describe what helps or would help → Add additional notes → Review summary → Save profile → Access saved profiles → View categorized feedback (helpful, unhelpful, neutral, or all)
 - Success criteria: Student-friendly language throughout; visual rating system with emojis; optional fields to reduce pressure; progress tracking; profiles persist across sessions; clear categorization of helpful vs unhelpful strategies; supports can be completed independently or with trusted adult; creates actionable insights for teachers and parents
 
 **Social Narrative Creator** [IMPLEMENTED WITH ENHANCEMENT]
@@ -109,6 +109,20 @@ The app provides structured navigation through educational content with search, 
 - Trigger: User selects "Social Narrative Creator" from Tools section
 - Progression: Describe situation → Enter optional student name → Generate educator version narrative → Generate student-friendly version with emoji structure (📍 What happens, ❓ Why it happens, 💪 What I can do, ✅ It will be okay) → Review and edit both versions → Save both versions together → Access saved narratives → View with version tabs (Educator/Student-Friendly) → Export both versions
 - Success criteria: Generates both educator and student-friendly versions; student version uses 5-10 word sentences with concrete vocabulary; emoji headers provide clear structure; narratives follow ethical principles (dignity and autonomy are non-negotiable); both versions persist together across sessions; UK English spelling and euro currency used throughout; clear guidance on when and how to use each version
+
+**VR Scenario Planner** [IMPLEMENTED]
+- Functionality: AI-powered tool that designs comprehensive Virtual Reality learning experiences for practising social skills, managing anxiety, preparing for transitions, and building confidence. Creates detailed VR scenario plans with learning objectives, session structure, scaffolding strategies, generalisation plans, and ethical safeguards.
+- Purpose: Enable educators to leverage VR technology safely and effectively for autism support. Provide structured frameworks for using VR as a practice tool while maintaining student agency and ethical standards.
+- Trigger: User selects "VR Scenario Planner" from Tools section
+- Progression: Enter learning goal area → Specify skill/situation → Provide student information → Add sensory considerations → Generate comprehensive VR plan → Review scenario description, objectives, session structure, scaffolding, generalisation strategies, accessibility modifications, progress monitoring, and ethical considerations → Save plan → Access saved VR scenarios
+- Success criteria: Plans include detailed VR scenario descriptions; clear learning objectives; student-centered progression; emphasis on student control and comfort; explicit ethical guidelines; sensory accessibility considerations; connection to real-world application; plans persist across sessions
+
+**VR Transition Preparation** [IMPLEMENTED]
+- Functionality: AI-powered tool that creates VR-based transition preparation plans for helping students explore and familiarise themselves with new environments (schools, classrooms, buildings) before transitions occur. Reduces anxiety through safe, repeatable virtual exploration.
+- Purpose: Support major transitions by allowing students to virtually explore new environments at their own pace, building familiarity and confidence before facing real-world change.
+- Trigger: User selects "VR Transition Preparation" from Tools section
+- Progression: Specify transition type → Describe new environment → Identify student concerns/anxieties → Add timeframe → Generate comprehensive transition plan → Review VR environment design, virtual tour structure, interactive elements, concern-addressing strategies, supporting materials, real-world connection plan, key people introduction, session structure, student agency options, and progress monitoring → Save plan → Access saved transition plans
+- Success criteria: Plans address specific student anxieties; include detailed VR tour structure; connect virtual to real-world visits; incorporate key people and locations; emphasise student control of pace; include backup plans for VR discomfort; plans persist across sessions
 
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
