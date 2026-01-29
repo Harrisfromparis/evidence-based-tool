@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { ArrowLeft } from '@phosphor-icons/react'
 import { rightsContent } from '@/lib/data'
 import type { RightsContent } from '@/lib/types'
+import { NarrationControls } from '@/components/NarrationControls'
 
 export function RightsEthicsView() {
   const [selectedContent, setSelectedContent] = useState<RightsContent | null>(null)
@@ -32,6 +33,8 @@ export function RightsEthicsView() {
   ]
 
   if (selectedContent) {
+    const plainText = selectedContent.content.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\n\n/g, ' ')
+    
     return (
       <div className="space-y-6">
         <Button 
@@ -43,8 +46,12 @@ export function RightsEthicsView() {
           Back to Rights & Ethics
         </Button>
 
-        <div>
+        <div className="flex items-start justify-between">
           <h2 className="text-foreground mb-4">{selectedContent.title}</h2>
+          <NarrationControls 
+            text={`${selectedContent.title}. ${plainText}`}
+            variant="minimal"
+          />
         </div>
 
         <Card>
@@ -61,18 +68,30 @@ export function RightsEthicsView() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-foreground mb-2">Rights & Ethics</h2>
-        <p className="text-muted-foreground">
-          Ground your practice in rights-based frameworks and ethical principles. All interventions must respect 
-          the dignity, autonomy, and identity of autistic students.
-        </p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h2 className="text-foreground mb-2">Rights & Ethics</h2>
+          <p className="text-muted-foreground">
+            Ground your practice in rights-based frameworks and ethical principles. All interventions must respect 
+            the dignity, autonomy, and identity of autistic students.
+          </p>
+        </div>
+        <NarrationControls 
+          text="Rights and Ethics. Ground your practice in rights-based frameworks and ethical principles. All interventions must respect the dignity, autonomy, and identity of autistic students."
+          variant="minimal"
+        />
       </div>
 
       <div className="bg-accent/10 border-l-4 border-l-accent p-6">
-        <p className="text-foreground font-semibold mb-2">
-          Core Principle
-        </p>
+        <div className="flex items-start justify-between mb-2">
+          <p className="text-foreground font-semibold">
+            Core Principle
+          </p>
+          <NarrationControls 
+            text="Core Principle. If an intervention would be considered unacceptable for a neurotypical student, it is unacceptable for a neurodivergent student. Dignity and autonomy are non-negotiable."
+            variant="minimal"
+          />
+        </div>
         <p className="text-muted-foreground">
           If an intervention would be considered unacceptable for a neurotypical student, it is unacceptable 
           for a neurodivergent student. Dignity and autonomy are non-negotiable.

@@ -5,7 +5,7 @@ Autism and Me - A professional tool for educators to access evidence-based pract
 **Experience Qualities**:
 1. **Professional** - Feels like a well-crafted government resource, not a consumer app; conveys expertise and institutional trust
 2. **Calming** - Reduces cognitive load through generous whitespace, clear hierarchy, and absence of decorative elements; respects the user's attention
-3. **Accessible** - High contrast, dyslexia-friendly typography, offline capability, and no barriers to entry (no login, no tracking)
+3. **Accessible** - High contrast, dyslexia-friendly typography, offline capability, audio narration for text-to-speech support, and no barriers to entry (no login, no tracking)
 
 **Complexity Level**: Light Application (multiple features with basic state)
 The app provides structured navigation through educational content with search, filtering, and bookmarking capabilities. State management focuses on user preferences (bookmarks, recently viewed) and navigation context rather than complex data transformations.
@@ -116,6 +116,13 @@ The app provides structured navigation through educational content with search, 
 - Trigger: User taps bookmark icon (anywhere) or enters search query
 - Progression: Bookmark: Tap icon → Visual confirmation → Item saved to "Saved" collection | Search: Type query → Results appear (EBPs, cases, tools) → Select result → Navigate to full content
 - Success criteria: Bookmarks persist across sessions; search returns relevant results within 1 second
+
+**Audio Narration for Accessibility** [IMPLEMENTED]
+- Functionality: Browser-based text-to-speech narration system with customizable voice, speed, pitch, and volume settings. Users can enable audio narration globally and then play, pause, and stop narration for specific content sections throughout the application. Settings persist across sessions.
+- Purpose: Improve accessibility for users with visual impairments, reading difficulties, dyslexia, or those who prefer auditory learning. Support multi-modal content consumption.
+- Trigger: User opens narration settings from header → Enables audio narration → Narration controls appear next to content sections → User clicks play button to hear content read aloud
+- Progression: Access settings → Toggle narration on → Adjust voice/speed/pitch/volume preferences → Test narration → Navigate to any content → Use play/pause/stop controls for section narration → Settings persist across sessions
+- Success criteria: Text-to-speech works reliably across all major browsers; controls are intuitive and consistently placed; settings are saved and restored; narration can be started/stopped easily; student-friendly social narratives can be read aloud for direct student support; voice quality is clear and natural
 
 ## Edge Case Handling
 

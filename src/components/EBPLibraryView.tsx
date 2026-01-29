@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { MagnifyingGlass, BookmarkSimple, ArrowLeft } from '@phosphor-icons/react'
 import { ebps } from '@/lib/data'
 import type { EBP } from '@/lib/types'
+import { NarrationControls } from '@/components/NarrationControls'
 
 export function EBPLibraryView() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -36,6 +37,11 @@ export function EBPLibraryView() {
   const isBookmarked = (id: string) => (bookmarkedEBPs || []).includes(id)
 
   if (selectedEBP) {
+    const overviewText = `${selectedEBP.title}. ${selectedEBP.description}. What It Is: ${selectedEBP.overview}. When to Use: ${selectedEBP.whenToUse}`
+    const quickStartText = `Quick Start Steps for ${selectedEBP.title}. ${selectedEBP.quickStart.map((step, i) => `Step ${i + 1}: ${step}`).join('. ')}`
+    const examplesText = `Irish Classroom Examples for ${selectedEBP.title}. ${selectedEBP.irishExamples.join('. ')}`
+    const ethicsText = `Ethical Considerations for ${selectedEBP.title}. ${selectedEBP.ethicalConsiderations.join('. ')}`
+
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
@@ -59,7 +65,9 @@ export function EBPLibraryView() {
 
         <div>
           <Badge className="mb-3">{selectedEBP.category}</Badge>
-          <h2 className="text-foreground mb-2">{selectedEBP.title}</h2>
+          <div className="flex items-start justify-between mb-2">
+            <h2 className="text-foreground">{selectedEBP.title}</h2>
+          </div>
           <p className="text-lg text-muted-foreground">{selectedEBP.description}</p>
         </div>
 
@@ -72,6 +80,10 @@ export function EBPLibraryView() {
           </TabsList>
 
           <TabsContent value="overview" className="space-y-4 mt-6">
+            <div className="flex items-start justify-between mb-4">
+              <h3>Overview</h3>
+              <NarrationControls text={overviewText} variant="minimal" />
+            </div>
             <div>
               <h3 className="mb-3">What It Is</h3>
               <p className="text-muted-foreground leading-relaxed">{selectedEBP.overview}</p>
@@ -83,7 +95,10 @@ export function EBPLibraryView() {
           </TabsContent>
 
           <TabsContent value="quick-start" className="space-y-4 mt-6">
-            <h3 className="mb-4">Quick Start Steps</h3>
+            <div className="flex items-start justify-between mb-4">
+              <h3>Quick Start Steps</h3>
+              <NarrationControls text={quickStartText} variant="minimal" />
+            </div>
             <ol className="space-y-3">
               {selectedEBP.quickStart.map((step, index) => (
                 <li key={index} className="flex gap-4">
@@ -97,7 +112,10 @@ export function EBPLibraryView() {
           </TabsContent>
 
           <TabsContent value="examples" className="space-y-4 mt-6">
-            <h3 className="mb-4">Irish Classroom Examples</h3>
+            <div className="flex items-start justify-between mb-4">
+              <h3>Irish Classroom Examples</h3>
+              <NarrationControls text={examplesText} variant="minimal" />
+            </div>
             <div className="space-y-4">
               {selectedEBP.irishExamples.map((example, index) => (
                 <Card key={index} className="border-l-4 border-l-accent">
@@ -110,7 +128,10 @@ export function EBPLibraryView() {
           </TabsContent>
 
           <TabsContent value="ethics" className="space-y-4 mt-6">
-            <h3 className="mb-4">Ethical Considerations</h3>
+            <div className="flex items-start justify-between mb-4">
+              <h3>Ethical Considerations</h3>
+              <NarrationControls text={ethicsText} variant="minimal" />
+            </div>
             <div className="bg-muted p-6 border border-border">
               <ul className="space-y-3">
                 {selectedEBP.ethicalConsiderations.map((consideration, index) => (

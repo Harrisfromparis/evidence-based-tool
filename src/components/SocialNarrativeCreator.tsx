@@ -10,6 +10,7 @@ import { Separator } from '@/components/ui/separator'
 import { ArrowLeft, X, Sparkle } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import { ActionButtons } from '@/components/ActionButtons'
+import { NarrationControls } from '@/components/NarrationControls'
 
 interface SocialNarrativeCreatorProps {
   onBack: () => void
@@ -247,7 +248,10 @@ Format with clear spacing between sections.`
 
                   <TabsContent value="educator" className="space-y-4 mt-4">
                     <div className="space-y-2">
-                      <Label>Educator Version</Label>
+                      <div className="flex items-center justify-between">
+                        <Label>Educator Version</Label>
+                        <NarrationControls text={narrative} variant="minimal" />
+                      </div>
                       <p className="text-sm text-muted-foreground">
                         Professional version for planning and coordination
                       </p>
@@ -263,7 +267,13 @@ Format with clear spacing between sections.`
                   <TabsContent value="student" className="space-y-4 mt-4">
                     {studentFriendlyNarrative ? (
                       <div className="space-y-2">
-                        <Label>Student-Friendly Version</Label>
+                        <div className="flex items-center justify-between">
+                          <Label>Student-Friendly Version</Label>
+                          <NarrationControls 
+                            text={studentFriendlyNarrative.replace(/📍|❓|💪|✅/g, '')} 
+                            variant="minimal" 
+                          />
+                        </div>
                         <p className="text-sm text-muted-foreground">
                           Simplified version with clear structure and visuals for direct student use
                         </p>
@@ -368,7 +378,10 @@ Format with clear spacing between sections.`
 
                         <TabsContent value="educator" className="mt-4">
                           <div>
-                            <h4 className="font-semibold text-sm text-muted-foreground mb-2">Educator Narrative:</h4>
+                            <div className="flex items-center justify-between mb-2">
+                              <h4 className="font-semibold text-sm text-muted-foreground">Educator Narrative:</h4>
+                              <NarrationControls text={item.narrative} variant="minimal" />
+                            </div>
                             <p className="text-foreground whitespace-pre-wrap font-serif leading-relaxed">
                               {item.narrative}
                             </p>
@@ -378,7 +391,13 @@ Format with clear spacing between sections.`
                         <TabsContent value="student" className="mt-4">
                           {item.studentFriendlyNarrative ? (
                             <div>
-                              <h4 className="font-semibold text-sm text-muted-foreground mb-2">Student-Friendly Narrative:</h4>
+                              <div className="flex items-center justify-between mb-2">
+                                <h4 className="font-semibold text-sm text-muted-foreground">Student-Friendly Narrative:</h4>
+                                <NarrationControls 
+                                  text={item.studentFriendlyNarrative.replace(/📍|❓|💪|✅/g, '')} 
+                                  variant="minimal" 
+                                />
+                              </div>
                               <div className="text-foreground whitespace-pre-wrap font-body text-lg leading-relaxed bg-muted/30 p-4 rounded-md">
                                 {item.studentFriendlyNarrative}
                               </div>

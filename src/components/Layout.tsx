@@ -1,5 +1,6 @@
 import { House, BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk } from '@phosphor-icons/react'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { NarrationSettings } from '@/components/NarrationSettings'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -12,10 +13,15 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border bg-background">
         <div className="mx-auto max-w-5xl px-6 py-8">
-          <h1 className="text-foreground">Autism and Me</h1>
-          <p className="mt-2 text-muted-foreground text-sm">
-            Evidence Based Practice for Autism Support
-          </p>
+          <div className="flex items-start justify-between">
+            <div>
+              <h1 className="text-foreground">Autism and Me</h1>
+              <p className="mt-2 text-muted-foreground text-sm">
+                Evidence Based Practice for Autism Support
+              </p>
+            </div>
+            <NarrationSettings />
+          </div>
         </div>
       </header>
 
