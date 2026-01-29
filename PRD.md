@@ -75,12 +75,12 @@ The app provides structured navigation through educational content with search, 
 - Progression: View intro → Browse categories (Environment, Adult Presence, Sensory Supports, Predictability/Pacing, Language Scripts) → Select strategies relevant to situation → Save selected strategies → Export if needed
 - Success criteria: Strategies organized by category; emphasis on adult role in regulation; calm, validating language scripts provided; ready for future interactive implementation
 
-**Transition Support Builder** [PLACEHOLDER]
-- Functionality: Step-by-step planning guide for transitions (activity-to-activity, class-to-class, school-to-school)
-- Purpose: Proactive transition planning to reduce anxiety and increase success
+**Transition Support Builder** [IMPLEMENTED]
+- Functionality: Step-by-step planning guide for transitions (activity-to-activity, class-to-class, school-to-school) with interactive 5-step process. Save plans locally, view saved plans, and export plans for sharing.
+- Purpose: Proactive transition planning to reduce anxiety and increase success through structured guidance
 - Trigger: User selects "Transition Support Builder" from Tools section
-- Progression: Define transition (what/when/where/who) → Identify potential stress points → Choose supports (visuals, rehearsal, social narratives, co-regulation, timing adjustments) → Plan communication with student and family → Set review schedule → Save plan → Export if needed
-- Success criteria: Covers all transition types; structured but flexible; emphasizes student and family communication; data structure ready for future implementation
+- Progression: Define transition (what/when/where/who) → Identify potential stress points (checklist + custom) → Choose supports (checklist + custom) → Plan communication with student, family, and staff → Set review schedule, monitoring person, success/adjustment signs → Save plan OR Export plan → Access saved plans from main screen
+- Success criteria: All transition types covered; structured but flexible; emphasizes student and family communication; plans persist across sessions; export functionality provides shareable text format
 
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content

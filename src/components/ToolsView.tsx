@@ -68,7 +68,7 @@ export function ToolsView() {
       <div className="grid gap-6 md:grid-cols-2">
         {tools.map((tool) => {
           const IconComponent = iconMap[tool.icon as keyof typeof iconMap]
-          const isInteractive = tool.id === 'lesson-script-generator'
+          const isInteractive = tool.id === 'lesson-script-generator' || tool.id === 'transition-support'
           
           return (
             <Card 
@@ -91,7 +91,7 @@ export function ToolsView() {
                 {isInteractive ? (
                   <div className="bg-accent/5 p-4 border border-accent/20">
                     <p className="text-sm text-foreground font-medium">
-                      Click to open the interactive lesson script generator
+                      Click to open the interactive {tool.title.toLowerCase()}
                     </p>
                   </div>
                 ) : (
