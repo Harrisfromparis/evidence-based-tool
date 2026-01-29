@@ -7,10 +7,11 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { ArrowLeft, ArrowRight, Check, FloppyDisk, Smiley, SmileyMeh, SmileySad, Heart, Warning } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, Check, FloppyDisk, Smiley, SmileyMeh, SmileySad, Heart, Warning, Info } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
 import { teachingApproaches } from '@/lib/data'
+import { ebpStudentGuides } from '@/lib/ebp-student-guide'
 
 interface StudentInputProps {
   onBack: () => void
@@ -469,11 +470,19 @@ export function StudentInput({ onBack }: StudentInputProps) {
 
             {currentStep >= 2 && currentStep < totalSteps - 1 && currentEBP && (
               <div className="space-y-6">
-                <div className="bg-muted p-4 border border-border">
-                  <h3 className="font-semibold mb-2">{currentEBP.ebpName}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    This is a teaching or support strategy your teachers might use. How does this approach feel for you?
-                  </p>
+                <div className="bg-accent/10 p-5 border-2 border-accent/30 rounded-lg">
+                  <div className="flex items-start gap-3 mb-3">
+                    <Info className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-semibold text-lg mb-2">{currentEBP.ebpName}</h3>
+                      <p className="text-sm text-foreground mb-3">
+                        {ebpStudentGuides[currentEBP.ebpName]?.simpleExplanation || 'This is a teaching or support strategy your teachers might use.'}
+                      </p>
+                      <p className="text-sm text-muted-foreground italic">
+                        {ebpStudentGuides[currentEBP.ebpName]?.example || 'Your teacher can explain more about how this is used in your classroom.'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
