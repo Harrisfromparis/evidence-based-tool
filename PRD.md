@@ -103,6 +103,13 @@ The app provides structured navigation through educational content with search, 
 - Progression: Enter student information (name, age, class, completed with) → Review tool instructions → Work through all 28 EBPs → For each EBP, rate feeling (helpful/neutral/unhelpful) → Describe triggers and challenges → Describe what helps or would help → Add additional notes → Review summary → Save profile → Access saved profiles → View categorized feedback (helpful, unhelpful, neutral, or all)
 - Success criteria: Student-friendly language throughout; visual rating system with emojis; optional fields to reduce pressure; progress tracking; profiles persist across sessions; clear categorization of helpful vs unhelpful strategies; supports can be completed independently or with trusted adult; creates actionable insights for teachers and parents
 
+**Social Narrative Creator** [IMPLEMENTED WITH ENHANCEMENT]
+- Functionality: AI-powered tool that generates personalised social narratives (social stories) for challenging situations. Creates TWO versions: an educator version with professional language for planning and coordination, and a student-friendly version with simplified language, emoji headers, shorter sentences, and clear structure for direct student use. Save both versions together, view saved narratives with version tabs, and export both versions.
+- Purpose: Support students in understanding and preparing for challenging situations through evidence-based social narratives. Provide educators with professional planning documents whilst giving students accessible, age-appropriate narratives they can read independently.
+- Trigger: User selects "Social Narrative Creator" from Tools section
+- Progression: Describe situation → Enter optional student name → Generate educator version narrative → Generate student-friendly version with emoji structure (📍 What happens, ❓ Why it happens, 💪 What I can do, ✅ It will be okay) → Review and edit both versions → Save both versions together → Access saved narratives → View with version tabs (Educator/Student-Friendly) → Export both versions
+- Success criteria: Generates both educator and student-friendly versions; student version uses 5-10 word sentences with concrete vocabulary; emoji headers provide clear structure; narratives follow ethical principles (dignity and autonomy are non-negotiable); both versions persist together across sessions; UK English spelling and euro currency used throughout; clear guidance on when and how to use each version
+
 **Bookmark & Search System**
 - Functionality: Bookmark any EBP, case study, or tool; full-text search across all content
 - Purpose: Enable personalized resource curation and rapid information retrieval
