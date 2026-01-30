@@ -10,6 +10,7 @@ import { ArrowLeft, FileText, Check, Circle, BookmarkSimple, Clock, Trash } from
 import { teachingApproaches } from '@/lib/data'
 import { toast } from 'sonner'
 import { useKV } from '@github/spark/hooks'
+import { ExportActions } from '@/components/ExportActions'
 
 interface LessonScriptGeneratorProps {
   onBack: () => void
@@ -349,22 +350,38 @@ Created: ${new Date(generatedScript.createdAt).toLocaleDateString('en-IE', {
             <BookmarkSimple className="w-4 h-4 mr-2" />
             {isScriptSaved ? 'Saved' : 'Save Script'}
           </Button>
-          <Button onClick={exportScript}>
-            Export Script
-          </Button>
         </div>
 
-        <Card className="bg-muted">
+        <Card className="bg-muted/50 border-2">
           <CardContent className="pt-6">
-            <div className="flex flex-wrap gap-2">
-              {generatedScript.approaches.map(approach => (
-                <span 
-                  key={approach} 
-                  className="px-3 py-1 bg-accent/10 text-accent text-sm border border-accent/20"
-                >
-                  {approach}
-                </span>
-              ))}
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
+                {generatedScript.approaches.map(approach => (
+                  <span 
+                    key={approach} 
+                    className="px-3 py-1 bg-accent/10 text-accent text-sm border border-accent/20"
+                  >
+                    {approach}
+                  </span>
+                ))}
+              </div>
+              <Separator />
+              <div>
+                <Label className="text-sm text-muted-foreground mb-2 block">Export Options</Label>
+                <ExportActions 
+                  data={{
+                    studentProfile: "General lesson script - adapt for specific students/groups",
+                    learningGoal: generatedScript.title,
+                    selectedEBPs: generatedScript.approaches,
+                    sensorySupports: "As per student needs and sensory checklist",
+                    communicationSupports: "Adjust based on communication preferences",
+                    assessmentApproach: generatedScript.assessment.join('. '),
+                    script: `LEARNING OBJECTIVES:\n${generatedScript.learningObjectives.map((obj, i) => `${i + 1}. ${obj}`).join('\n')}\n\nACTIVITIES:\n${generatedScript.activities.map((act, i) => `${i + 1}. ${act.name} (${act.duration})\n${act.description}`).join('\n\n')}\n\nDIFFERENTIATION:\n${generatedScript.differentiation.map((diff, i) => `${i + 1}. ${diff}`).join('\n')}\n\nTEACHER PROMPTS:\n${generatedScript.teacherPrompts.map((prompt, i) => `${i + 1}. ${prompt}`).join('\n')}`,
+                    timestamp: new Date(generatedScript.createdAt).getTime()
+                  }}
+                  templateType="lesson"
+                />
+              </div>
             </div>
           </CardContent>
         </Card>

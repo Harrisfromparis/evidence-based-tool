@@ -39,3 +39,21 @@ export interface RightsContent {
   content: string
   category: 'uncrpd' | 'irish-law' | 'masking' | 'red-flags'
 }
+
+export interface EmailTemplateData {
+  studentName?: string
+  timestamp: number
+  [key: string]: any
+}
+
+export interface ExportFormat {
+  type: 'text' | 'html'
+  available: boolean
+  description: string
+}
+
+export interface ExportAction {
+  type: 'email' | 'copy' | 'download'
+  label: string
+  icon: string
+}
