@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -10,6 +10,7 @@ import { ebps } from '@/lib/data'
 import type { EBP } from '@/lib/types'
 import { NarrationControls } from '@/components/NarrationControls'
 import { NarrationText } from '@/components/NarrationText'
+import { trackEBPView } from '@/lib/analytics'
 
 export function EBPLibraryView() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -36,6 +37,12 @@ export function EBPLibraryView() {
   }
 
   const isBookmarked = (id: string) => (bookmarkedEBPs || []).includes(id)
+
+  useEffect(() => {
+    if (selectedEBP) {
+      trackEBPView(selectedEBP.title)
+    }
+  }, [selectedEBP])
 
   if (selectedEBP) {
     const overviewText = `${selectedEBP.title}. ${selectedEBP.description}. What It Is: ${selectedEBP.overview}. When to Use: ${selectedEBP.whenToUse}`

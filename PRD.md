@@ -145,6 +145,27 @@ The app provides structured navigation through educational content with search, 
 - Progression: Access settings → Toggle narration on → Adjust voice/speed/pitch/volume preferences → Test narration → Navigate to any content → Use play/pause/stop controls for section narration → Settings persist across sessions
 - Success criteria: Text-to-speech works reliably across all major browsers; controls are intuitive and consistently placed; settings are saved and restored; narration can be started/stopped easily; student-friendly social narratives can be read aloud for direct student support; voice quality is clear and natural
 
+**Email Sending via API** [IMPLEMENTED]
+- Functionality: Integrated email functionality across all tools allowing users to send generated plans, assessments, scripts, and narratives via their default email client. Uses mailto: protocol with formatted subject and body content. Tracks email sends in analytics.
+- Purpose: Enable seamless sharing of plans and assessments with colleagues, families, and other stakeholders. Facilitate collaboration and communication around student support.
+- Trigger: User clicks "Email" button on any tool output screen
+- Progression: Complete tool (lesson script, transition plan, assessment, etc.) → Click "Email" button → Default email client opens with pre-filled subject and formatted body content → User adds recipient(s) and sends → Email count tracked in analytics
+- Success criteria: Email client opens reliably; content is properly formatted in email body; subject line is clear and descriptive; works across all tools; email sends are tracked for analytics
+
+**Analytics System** [IMPLEMENTED]
+- Functionality: Comprehensive usage tracking system that monitors tool interactions, EBP views, total sessions, unique users, and emails sent. Data stored locally using Spark KV API. Analytics dashboard accessible to admins shows overview statistics, top tools by usage, top EBPs by views, with detailed breakdowns and sortable tables.
+- Purpose: Provide insights into which tools and EBPs are most valuable to users. Help identify usage patterns and inform future development priorities. Track engagement and adoption.
+- Trigger: Automatic tracking occurs on app load (session/user), when EBP is viewed, when tool is opened, and when email is sent
+- Progression: User interacts with app → Events tracked silently in background → Analytics data stored in Spark KV → Admin accesses dashboard → Views overview stats (sessions, users, emails, tool interactions) → Explores top 5 tools/EBPs → Views complete sortable tables → Can reset all analytics if needed
+- Success criteria: All interactions tracked accurately; data persists across sessions; no performance impact on user experience; admin dashboard loads quickly; data visualization is clear and actionable; unique users tracked only once per device
+
+**Admin Dashboard** [IMPLEMENTED]
+- Functionality: Password-protected admin interface with three tabs (Overview, Tool Usage, EBP Views). Overview shows key metrics (total sessions, users, emails sent, tool interactions) plus top 5 tools and EBPs. Tool Usage and EBP Views tabs show complete ranked tables. Includes analytics reset functionality.
+- Purpose: Provide administrators and site owners with insights into platform usage, most popular resources, and user engagement patterns. Enable data-driven decisions about content and feature development.
+- Trigger: User clicks subtle "Admin" link in footer → Enters password → Accesses dashboard
+- Progression: Click Admin link → View password entry screen → Enter admin password → Dashboard loads with Overview tab → View key metrics in card format → See top 5 tools and EBPs → Switch to Tool Usage or EBP Views tabs for complete data → View ranked tables with usage counts → Can reset all analytics (with confirmation) → Exit dashboard returns to home
+- Success criteria: Password protection works reliably; analytics data displays accurately; tabs switch smoothly; tables are sortable and readable; reset function requires confirmation; dashboard is accessible but not prominent; password is: autismandme2024
+
 ## Edge Case Handling
 
 - **Empty Search Results**: Display "No results found" with suggestions to broaden search or browse by category — never a dead end

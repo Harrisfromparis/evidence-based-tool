@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Layout } from '@/components/Layout'
 import { HomeView } from '@/components/HomeView'
 import { EBPLibraryView } from '@/components/EBPLibraryView'
@@ -6,10 +6,17 @@ import { CaseStudiesView } from '@/components/CaseStudiesView'
 import { RightsEthicsView } from '@/components/RightsEthicsView'
 import { ToolsView } from '@/components/ToolsView'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
+import { AdminDashboard } from '@/components/AdminDashboard'
 import { Toaster } from '@/components/ui/sonner'
+import { trackSession, trackUser } from '@/lib/analytics'
 
 function App() {
   const [activeTab, setActiveTab] = useState('home')
+
+  useEffect(() => {
+    trackSession()
+    trackUser()
+  }, [])
 
   const renderView = () => {
     switch (activeTab) {
@@ -25,6 +32,8 @@ function App() {
         return <ToolsView />
       case 'saved-plans':
         return <SavedPlansManager onBack={() => setActiveTab('tools')} />
+      case 'admin':
+        return <AdminDashboard onBack={() => setActiveTab('home')} />
       default:
         return <HomeView onNavigate={setActiveTab} />
     }
@@ -32,9 +41,13 @@ function App() {
 
   return (
     <>
-      <Layout activeTab={activeTab} onTabChange={setActiveTab}>
-        {renderView()}
-      </Layout>
+      {activeTab === 'admin' ? (
+        renderView()
+      ) : (
+        <Layout activeTab={activeTab} onTabChange={setActiveTab}>
+          {renderView()}
+        </Layout>
+      )}
       <Toaster />
     </>
   )

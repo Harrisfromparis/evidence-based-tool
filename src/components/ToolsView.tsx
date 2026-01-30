@@ -11,6 +11,7 @@ import {
   MusicNotes, Laptop, Target, Leaf, MagnifyingGlass, FloppyDisk
 } from '@phosphor-icons/react'
 import { tools } from '@/lib/data'
+import { trackToolUsage } from '@/lib/analytics'
 import { LessonScriptGenerator } from '@/components/LessonScriptGenerator'
 import { Choose3EBPsPlanner } from '@/components/Choose3EBPsPlanner'
 import { SensoryChecklist } from '@/components/SensoryChecklist'
@@ -80,6 +81,11 @@ export function ToolsView() {
   const [selectedTool, setSelectedTool] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [categoryFilter, setCategoryFilter] = useState<string>('all')
+
+  const handleToolSelect = (toolId: string, toolTitle: string) => {
+    setSelectedTool(toolId)
+    trackToolUsage(toolTitle)
+  }
 
   const filteredTools = tools.filter(tool => {
     const matchesSearch = 
@@ -283,7 +289,7 @@ export function ToolsView() {
                 View all saved plans in one place and export multiple plans as a combined PDF
               </p>
             </div>
-            <Button onClick={() => setSelectedTool('saved-plans-manager')} className="gap-2 flex-shrink-0">
+            <Button onClick={() => handleToolSelect('saved-plans-manager', 'Saved Plans Manager')} className="gap-2 flex-shrink-0">
               <FloppyDisk className="w-4 h-4" />
               View Saved Plans
             </Button>
@@ -336,7 +342,7 @@ export function ToolsView() {
             <Card 
               key={tool.id}
               className={`border-2 transition-colors ${isInteractive ? 'cursor-pointer hover:bg-secondary' : 'opacity-75'}`}
-              onClick={() => isInteractive && setSelectedTool(tool.id)}
+              onClick={() => isInteractive && handleToolSelect(tool.id, tool.title)}
             >
               <CardHeader>
                 <div className="flex items-start justify-between gap-3">

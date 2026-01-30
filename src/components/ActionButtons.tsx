@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Printer, FloppyDisk, EnvelopeSimple, Copy } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { sendEmail } from '@/lib/email'
 
 interface ActionButtonsProps {
   content: string
@@ -74,13 +75,18 @@ export function ActionButtons({ content, title, emailSubject }: ActionButtonsPro
     toast.success('File downloaded!')
   }
 
-  const handleEmail = () => {
-    const subject = encodeURIComponent(emailSubject || title)
-    const body = encodeURIComponent(content)
-    const mailtoLink = `mailto:?subject=${subject}&body=${body}`
+  const handleEmail = async () => {
+    const result = await sendEmail({
+      to: '',
+      subject: emailSubject || title,
+      body: content
+    })
     
-    window.location.href = mailtoLink
-    toast.success('Opening email client...')
+    if (result.success) {
+      toast.success('Opening email client...')
+    } else {
+      toast.error(result.message)
+    }
   }
 
   const handleCopy = async () => {

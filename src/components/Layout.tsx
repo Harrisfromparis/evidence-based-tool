@@ -84,9 +84,17 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
 
       <footer className="border-t border-border bg-background mt-auto">
         <div className="mx-auto max-w-5xl px-6 py-8">
-          <p className="text-sm text-muted-foreground">
-            This resource supports neuro-affirming practice in schools. All practices are grounded in the UNCRPD Article 24 and educational legislation.
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-muted-foreground">
+              This resource supports neuro-affirming practice in schools. All practices are grounded in the UNCRPD Article 24 and educational legislation.
+            </p>
+            <button
+              onClick={() => onTabChange('admin')}
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors opacity-50 hover:opacity-100"
+            >
+              Admin
+            </button>
+          </div>
         </div>
       </footer>
     </div>
