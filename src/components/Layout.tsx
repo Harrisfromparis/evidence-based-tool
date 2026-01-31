@@ -1,7 +1,6 @@
 import { House, BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk, Users } from '@phosphor-icons/react'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { NarrationSettings } from '@/components/NarrationSettings'
-import brandingImage from '@/assets/images/logo_for_wix_Steffen.png'
 
 interface LayoutProps {
   children: React.ReactNode
@@ -12,13 +11,8 @@ interface LayoutProps {
 export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="border-b border-border relative overflow-hidden">
-        <img 
-          src={brandingImage} 
-          alt="Autism and Me branding" 
-          className="w-full h-32 object-cover object-center"
-        />
-        <div className="absolute top-4 right-4">
+      <header className="border-b border-border bg-white py-4 px-6">
+        <div className="mx-auto max-w-5xl flex justify-end">
           <NarrationSettings />
         </div>
       </header>

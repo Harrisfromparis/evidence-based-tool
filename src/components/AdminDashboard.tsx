@@ -9,7 +9,6 @@ import { Badge } from '@/components/ui/badge'
 import { Lock, ChartBar, Envelope, Eye, EyeSlash } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
-import brandingImage from '@/assets/images/logo_for_wix_Steffen.png'
 
 interface AnalyticsData {
   toolUsage: { [key: string]: number }
@@ -125,23 +124,16 @@ export function AdminDashboard({ onBack }: Props) {
 
   return (
     <div className="max-w-7xl mx-auto p-6 space-y-6">
-      <div className="relative rounded-xl overflow-hidden shadow-lg border-2 border-border mb-8">
-        <img 
-          src={brandingImage} 
-          alt="" 
-          className="w-full h-32 object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center justify-between px-8">
-          <div>
-            <h1 className="text-3xl font-bold text-white drop-shadow-lg mb-1">Admin Dashboard</h1>
-            <p className="text-white/90 drop-shadow-md">
-              Monitor usage analytics and system activity
-            </p>
-          </div>
-          <Button onClick={onBack} variant="outline" className="bg-white">
-            Exit Dashboard
-          </Button>
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-3xl font-bold text-foreground mb-1 handwritten">Admin Dashboard</h1>
+          <p className="text-muted-foreground">
+            Monitor usage analytics and system activity
+          </p>
         </div>
+        <Button onClick={onBack} variant="outline">
+          Exit Dashboard
+        </Button>
       </div>
 
       <Tabs defaultValue="overview" className="space-y-6">

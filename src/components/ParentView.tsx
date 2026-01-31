@@ -7,29 +7,19 @@ import { ParentTools } from '@/components/ParentTools'
 import { ParentEBPReflection } from '@/components/ParentEBPReflection'
 import { Heart, BookOpen, Users, Lightbulb } from '@phosphor-icons/react'
 import { SectionHeader } from '@/components/SectionHeader'
-import brandingImage from '@/assets/images/logo_for_wix_Steffen.png'
 
 export function ParentView() {
   const [activeTab, setActiveTab] = useState('guide')
 
   return (
     <div className="h-full flex flex-col">
-      <div className="relative rounded-xl mb-6 shadow-md border-2 border-border overflow-hidden">
-        <img 
-          src={brandingImage} 
-          alt="" 
-          className="w-full h-36 object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center">
-          <div className="p-6">
-            <h1 className="text-2xl font-bold mb-1 handwritten text-white drop-shadow-lg">
-              Parent & Caregiver Hub
-            </h1>
-            <p className="text-sm text-white/90 max-w-2xl leading-relaxed drop-shadow-md">
-              Create a profile for your child, explore practical home adaptations, and access family support tools.
-            </p>
-          </div>
-        </div>
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold mb-2 handwritten text-foreground">
+          Parent & Caregiver Hub
+        </h1>
+        <p className="text-muted-foreground leading-relaxed">
+          Create a profile for your child, explore practical home adaptations, and access family support tools.
+        </p>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col">
