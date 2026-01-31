@@ -212,38 +212,38 @@ The app provides structured navigation through educational content with search, 
 
 ## Design Direction
 
-The design should evoke the feeling of opening a well-organized, professionally printed policy document from the Department of Education — calm, authoritative, trustworthy, and free from commercial distraction. Every element should serve clarity and accessibility. No element should compete for attention. The interface recedes to let the content lead.
+The design matches the Autism and Me website aesthetic - warm, approachable, human-centered with bold handwritten headings and vibrant orange accents. Professional but inviting, using character and color to create an engaging, supportive environment. The black header with circular logo badge, handwritten title treatment, and orange highlights throughout establish strong brand continuity with the main website while maintaining accessibility and clarity.
 
 ## Color Selection
 
-A warm, human-centered palette that balances professional authority with character and approachability. Uses the approved colour system with calm, friendly tones.
+A vibrant, approachable palette that matches the Autism and Me website branding. Uses bold black header with warm orange accents throughout.
 
-- **Primary Color**: Black (oklch(0.15 0 0)) — Conveys authority, professionalism, and clarity appropriate for educational content; used for headings and primary elements
-- **Secondary Color**: Green (oklch(0.576 0.152 144.5)) — A grounding, natural color (#2ECC71 family) for interactive elements and secondary actions; represents growth and calm support
-- **Accent Color**: Warm Orange (oklch(0.707 0.15 41.16)) — An energizing highlight (#F39C12 family) for important callouts and attention-drawing elements; creates warmth and approachability
-- **Soft Green**: (oklch(0.893 0.08 144.5)) — Gentle green tint (#A8E6CF) for subtle backgrounds, hover states, and warm card designs
-- **Soft Orange**: (oklch(0.918 0.065 55)) — Gentle orange tint (#FFD3B6) for warm accents and gradient backgrounds
-- **Supporting Colors**: Soft Grey (oklch(0.45 0 0)) for body text; Light backgrounds (oklch(0.96 0 0)) for subtle section backgrounds; Neutral Grey (#F2F2F2) for borders
+- **Primary Color**: Black (oklch(0.15 0 0)) — Used for main header background and headings; conveys authority and professionalism matching website branding
+- **Secondary Color**: Teal Green (oklch(0.618 0.176 162.48)) — A fresh, energizing color for interactive elements and secondary actions; represents growth and support
+- **Accent Color**: Warm Orange (oklch(0.707 0.15 41.16)) — Primary accent matching website (#F39C12 family); used for active states, highlights, and calls-to-action
+- **Soft Green**: (oklch(0.893 0.08 144.5)) — Gentle green tint (#A8E6CF) for subtle backgrounds and warm card designs
+- **Soft Orange**: (oklch(0.82 0.12 55)) — Stronger orange tint for warm accents and gradient backgrounds in Parent Hub
+- **Supporting Colors**: Pure White (oklch(1 0 0)) for backgrounds; Soft Grey (oklch(0.45 0 0)) for body text; Light Grey (oklch(0.92 0 0)) for borders
 - **Foreground/Background Pairings**: 
-  - Background White (oklch(0.98 0 0)): Black text (oklch(0.15 0 0)) - Ratio 14.8:1 ✓
-  - Green (oklch(0.576 0.152 144.5)): White text (oklch(0.98 0 0)) - Ratio 4.9:1 ✓
+  - Background White (oklch(1 0 0)): Black text (oklch(0.15 0 0)) - Ratio 16.2:1 ✓
+  - Primary Black (oklch(0.15 0 0)): White text (oklch(1 0 0)) - Ratio 16.2:1 ✓
   - Warm Orange accent (oklch(0.707 0.15 41.16)): Black text (oklch(0.15 0 0)) - Ratio 5.8:1 ✓
-  - Soft Grey text (oklch(0.45 0 0)): White background - Ratio 7.5:1 ✓
+  - Teal Green (oklch(0.618 0.176 162.48)): White text (oklch(1 0 0)) - Ratio 5.2:1 ✓
 
 ## Font Selection
 
-Typography balances scholarly credibility with warmth and character. Includes a handwritten-style font for emphasis and personality.
+Typography matches the Autism and Me website with prominent handwritten-style font for warmth and personality. Creates approachable, human-centered feel throughout.
 
-- **Display/Headings**: Merriweather (serif) - Brings editorial authority and traditional publishing credibility; distinguished without being decorative
-- **Body Text**: Inter (sans-serif) - Exceptional readability, dyslexia-friendly letterforms, neutral professionalism
-- **Handwritten Accent**: Caveat (handwritten-style) - Warm, human, legible handwritten font used ONLY for headings, emphasis, and character elements; never for body text or long paragraphs; adds personality without compromising professionalism
+- **Display/Headings**: Caveat (handwritten-style) - Primary font for ALL headings (h1-h6) throughout the app; brings warmth, character, and matches website style; legible and dyslexia-friendly
+- **Body Text**: Inter (sans-serif) - Exceptional readability, dyslexia-friendly letterforms, neutral professionalism for all body content
+- **Serif Accent**: Merriweather (serif) - Used sparingly for editorial emphasis if needed; brings traditional credibility
 - **Typographic Hierarchy**: 
-  - H1 (Section Titles): Merriweather Bold / 32px / letter-spacing -0.02em / line-height 1.2
-  - H1 (Handwritten Accent): Caveat SemiBold / 32-36px / letter-spacing 0.02em / Used for Parent Hub and warm section headers
-  - H2 (Subsection Titles): Merriweather Bold / 24px / letter-spacing -0.01em / line-height 1.3
-  - H3 (Card Titles): Inter SemiBold / 18px / letter-spacing 0 / line-height 1.4
+  - H1 (Main Titles): Caveat Bold / 40px (2.5rem) / letter-spacing 0.01em / line-height 1.2 / Handwritten warmth for major headings
+  - H2 (Section Titles): Caveat Bold / 32px (2rem) / letter-spacing 0.01em / line-height 1.3 / Handwritten style for section headers
+  - H3 (Subsection Titles): Caveat SemiBold / 24px (1.5rem) / letter-spacing 0.01em / line-height 1.4 / Handwritten for subsections
+  - H4 (Card Titles): Caveat SemiBold / 20px (1.25rem) / letter-spacing 0.01em / line-height 1.4 / Handwritten for card headers
   - Body (Primary Content): Inter Regular / 16px / letter-spacing 0.01em / line-height 1.6
-  - Caption (Metadata): Inter Regular / 14px / letter-spacing 0.01em / line-height 1.5 / Slate Grey
+  - Caption (Metadata): Inter Regular / 14px / letter-spacing 0.01em / line-height 1.5 / Muted Grey
 
 ## Animations
 
@@ -252,70 +252,74 @@ Motion should be minimal and purposeful — a subtle acknowledgment of interacti
 ## Component Selection
 
 - **Components**: 
-  - Navigation: Tabs component for main sections (flat, rectangular, clear active state)
-  - Content Cards: Card component for EBPs and case studies (flat, bordered, generous padding) with warm gradient variants for Parent Hub
-  - Search: Input with search icon (functional, no decorative styling)
-  - Filters: Checkbox and Select components for case study filtering (standard form controls)
-  - Dialogs: Dialog component for full EBP details and tools (overlay with clear close action)
-  - Lists: Accordion component for collapsible content sections within EBPs
-  - Bookmarks: Simple star/bookmark icon toggle (functional indicator only)
-  - Buttons: Button component - rounded, soft shadows, clear labels with character
+  - Header: Black background with circular orange logo badge and white handwritten title matching website
+  - Navigation: Clean white background with orange accent for active tabs, rounded top corners
+  - Content Cards: Card component with rounded corners, soft shadows, warm hover states
+  - Search: Input with search icon and rounded styling
+  - Filters: Checkbox and Select components with rounded styling
+  - Dialogs: Dialog component with generous rounding and soft shadows
+  - Lists: Accordion component for collapsible content
+  - Buttons: Button component - generously rounded (1rem radius), orange accents, soft shadows
   
 - **Customizations**: 
+  - Website-style header: black background, circular logo badge, handwritten Caveat font title
+  - All headings use Caveat handwritten font for warmth and personality
   - Warm gradient cards using soft-green and soft-orange for Parent Hub sections
-  - Organic rounded shapes (border-radius: 2rem 1rem 2rem 1rem) for character elements
-  - Handwritten font class (.handwritten) for warm, human headings
+  - Organic rounded shapes throughout (--radius: 1rem base)
+  - Orange accent color (oklch(0.707 0.15 41.16)) used for active states, highlights, CTAs
   - Soft shadows (0 2px 8px rgba(0,0,0,0.08)) for gentle depth
-  - Increased radius throughout (--radius: 0.875rem) for friendly, approachable feel
-  - Custom bookmark icon (simple outline star, no fill animation)
-  - Breadcrumb component for navigation context
+  - Generous border-radius throughout for friendly, approachable feel
   
 - **Visual Character Elements**:
-  - Soft rounded shapes throughout (buttons, cards, inputs use generous border-radius)
-  - Gentle shadows for subtle depth without harsh contrast
-  - Friendly icons from Phosphor set (Heart, Users, House, Lightbulb, ShieldCheck)
-  - Warm gradient backgrounds for Parent Hub (linear-gradient from soft-green to soft-orange)
-  - Organic lines and accents (asymmetric rounded corners for character)
-  - Colour-rich but calm: green and orange accents used liberally but thoughtfully
-  - Character without childishness: sophisticated use of warmth and personality
+  - Bold handwritten headings throughout create approachable personality
+  - Vibrant orange accents add energy and warmth
+  - Generous rounded corners on all elements (buttons, cards, inputs)
+  - Soft shadows for subtle depth without harshness
+  - Friendly icons from Phosphor set used with color
+  - Warm gradient backgrounds for Parent Hub (soft-green to soft-orange)
+  - Teal green secondary color adds freshness
+  - Character-rich but professional: sophisticated use of warmth
   
 - **States**: 
-  - Buttons: Black background → Green on hover (soft transition, gentle shadow increase)
-  - Cards: Flat with border → Subtle soft-green/soft-orange background on hover (no harsh elevation)
-  - Inputs: Border only → Border + subtle tinted background on focus
-  - Bookmarks: Outline star → Filled orange star (instant, no animation)
+  - Buttons: Default with orange highlight → Darker on hover with shadow increase
+  - Cards: White with border → Orange/teal tinted background on hover
+  - Inputs: Border only → Border + soft focus ring on focus
+  - Tab Navigation: Neutral → Orange accent background and border when active
   
 - **Icon Selection**: 
-  - Phosphor icons (regular weight) used frequently: MagnifyingGlass (search), BookmarkSimple (saved items), Funnel (filters), X (close), CaretLeft (back navigation), House (home), Heart (parents), Users (community), Lightbulb (ideas), ShieldCheck (safety)
-  - Icons supplement labels, never replace them
-  - Colour used on icons to add warmth (green, orange accents)
+  - Phosphor icons (regular weight) used throughout with orange/teal color accents
+  - Icons always paired with labels for clarity
+  - Circular logo badge in header with "A" initial
   
 - **Spacing**: 
   - Base unit: 8px
   - Card padding: 24px (3 units)
   - Section spacing: 48px (6 units)
   - List item gap: 16px (2 units)
-  - Content max-width: 720px (optimal reading line length)
+  - Content max-width: 720px (optimal reading)
+  - Generous padding and breathing room
   
 - **Mobile**: 
-  - Navigation tabs become bottom navigation bar with icons + labels
-  - Filters move to slide-up sheet rather than sidebar
+  - Header scales down but maintains black background and logo
+  - Navigation tabs remain horizontal with scroll
   - Card padding reduces to 16px
-  - Font sizes remain same (accessibility priority)
+  - Handwritten font sizes scale proportionally
   - Touch targets minimum 44x44px
-  - Single column layout throughout
+  - Single column layout
 
 ## Visual Character & Warmth Implementation
 
-Per Section 14 requirements, the application implements:
+Matching the Autism and Me website style, the application implements:
 
-- **Warm Visual Identity**: Soft gradients, rounded shapes, handwritten fonts for headings, friendly colour palette
-- **Colour System**: Black (#000000), Green (#2ECC71), Orange (#F39C12), Soft Green (#A8E6CF), Soft Orange (#FFD3B6), Neutral Grey (#F2F2F2)
-- **Handwritten Font**: Caveat font family used for Parent Hub headings, emphasis elements, and warm section titles
-- **Character Elements**: Organic rounded corners, soft shadows, friendly icons, gentle gradients, warm tinted backgrounds
-- **Neuro-Affirming**: All visual enhancements remain calm, predictable, accessible, and free from overstimulation
-- **Applied Throughout**: Parent Hub cards, child profile interface, home guide sections, navigation highlights
-- **Professional Yet Warm**: Sophisticated use of colour and shape maintains authority while adding human warmth
+- **Website-Matched Visual Identity**: Black header with circular logo badge, handwritten Caveat font for all headings, vibrant orange accents, rounded corners throughout
+- **Colour System**: Black (#000000) header, Teal Green secondary, Orange (#F39C12) accent, Soft Green (#A8E6CF), Soft Orange for gradients, White backgrounds
+- **Handwritten Font**: Caveat font family used for ALL headings (h1-h6) throughout the entire application - not just Parent Hub, creating consistent warm personality matching website
+- **Header Design**: Black background with circular orange badge containing "A", white handwritten "AUTISM AND ME" title, subtitle in white/80 opacity
+- **Navigation Design**: Clean white tabs with orange accents for active states, rounded top corners, smooth transitions
+- **Character Elements**: Generous rounded corners (1rem base radius), soft shadows, vibrant but balanced color usage, friendly icon treatment
+- **Neuro-Affirming**: Visual warmth maintains calm, predictable, accessible design; no overstimulation
+- **Applied Throughout**: Consistent handwritten headings in all sections (Home, EBP Library, Case Studies, Rights & Ethics, Tools, Parents, Admin)
+- **Professional Yet Warm**: Website-matched branding maintains authority while creating inviting, supportive atmosphere
 
 ## Content Asset System
 

@@ -11,69 +11,74 @@ interface LayoutProps {
 export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <header className="border-b border-border bg-background">
-        <div className="mx-auto max-w-5xl px-6 py-8">
-          <div className="flex items-start justify-between">
-            <div>
-              <h1 className="text-foreground">Autism and Me</h1>
-              <p className="mt-2 text-muted-foreground text-sm">
-                Evidence Based Practice for Autism Support
-              </p>
+      <header className="border-b border-border bg-primary">
+        <div className="mx-auto max-w-5xl px-6 py-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                <span className="text-2xl font-bold text-white">A</span>
+              </div>
+              <div>
+                <h1 className="text-white text-3xl">AUTISM AND ME</h1>
+                <p className="text-white/80 text-sm font-sans font-normal">
+                  Evidence Based Practice for Autism Support
+                </p>
+              </div>
             </div>
             <NarrationSettings />
           </div>
         </div>
       </header>
 
-      <nav className="border-b border-border bg-background sticky top-0 z-10">
+      <nav className="border-b border-border bg-white sticky top-0 z-10">
         <div className="mx-auto max-w-5xl px-6">
           <Tabs value={activeTab} onValueChange={onTabChange}>
             <TabsList className="w-full justify-start bg-transparent border-0 p-0 h-auto overflow-x-auto">
               <TabsTrigger 
                 value="home" 
-                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+                className="gap-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent rounded-t-lg border-b-2 border-transparent data-[state=active]:border-accent"
               >
                 <House className="w-4 h-4" />
                 <span className="hidden sm:inline">Home</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="ebps"
-                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+                className="gap-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent rounded-t-lg border-b-2 border-transparent data-[state=active]:border-accent"
               >
                 <BookBookmark className="w-4 h-4" />
                 <span className="hidden sm:inline">EBP Library</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="cases"
-                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+                className="gap-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent rounded-t-lg border-b-2 border-transparent data-[state=active]:border-accent"
               >
                 <FolderOpen className="w-4 h-4" />
                 <span className="hidden sm:inline">Case Studies</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="rights"
-                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+                className="gap-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent rounded-t-lg border-b-2 border-transparent data-[state=active]:border-accent"
               >
                 <Scales className="w-4 h-4" />
                 <span className="hidden sm:inline">Rights & Ethics</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="tools"
-                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+                className="gap-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent rounded-t-lg border-b-2 border-transparent data-[state=active]:border-accent"
               >
                 <Wrench className="w-4 h-4" />
                 <span className="hidden sm:inline">Tools</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="parents"
-                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+                className="gap-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent rounded-t-lg border-b-2 border-transparent data-[state=active]:border-accent"
               >
                 <Users className="w-4 h-4" />
                 <span className="hidden sm:inline">Parents</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="saved-plans"
-                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+                className="gap-2 data-[state=active]:bg-accent/10 data-[state=active]:text-accent rounded-t-lg border-b-2 border-transparent data-[state=active]:border-accent"
               >
                 <FloppyDisk className="w-4 h-4" />
                 <span className="hidden sm:inline">Saved Plans</span>
