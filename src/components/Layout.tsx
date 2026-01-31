@@ -16,7 +16,7 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
         <img 
           src={brandingImage} 
           alt="Autism and Me branding" 
-          className="w-full h-48 object-cover object-center"
+          className="w-full h-32 object-cover object-center"
         />
         <div className="absolute top-4 right-4">
           <NarrationSettings />

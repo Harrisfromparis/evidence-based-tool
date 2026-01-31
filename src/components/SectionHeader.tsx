@@ -10,11 +10,11 @@ export function SectionHeader({ title, description, variant = 'default' }: Secti
   if (variant === 'minimal') {
     return (
       <div className="relative mb-8">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <img 
             src={brandingImage} 
             alt="" 
-            className="w-16 h-16 object-cover rounded-lg shadow-md"
+            className="w-12 h-12 object-cover rounded-lg shadow-sm"
           />
           <div>
             <h2 className="text-foreground">{title}</h2>
@@ -30,7 +30,7 @@ export function SectionHeader({ title, description, variant = 'default' }: Secti
   if (variant === 'compact') {
     return (
       <div className="relative mb-6">
-        <div className="h-24 rounded-lg overflow-hidden border border-border shadow-sm">
+        <div className="h-20 rounded-lg overflow-hidden border border-border shadow-sm">
           <img 
             src={brandingImage} 
             alt="" 
@@ -49,7 +49,7 @@ export function SectionHeader({ title, description, variant = 'default' }: Secti
 
   return (
     <div className="relative mb-8">
-      <div className="h-40 rounded-lg overflow-hidden border border-border shadow-md">
+      <div className="h-32 rounded-lg overflow-hidden border border-border shadow-md">
         <img 
           src={brandingImage} 
           alt="" 

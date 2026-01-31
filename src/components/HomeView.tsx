@@ -15,7 +15,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
         <img 
           src={brandingImage} 
           alt="Autism and Me" 
-          className="w-full h-48 object-cover object-center"
+          className="w-full h-40 object-cover object-center"
         />
       </section>
 
