@@ -81,7 +81,11 @@ const iconMap = {
   Lightbulb
 }
 
-export function ToolsView() {
+interface ToolsViewProps {
+  onNavigateToEBP?: (ebpId: string) => void
+}
+
+export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
   const [selectedTool, setSelectedTool] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [categoryFilter, setCategoryFilter] = useState<string>('all')
@@ -241,7 +245,7 @@ export function ToolsView() {
   }
 
   if (selectedTool === 'ebp-recommendation-engine') {
-    return <EBPRecommendationEngine onBack={() => setSelectedTool(null)} />
+    return <EBPRecommendationEngine onBack={() => setSelectedTool(null)} onNavigateToEBP={onNavigateToEBP} />
   }
 
   const implementedTools = [

@@ -9,14 +9,18 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Progress } from '@/components/ui/progress'
-import { ArrowLeft, Sparkle, Lightbulb, BookmarkSimple, Trash, Copy, Download, EnvelopeSimple } from '@phosphor-icons/react'
+import { ArrowLeft, Sparkle, Lightbulb, BookmarkSimple, Trash, Copy, Download, EnvelopeSimple, BookOpen } from '@phosphor-icons/react'
 import { toast } from 'sonner'
+import { ebps } from '@/lib/data'
+import { trackEmailSent } from '@/lib/analytics'
 
 interface EBPRecommendationEngineProps {
   onBack: () => void
+  onNavigateToEBP?: (ebpId: string) => void
 }
 
 interface EBPRecommendation {
+  ebpId: string
   ebpName: string
   confidenceScore: number
   rationale: string
@@ -44,7 +48,7 @@ const needAreaOptions = [
   'Emotional Regulation'
 ]
 
-export function EBPRecommendationEngine({ onBack }: EBPRecommendationEngineProps) {
+export function EBPRecommendationEngine({ onBack, onNavigateToEBP }: EBPRecommendationEngineProps) {
   const [situation, setSituation] = useState('')
   const [selectedNeeds, setSelectedNeeds] = useState<string[]>([])
   const [challenges, setChallenges] = useState('')
@@ -69,9 +73,17 @@ export function EBPRecommendationEngine({ onBack }: EBPRecommendationEngineProps
     setIsGenerating(true)
 
     try {
-      const promptText = `You are an expert in evidence-based practices for autism support. Analyze the following situation and recommend 3-5 most appropriate Evidence-Based Practices from the 29 approved autism EBPs.
+      const ebpLibraryInfo = ebps.map(ebp => `
+${ebp.title} (ID: ${ebp.id})
+Category: ${ebp.category}
+Description: ${ebp.description}
+When to use: ${ebp.whenToUse}
+Related to: ${ebp.relatedEBPs.join(', ')}`).join('\n')
 
-Available EBPs: Antecedent-Based Interventions, Augmentative and Alternative Communication, Cognitive Behavioral Strategies, Differential Reinforcement, Discrete Trial Teaching, Exercise and Movement, Extinction, Functional Behavior Assessment, Functional Communication Training, Modeling, Music Therapy, Naturalistic Intervention, Parent-Implemented Intervention, Peer-Mediated Instruction, Pivotal Response Training, Prompting, Reinforcement, Response Interruption/Redirection, Scripting, Self-Management, Social Narratives, Social Skills Training, Structured Work Systems, Task Analysis, Technology-Aided Instruction, Time Delay, Video Modeling, Virtual Reality, Visual Supports
+      const promptContent = `You are an expert in evidence-based practices for autism support. Analyze the following situation and recommend 3-5 most appropriate Evidence-Based Practices from the comprehensive 29-EBP library.
+
+COMPREHENSIVE EBP LIBRARY:
+${ebpLibraryInfo}
 
 SITUATION DETAILS:
 Student Situation: ${situation}
@@ -80,17 +92,20 @@ Current Challenges: ${challenges}
 Desired Outcomes: ${desiredOutcomes || 'Not specified'}
 
 For each recommended EBP, provide:
-1. EBP name (from the list above)
-2. Confidence score (1-100) indicating how well this EBP fits the situation
-3. Specific rationale explaining why this EBP is relevant to THIS situation
-4. Implementation priority: Immediate, Short-term, or Long-term
-5. Key considerations for this specific situation
+1. ebpId (use the exact ID from the library above, e.g., "antecedent-based-intervention")
+2. ebpName (use the exact title from the library)
+3. confidenceScore (1-100) indicating how well this EBP fits the situation
+4. rationale (specific explanation of why this EBP is relevant to THIS situation, referencing the student's specific needs and challenges)
+5. priority (choose: "Immediate", "Short-term", or "Long-term")
+6. considerations (key points to keep in mind for this specific situation, including ethical considerations and practical implementation tips)
 
 Provide 3-5 recommendations, ordered by confidence score (highest first).
+Consider the EBP categories, relationships between EBPs, and when each should be used.
+Prioritise EBPs that address the primary need areas and current challenges.
 
-Format as JSON with key "recommendations" containing an array of objects with keys: ebpName, confidenceScore, rationale, priority, considerations`
+Format as JSON with key "recommendations" containing an array of objects with keys: ebpId, ebpName, confidenceScore, rationale, priority, considerations`
 
-      const result = await window.spark.llm(promptText, 'gpt-4o', true)
+      const result = await spark.llm(promptContent, 'gpt-4o', true)
       const parsed = JSON.parse(result)
 
       const report: RecommendationReport = {
@@ -203,6 +218,15 @@ AI-Powered EBP Recommendations | Autism and Me` : ''
     const subject = 'EBP Recommendation Report'
     const body = encodeURIComponent(exportContent)
     window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${body}`
+    trackEmailSent()
+  }
+
+  const viewEBPDetails = (ebpId: string) => {
+    if (onNavigateToEBP) {
+      onNavigateToEBP(ebpId)
+    } else {
+      toast.info('Enable EBP navigation to view full details')
+    }
   }
 
   if (viewMode === 'saved') {
@@ -297,6 +321,21 @@ AI-Powered EBP Recommendations | Autism and Me` : ''
               </div>
             </CardHeader>
             <CardContent className="space-y-6">
+              <Card className="bg-accent/10 border-accent/20">
+                <CardContent className="pt-4">
+                  <div className="flex items-start gap-3">
+                    <Sparkle className="text-accent mt-0.5" size={20} />
+                    <div className="flex-1">
+                      <p className="text-sm text-foreground">
+                        These recommendations are generated from our comprehensive library of 29 evidence-based practices, 
+                        considering each practice's category, purpose, relationships, and ethical considerations to provide 
+                        context-specific guidance.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               <div>
                 <h3 className="font-semibold text-sm mb-2">Primary Need Areas</h3>
                 <div className="flex flex-wrap gap-2">
@@ -323,37 +362,70 @@ AI-Powered EBP Recommendations | Autism and Me` : ''
               <div>
                 <h3 className="font-semibold text-lg mb-4">Recommended Evidence-Based Practices</h3>
                 <div className="space-y-6">
-                  {currentReport.recommendations.map((rec, idx) => (
-                    <Card key={idx}>
-                      <CardHeader>
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-2">
-                              <Lightbulb className="text-accent" />
-                              <CardTitle className="text-lg">{rec.ebpName}</CardTitle>
-                            </div>
-                            <div className="flex gap-2">
-                              <Badge variant={getPriorityColor(rec.priority) as any}>
-                                {rec.priority}
-                              </Badge>
-                              <Badge variant="secondary">{rec.confidenceScore}% match</Badge>
+                  {currentReport.recommendations.map((rec, idx) => {
+                    const ebpDetails = ebps.find(e => e.id === rec.ebpId)
+                    return (
+                      <Card key={idx}>
+                        <CardHeader>
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-2">
+                                <Lightbulb className="text-accent" />
+                                <CardTitle className="text-lg">{rec.ebpName}</CardTitle>
+                              </div>
+                              <div className="flex flex-wrap gap-2 mb-2">
+                                <Badge variant={getPriorityColor(rec.priority) as any}>
+                                  {rec.priority}
+                                </Badge>
+                                <Badge variant="secondary">{rec.confidenceScore}% match</Badge>
+                                {ebpDetails && (
+                                  <Badge variant="outline">{ebpDetails.category}</Badge>
+                                )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <Progress value={rec.confidenceScore} className="mt-2" />
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <div>
-                          <h4 className="font-semibold text-sm mb-1">Why this EBP is relevant:</h4>
-                          <p className="text-foreground">{rec.rationale}</p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-sm mb-1">Key considerations:</h4>
-                          <p className="text-foreground">{rec.considerations}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
+                          <Progress value={rec.confidenceScore} className="mt-2" />
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                          <div>
+                            <h4 className="font-semibold text-sm mb-1">Why this EBP is relevant:</h4>
+                            <p className="text-foreground">{rec.rationale}</p>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-sm mb-1">Key considerations:</h4>
+                            <p className="text-foreground">{rec.considerations}</p>
+                          </div>
+                          {ebpDetails && ebpDetails.relatedEBPs.length > 0 && (
+                            <div>
+                              <h4 className="font-semibold text-sm mb-2">Related EBPs to consider:</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {ebpDetails.relatedEBPs.slice(0, 3).map(relatedId => {
+                                  const related = ebps.find(e => e.id === relatedId)
+                                  return related ? (
+                                    <Badge key={relatedId} variant="outline" className="text-xs">
+                                      {related.title}
+                                    </Badge>
+                                  ) : null
+                                })}
+                              </div>
+                            </div>
+                          )}
+                          {rec.ebpId && (
+                            <div className="pt-2">
+                              <Button 
+                                onClick={() => viewEBPDetails(rec.ebpId)} 
+                                variant="outline" 
+                                size="sm"
+                              >
+                                <BookOpen className="mr-2" />
+                                View Full EBP Details
+                              </Button>
+                            </div>
+                          )}
+                        </CardContent>
+                      </Card>
+                    )
+                  })}
                 </div>
               </div>
 
@@ -402,7 +474,7 @@ AI-Powered EBP Recommendations | Autism and Me` : ''
               <CardTitle>EBP Recommendation Engine</CardTitle>
             </div>
             <CardDescription>
-              Get AI-powered recommendations for the most relevant evidence-based practices for your specific situation
+              Get AI-powered recommendations from our comprehensive library of 29 evidence-based practices, tailored to your specific situation. Each recommendation includes detailed rationale, implementation priorities, and ethical considerations.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">

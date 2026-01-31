@@ -12,24 +12,30 @@ import { trackSession, trackUser } from '@/lib/analytics'
 
 function App() {
   const [activeTab, setActiveTab] = useState('home')
+  const [selectedEBPId, setSelectedEBPId] = useState<string | undefined>(undefined)
 
   useEffect(() => {
     trackSession()
     trackUser()
   }, [])
 
+  const navigateToEBP = (ebpId: string) => {
+    setSelectedEBPId(ebpId)
+    setActiveTab('ebps')
+  }
+
   const renderView = () => {
     switch (activeTab) {
       case 'home':
         return <HomeView onNavigate={setActiveTab} />
       case 'ebps':
-        return <EBPLibraryView />
+        return <EBPLibraryView initialEBPId={selectedEBPId} />
       case 'cases':
         return <CaseStudiesView />
       case 'rights':
         return <RightsEthicsView />
       case 'tools':
-        return <ToolsView />
+        return <ToolsView onNavigateToEBP={navigateToEBP} />
       case 'saved-plans':
         return <SavedPlansManager onBack={() => setActiveTab('tools')} />
       case 'admin':

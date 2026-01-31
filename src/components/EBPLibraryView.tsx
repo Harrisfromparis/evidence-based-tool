@@ -12,10 +12,23 @@ import { NarrationControls } from '@/components/NarrationControls'
 import { NarrationText } from '@/components/NarrationText'
 import { trackEBPView } from '@/lib/analytics'
 
-export function EBPLibraryView() {
+interface EBPLibraryViewProps {
+  initialEBPId?: string
+}
+
+export function EBPLibraryView({ initialEBPId }: EBPLibraryViewProps = {}) {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedEBP, setSelectedEBP] = useState<EBP | null>(null)
   const [bookmarkedEBPs, setBookmarkedEBPs] = useKV<string[]>('bookmarked-ebps', [])
+
+  useEffect(() => {
+    if (initialEBPId) {
+      const ebp = ebps.find(e => e.id === initialEBPId)
+      if (ebp) {
+        setSelectedEBP(ebp)
+      }
+    }
+  }, [initialEBPId])
 
   const filteredEBPs = ebps.filter(ebp => {
     const query = searchQuery.toLowerCase()
