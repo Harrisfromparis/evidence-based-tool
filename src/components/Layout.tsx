@@ -15,13 +15,16 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
         <div className="mx-auto max-w-5xl px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-white">A</span>
+              <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center shadow-lg">
+                <span className="text-3xl font-bold text-white handwritten">A&M</span>
               </div>
               <div>
-                <h1 className="text-white text-3xl">AUTISM AND ME</h1>
+                <h1 className="text-white text-3xl handwritten">AUTISM AND ME</h1>
                 <p className="text-white/80 text-sm font-sans font-normal">
                   Evidence Based Practice for Autism Support
+                </p>
+                <p className="text-white/60 text-xs font-sans font-normal mt-0.5">
+                  www.autismandme.ie Ltd.
                 </p>
               </div>
             </div>
@@ -106,6 +109,11 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
             >
               Admin
             </button>
+          </div>
+          <div className="mt-4 text-center">
+            <p className="text-xs text-muted-foreground">
+              © 2024 www.autismandme.ie Ltd. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>

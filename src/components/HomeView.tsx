@@ -33,13 +33,13 @@ export function HomeView({ onNavigate }: HomeViewProps) {
         <h2 className="text-foreground mb-6">Quick Access</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <Card 
-            className="cursor-pointer transition-colors hover:bg-secondary border-2"
+            className="cursor-pointer border-2 card-hover"
             onClick={() => onNavigate('ebps')}
           >
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <BookBookmark className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl">EBP Library</CardTitle>
+                <CardTitle className="text-xl handwritten">EBP Library</CardTitle>
               </div>
               <CardDescription>
                 Browse 28 evidence-based practices with plain-English definitions, Irish classroom examples, 
@@ -49,13 +49,13 @@ export function HomeView({ onNavigate }: HomeViewProps) {
           </Card>
 
           <Card 
-            className="cursor-pointer transition-colors hover:bg-secondary border-2"
+            className="cursor-pointer border-2 card-hover"
             onClick={() => onNavigate('cases')}
           >
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <FolderOpen className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl">Case Studies</CardTitle>
+                <CardTitle className="text-xl handwritten">Case Studies</CardTitle>
               </div>
               <CardDescription>
                 Real-world Irish examples showing how EBPs are implemented in primary and post-primary settings. 
@@ -65,13 +65,13 @@ export function HomeView({ onNavigate }: HomeViewProps) {
           </Card>
 
           <Card 
-            className="cursor-pointer transition-colors hover:bg-secondary border-2"
+            className="cursor-pointer border-2 card-hover"
             onClick={() => onNavigate('rights')}
           >
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <Scales className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl">Rights & Ethics</CardTitle>
+                <CardTitle className="text-xl handwritten">Rights & Ethics</CardTitle>
               </div>
               <CardDescription>
                 Understand UNCRPD Article 24, Irish legal frameworks, masking awareness, and ethical red flags. 
@@ -81,13 +81,13 @@ export function HomeView({ onNavigate }: HomeViewProps) {
           </Card>
 
           <Card 
-            className="cursor-pointer transition-colors hover:bg-secondary border-2"
+            className="cursor-pointer border-2 card-hover"
             onClick={() => onNavigate('tools')}
           >
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <Wrench className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl">Quick Tools</CardTitle>
+                <CardTitle className="text-xl handwritten">Quick Tools</CardTitle>
               </div>
               <CardDescription>
                 Practical planning tools including the "Choose 3 EBPs" planner, sensory checklist, 
@@ -113,13 +113,13 @@ export function HomeView({ onNavigate }: HomeViewProps) {
           </Card>
 
           <Card 
-            className="cursor-pointer transition-colors hover:bg-secondary border-2 border-accent/50 bg-accent/5"
+            className="cursor-pointer border-2 card-hover border-accent/50 bg-accent/5"
             onClick={() => onNavigate('saved-plans')}
           >
             <CardHeader>
               <div className="flex items-center gap-3 mb-2">
                 <FloppyDisk className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl">Saved Plans</CardTitle>
+                <CardTitle className="text-xl handwritten">Saved Plans</CardTitle>
               </div>
               <CardDescription>
                 View and manage all your saved plans from across all tools. Export multiple plans 

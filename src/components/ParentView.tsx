@@ -4,7 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ParentGuide } from '@/components/ParentGuide'
 import { ChildProfileCreator } from '@/components/ChildProfileCreator'
 import { ParentTools } from '@/components/ParentTools'
-import { Heart, BookOpen, Users } from '@phosphor-icons/react'
+import { ParentEBPReflection } from '@/components/ParentEBPReflection'
+import { Heart, BookOpen, Users, Lightbulb } from '@phosphor-icons/react'
 
 export function ParentView() {
   const [activeTab, setActiveTab] = useState('guide')
@@ -23,16 +24,20 @@ export function ParentView() {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col">
-        <TabsList className="grid w-full grid-cols-3 mb-6">
-          <TabsTrigger value="guide" className="gap-2">
+        <TabsList className="grid w-full grid-cols-4 mb-6">
+          <TabsTrigger value="guide" className="gap-2 rounded-xl">
             <BookOpen size={20} />
             Home Guide
           </TabsTrigger>
-          <TabsTrigger value="profile" className="gap-2">
+          <TabsTrigger value="profile" className="gap-2 rounded-xl">
             <Heart size={20} />
             Child Profile
           </TabsTrigger>
-          <TabsTrigger value="tools" className="gap-2">
+          <TabsTrigger value="ebp-reflection" className="gap-2 rounded-xl">
+            <Lightbulb size={20} />
+            What Works
+          </TabsTrigger>
+          <TabsTrigger value="tools" className="gap-2 rounded-xl">
             <Users size={20} />
             Parent Tools
           </TabsTrigger>
@@ -44,6 +49,10 @@ export function ParentView() {
 
         <TabsContent value="profile" className="flex-1">
           <ChildProfileCreator />
+        </TabsContent>
+
+        <TabsContent value="ebp-reflection" className="flex-1">
+          <ParentEBPReflection />
         </TabsContent>
 
         <TabsContent value="tools" className="flex-1">
