@@ -11,6 +11,14 @@ interface LayoutProps {
 export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <div className="bg-primary py-4 px-6">
+        <div className="mx-auto max-w-5xl">
+          <h1 className="text-primary-foreground text-2xl font-bold text-center handwritten">
+            Autism and Me Ltd
+          </h1>
+        </div>
+      </div>
+
       <header className="border-b border-border bg-white py-4 px-6">
         <div className="mx-auto max-w-5xl flex justify-end">
           <NarrationSettings />
