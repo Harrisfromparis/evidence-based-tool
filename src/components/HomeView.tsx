@@ -19,6 +19,13 @@ export function HomeView({ onNavigate }: HomeViewProps) {
         />
       </section>
 
+      <section className="bg-primary text-primary-foreground p-8 rounded-xl border-2 border-primary shadow-md">
+        <h1 className="text-4xl md:text-5xl mb-3">Evidence-Based Practice Navigator</h1>
+        <p className="text-lg md:text-xl opacity-95">
+          Supporting autistic students through neuro-affirming, rights-based approaches in Irish education
+        </p>
+      </section>
+
       <section>
         <div className="flex items-start justify-between mb-4">
           <h2 className="text-foreground">Welcome</h2>
