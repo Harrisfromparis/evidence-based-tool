@@ -12,21 +12,24 @@ interface LayoutProps {
 export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <div className="relative">
-        <div className="absolute inset-0 bg-primary opacity-20 -z-10 h-48">
+      <div className="bg-primary py-6 px-6">
+        <div className="mx-auto max-w-5xl flex items-center justify-between">
+          <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground handwritten">
+            AUTISM AND ME
+          </h1>
+          <NarrationSettings />
+        </div>
+      </div>
+
+      <header className="border-b border-border bg-white py-2 px-6">
+        <div className="mx-auto max-w-5xl">
           <img 
             src={brandingImage} 
             alt="Autism and Me Ltd" 
-            className="w-full h-full object-cover object-center"
+            className="h-20 object-contain mx-auto"
           />
         </div>
-
-        <header className="border-b border-border bg-white/80 backdrop-blur-sm py-4 px-6 relative z-10">
-          <div className="mx-auto max-w-5xl flex justify-end">
-            <NarrationSettings />
-          </div>
-        </header>
-      </div>
+      </header>
 
       <nav className="border-b border-border bg-white sticky top-0 z-10">
         <div className="mx-auto max-w-5xl px-6">
