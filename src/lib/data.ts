@@ -1200,6 +1200,14 @@ export const tools: Tool[] = [
     category: 'AI Tools',
     icon: 'Lightbulb',
     ebpCategories: ['Planning']
+  },
+  {
+    id: 'cboard-integration',
+    title: 'Cboard AAC App',
+    description: 'Free augmentative and alternative communication app for non-verbal students with symbol-based boards and text-to-speech',
+    category: 'Communication Tools',
+    icon: 'SpeakerHigh',
+    ebpCategories: ['Communication', 'Technology', 'AAC']
   }
 ]
 

@@ -42,6 +42,7 @@ import { VRDemonstrations } from '@/components/VRDemonstrations'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
 import { AICaseStudyGenerator } from '@/components/AICaseStudyGenerator'
 import { EBPRecommendationEngine } from '@/components/EBPRecommendationEngine'
+import { CboardIntegration } from '@/components/CboardIntegration'
 import { SectionHeader } from '@/components/SectionHeader'
 
 interface ToolsViewProps {
@@ -211,6 +212,10 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
     return <EBPRecommendationEngine onBack={() => setSelectedTool(null)} onNavigateToEBP={onNavigateToEBP} />
   }
 
+  if (selectedTool === 'cboard-integration') {
+    return <CboardIntegration onBack={() => setSelectedTool(null)} />
+  }
+
   const implementedTools = [
     'lesson-script-generator', 
     'transition-support', 
@@ -245,7 +250,8 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
     'vr-transition-prep',
     'vr-demonstrations',
     'ai-case-study-generator',
-    'ebp-recommendation-engine'
+    'ebp-recommendation-engine',
+    'cboard-integration'
   ]
 
   return (
