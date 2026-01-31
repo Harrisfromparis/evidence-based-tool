@@ -110,7 +110,7 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
           </div>
           <div className="mt-4 text-center">
             <p className="text-xs text-muted-foreground">
-              © 2024 www.autismandme.ie Ltd. All rights reserved.
+              © 2026 www.autismandme.ie Ltd. All rights reserved.
             </p>
           </div>
         </div>
