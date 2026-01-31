@@ -14,19 +14,14 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
       <header className="border-b border-border bg-primary">
         <div className="mx-auto max-w-5xl px-6 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center shadow-lg">
-                <span className="text-3xl font-bold text-white handwritten">A&M</span>
-              </div>
-              <div>
-                <h1 className="text-white text-3xl handwritten">AUTISM AND ME</h1>
-                <p className="text-white/80 text-sm font-sans font-normal">
-                  Evidence Based Practice for Autism Support
-                </p>
-                <p className="text-white/60 text-xs font-sans font-normal mt-0.5">
-                  www.autismandme.ie Ltd.
-                </p>
-              </div>
+            <div>
+              <h1 className="text-white text-3xl handwritten">AUTISM AND ME</h1>
+              <p className="text-white/80 text-sm font-sans font-normal">
+                Evidence Based Practice for Autism Support
+              </p>
+              <p className="text-white/60 text-xs font-sans font-normal mt-0.5">
+                www.autismandme.ie Ltd.
+              </p>
             </div>
             <NarrationSettings />
           </div>

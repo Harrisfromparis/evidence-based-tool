@@ -4,12 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { 
-  ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText, UserCircle, CalendarCheck, Smiley,
-  Image, Book, ListNumbers, ChatsCircle, Star, ArrowBendDownRight, ChartLine, Folders,
-  UsersThree, Presentation, Video, DeviceMobile, Lightning, Brain, PersonSimpleRun,
-  MusicNotes, Laptop, Target, Leaf, MagnifyingGlass, FloppyDisk, Sparkle, Lightbulb
-} from '@phosphor-icons/react'
+import { MagnifyingGlass, FloppyDisk } from '@phosphor-icons/react'
 import { tools } from '@/lib/data'
 import { trackToolUsage } from '@/lib/analytics'
 import { LessonScriptGenerator } from '@/components/LessonScriptGenerator'
@@ -47,39 +42,6 @@ import { VRDemonstrations } from '@/components/VRDemonstrations'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
 import { AICaseStudyGenerator } from '@/components/AICaseStudyGenerator'
 import { EBPRecommendationEngine } from '@/components/EBPRecommendationEngine'
-
-const iconMap = {
-  ListChecks,
-  Eye,
-  ChatCircle,
-  HandHeart,
-  ArrowsLeftRight,
-  FileText,
-  UserCircle,
-  CalendarCheck,
-  Smiley,
-  Image,
-  Book,
-  ListNumbers,
-  ChatsCircle,
-  Star,
-  ArrowBendDownRight,
-  ChartLine,
-  Folders,
-  UsersThree,
-  Presentation,
-  Video,
-  DeviceMobile,
-  Lightning,
-  Brain,
-  PersonSimpleRun,
-  MusicNotes,
-  Laptop,
-  Target,
-  Leaf,
-  Sparkle,
-  Lightbulb
-}
 
 interface ToolsViewProps {
   onNavigateToEBP?: (ebpId: string) => void
@@ -299,8 +261,7 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
         <CardContent className="pt-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h3 className="font-semibold text-foreground mb-1 flex items-center gap-2">
-                <FloppyDisk className="w-5 h-5 text-accent" />
+              <h3 className="font-semibold text-foreground mb-1">
                 Manage Your Saved Plans
               </h3>
               <p className="text-sm text-muted-foreground">
@@ -353,7 +314,6 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
 
       <div className="grid gap-6 md:grid-cols-2">
         {filteredTools.map((tool) => {
-          const IconComponent = iconMap[tool.icon as keyof typeof iconMap] || FileText
           const isInteractive = implementedTools.includes(tool.id)
           
           return (
@@ -364,14 +324,7 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
             >
               <CardHeader>
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 bg-accent/10 rounded">
-                      <IconComponent className="w-6 h-6 text-accent" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl">{tool.title}</CardTitle>
-                    </div>
-                  </div>
+                  <CardTitle className="text-xl mb-2">{tool.title}</CardTitle>
                   <Badge variant="outline" className="flex-shrink-0">{tool.category}</Badge>
                 </div>
                 <CardDescription className="text-base">

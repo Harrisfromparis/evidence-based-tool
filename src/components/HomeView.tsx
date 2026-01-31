@@ -1,5 +1,4 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk, Users } from '@phosphor-icons/react'
 import { NarrationControls } from '@/components/NarrationControls'
 
 interface HomeViewProps {
@@ -37,10 +36,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
             onClick={() => onNavigate('ebps')}
           >
             <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <BookBookmark className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl handwritten">EBP Library</CardTitle>
-              </div>
+              <CardTitle className="text-xl handwritten mb-2">EBP Library</CardTitle>
               <CardDescription>
                 Browse 28 evidence-based practices with plain-English definitions, Irish classroom examples, 
                 quick-start guides, and ethical considerations.
@@ -53,10 +49,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
             onClick={() => onNavigate('cases')}
           >
             <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <FolderOpen className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl handwritten">Case Studies</CardTitle>
-              </div>
+              <CardTitle className="text-xl handwritten mb-2">Case Studies</CardTitle>
               <CardDescription>
                 Real-world Irish examples showing how EBPs are implemented in primary and post-primary settings. 
                 Search by age, setting, or challenge type.
@@ -69,10 +62,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
             onClick={() => onNavigate('rights')}
           >
             <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <Scales className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl handwritten">Rights & Ethics</CardTitle>
-              </div>
+              <CardTitle className="text-xl handwritten mb-2">Rights & Ethics</CardTitle>
               <CardDescription>
                 Understand UNCRPD Article 24, Irish legal frameworks, masking awareness, and ethical red flags. 
                 Ground your practice in rights-based approaches.
@@ -85,10 +75,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
             onClick={() => onNavigate('tools')}
           >
             <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <Wrench className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl handwritten">Quick Tools</CardTitle>
-              </div>
+              <CardTitle className="text-xl handwritten mb-2">Quick Tools</CardTitle>
               <CardDescription>
                 Practical planning tools including the "Choose 3 EBPs" planner, sensory checklist, 
                 behaviour-as-communication analyzer, and transition support builder.
@@ -101,10 +88,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
             onClick={() => onNavigate('parents')}
           >
             <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-6 h-6 text-secondary" />
-                <CardTitle className="text-xl handwritten">Parent & Caregiver Hub</CardTitle>
-              </div>
+              <CardTitle className="text-xl handwritten mb-2">Parent & Caregiver Hub</CardTitle>
               <CardDescription className="text-foreground/80">
                 Home implementation guides for all 28 EBPs, child profile creator with export options, 
                 and practical tools for supporting your family.
@@ -117,10 +101,7 @@ export function HomeView({ onNavigate }: HomeViewProps) {
             onClick={() => onNavigate('saved-plans')}
           >
             <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <FloppyDisk className="w-6 h-6 text-accent" />
-                <CardTitle className="text-xl handwritten">Saved Plans</CardTitle>
-              </div>
+              <CardTitle className="text-xl handwritten mb-2">Saved Plans</CardTitle>
               <CardDescription>
                 View and manage all your saved plans from across all tools. Export multiple plans 
                 as a combined PDF for easy sharing and documentation.
