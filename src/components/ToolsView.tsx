@@ -8,7 +8,7 @@ import {
   ListChecks, Eye, ChatCircle, HandHeart, ArrowsLeftRight, FileText, UserCircle, CalendarCheck, Smiley,
   Image, Book, ListNumbers, ChatsCircle, Star, ArrowBendDownRight, ChartLine, Folders,
   UsersThree, Presentation, Video, DeviceMobile, Lightning, Brain, PersonSimpleRun,
-  MusicNotes, Laptop, Target, Leaf, MagnifyingGlass, FloppyDisk
+  MusicNotes, Laptop, Target, Leaf, MagnifyingGlass, FloppyDisk, Sparkle, Lightbulb
 } from '@phosphor-icons/react'
 import { tools } from '@/lib/data'
 import { trackToolUsage } from '@/lib/analytics'
@@ -45,6 +45,8 @@ import { VRScenarioPlanner } from '@/components/VRScenarioPlanner'
 import { VRTransitionPrep } from '@/components/VRTransitionPrep'
 import { VRDemonstrations } from '@/components/VRDemonstrations'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
+import { AICaseStudyGenerator } from '@/components/AICaseStudyGenerator'
+import { EBPRecommendationEngine } from '@/components/EBPRecommendationEngine'
 
 const iconMap = {
   ListChecks,
@@ -74,7 +76,9 @@ const iconMap = {
   MusicNotes,
   Laptop,
   Target,
-  Leaf
+  Leaf,
+  Sparkle,
+  Lightbulb
 }
 
 export function ToolsView() {
@@ -232,6 +236,14 @@ export function ToolsView() {
     return <VRDemonstrations onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'ai-case-study-generator') {
+    return <AICaseStudyGenerator onBack={() => setSelectedTool(null)} />
+  }
+
+  if (selectedTool === 'ebp-recommendation-engine') {
+    return <EBPRecommendationEngine onBack={() => setSelectedTool(null)} />
+  }
+
   const implementedTools = [
     'lesson-script-generator', 
     'transition-support', 
@@ -264,7 +276,9 @@ export function ToolsView() {
     'naturalistic-teaching',
     'vr-scenario-planner',
     'vr-transition-prep',
-    'vr-demonstrations'
+    'vr-demonstrations',
+    'ai-case-study-generator',
+    'ebp-recommendation-engine'
   ]
 
   return (

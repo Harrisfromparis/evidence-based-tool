@@ -1184,6 +1184,22 @@ export const tools: Tool[] = [
     category: 'Learning',
     icon: 'Video',
     ebpCategories: ['Technology', 'Social & Communication']
+  },
+  {
+    id: 'ai-case-study-generator',
+    title: 'AI Case Study Generator',
+    description: 'Generate custom, contextually relevant case studies demonstrating EBPs in specific situations',
+    category: 'AI Tools',
+    icon: 'Sparkle',
+    ebpCategories: ['Planning', 'Learning']
+  },
+  {
+    id: 'ebp-recommendation-engine',
+    title: 'EBP Recommendation Engine',
+    description: 'Get AI-powered recommendations for the most relevant evidence-based practices for your situation',
+    category: 'AI Tools',
+    icon: 'Lightbulb',
+    ebpCategories: ['Planning']
   }
 ]
 
