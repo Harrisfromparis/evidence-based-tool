@@ -11,6 +11,7 @@ import type { EBP } from '@/lib/types'
 import { NarrationControls } from '@/components/NarrationControls'
 import { NarrationText } from '@/components/NarrationText'
 import { trackEBPView } from '@/lib/analytics'
+import { SectionHeader } from '@/components/SectionHeader'
 
 interface EBPLibraryViewProps {
   initialEBPId?: string
@@ -171,12 +172,11 @@ export function EBPLibraryView({ initialEBPId }: EBPLibraryViewProps = {}) {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-foreground mb-2">Evidence-Based Practices</h2>
-        <p className="text-muted-foreground">
-          Browse {ebps.length} evidence-based practices with practical guidance for Irish classrooms.
-        </p>
-      </div>
+      <SectionHeader 
+        title="Evidence-Based Practices"
+        description={`Browse ${ebps.length} evidence-based practices with practical guidance for Irish classrooms.`}
+        variant="compact"
+      />
 
       <div className="relative">
         <MagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />

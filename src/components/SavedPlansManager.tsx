@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { ArrowLeft, FilePdf, Trash } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { SectionHeader } from '@/components/SectionHeader'
 
 interface SavedPlan {
   id: string
@@ -410,12 +411,11 @@ export function SavedPlansManager({ onBack }: SavedPlansManagerProps) {
         </Button>
       </div>
 
-      <div>
-        <h2 className="text-foreground mb-2">Saved Plans Manager</h2>
-        <p className="text-muted-foreground">
-          View, manage, and export all your saved plans from across all tools. Select multiple plans to export them as a combined PDF.
-        </p>
-      </div>
+      <SectionHeader 
+        title="Saved Plans Manager"
+        description="View, manage, and export all your saved plans from across all tools. Select multiple plans to export them as a combined PDF."
+        variant="compact"
+      />
 
       {allPlans.length === 0 ? (
         <Card className="p-12 text-center">

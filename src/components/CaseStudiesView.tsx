@@ -9,6 +9,7 @@ import { caseStudies } from '@/lib/data'
 import type { CaseStudy } from '@/lib/types'
 import { NarrationControls } from '@/components/NarrationControls'
 import { NarrationText } from '@/components/NarrationText'
+import { SectionHeader } from '@/components/SectionHeader'
 
 export function CaseStudiesView() {
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null)
@@ -142,12 +143,11 @@ export function CaseStudiesView() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-foreground mb-2">Case Studies</h2>
-        <p className="text-muted-foreground">
-          Real-world examples from Irish schools showing how evidence-based practices are implemented.
-        </p>
-      </div>
+      <SectionHeader 
+        title="Case Studies"
+        description="Real-world examples from Irish schools showing how evidence-based practices are implemented."
+        variant="compact"
+      />
 
       <Card className="bg-muted">
         <CardHeader>

@@ -42,6 +42,7 @@ import { VRDemonstrations } from '@/components/VRDemonstrations'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
 import { AICaseStudyGenerator } from '@/components/AICaseStudyGenerator'
 import { EBPRecommendationEngine } from '@/components/EBPRecommendationEngine'
+import { SectionHeader } from '@/components/SectionHeader'
 
 interface ToolsViewProps {
   onNavigateToEBP?: (ebpId: string) => void
@@ -249,13 +250,11 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-foreground mb-2">Implementation Tools for All 29 EBPs</h2>
-        <p className="text-muted-foreground">
-          Practical tools to implement evidence-based practices. Each tool provides structured guidance
-          for planning, assessment, and action across all 28 NCAEP evidence-based practices.
-        </p>
-      </div>
+      <SectionHeader 
+        title="Implementation Tools for All 29 EBPs"
+        description="Practical tools to implement evidence-based practices. Each tool provides structured guidance for planning, assessment, and action across all 28 NCAEP evidence-based practices."
+        variant="compact"
+      />
 
       <Card className="bg-accent/10 border-accent">
         <CardContent className="pt-6">

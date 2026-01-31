@@ -6,21 +6,30 @@ import { ChildProfileCreator } from '@/components/ChildProfileCreator'
 import { ParentTools } from '@/components/ParentTools'
 import { ParentEBPReflection } from '@/components/ParentEBPReflection'
 import { Heart, BookOpen, Users, Lightbulb } from '@phosphor-icons/react'
+import { SectionHeader } from '@/components/SectionHeader'
+import brandingImage from '@/assets/images/logo_for_wix_Steffen.png'
 
 export function ParentView() {
   const [activeTab, setActiveTab] = useState('guide')
 
   return (
     <div className="h-full flex flex-col">
-      <div className="bg-gradient-to-br from-soft-green to-soft-orange p-8 rounded-xl mb-6 shadow-sm border-2 border-border">
-        <h1 className="text-3xl font-bold mb-3 handwritten text-foreground">
-          Parent & Caregiver Hub
-        </h1>
-        <p className="text-base text-foreground/80 max-w-3xl leading-relaxed">
-          Welcome! This space is designed to help you understand and use evidence-based practices at home. 
-          Create a profile for your child, explore practical home adaptations of the 28 EBPs, and access tools 
-          to support your family's journey.
-        </p>
+      <div className="relative rounded-xl mb-6 shadow-md border-2 border-border overflow-hidden">
+        <img 
+          src={brandingImage} 
+          alt="" 
+          className="w-full h-32 object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-center">
+          <div className="p-8">
+            <h1 className="text-3xl font-bold mb-2 handwritten text-white drop-shadow-lg">
+              Parent & Caregiver Hub
+            </h1>
+            <p className="text-base text-white/90 max-w-2xl leading-relaxed drop-shadow-md">
+              Create a profile for your child, explore practical home adaptations, and access family support tools.
+            </p>
+          </div>
+        </div>
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col">

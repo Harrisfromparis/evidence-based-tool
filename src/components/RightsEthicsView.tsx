@@ -6,6 +6,7 @@ import { rightsContent } from '@/lib/data'
 import type { RightsContent } from '@/lib/types'
 import { NarrationControls } from '@/components/NarrationControls'
 import { NarrationText } from '@/components/NarrationText'
+import { SectionHeader } from '@/components/SectionHeader'
 
 export function RightsEthicsView() {
   const [selectedContent, setSelectedContent] = useState<RightsContent | null>(null)
@@ -78,19 +79,11 @@ export function RightsEthicsView() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-start justify-between">
-        <div>
-          <h2 className="text-foreground mb-2">Rights & Ethics</h2>
-          <p className="text-muted-foreground">
-            Ground your practice in rights-based frameworks and ethical principles. All interventions must respect 
-            the dignity, autonomy, and identity of autistic students.
-          </p>
-        </div>
-        <NarrationControls 
-          text="Rights and Ethics. Ground your practice in rights-based frameworks and ethical principles. All interventions must respect the dignity, autonomy, and identity of autistic students."
-          variant="minimal"
-        />
-      </div>
+      <SectionHeader 
+        title="Rights & Ethics"
+        description="Ground your practice in rights-based frameworks and ethical principles. All interventions must respect the dignity, autonomy, and identity of autistic students."
+        variant="compact"
+      />
 
       <div className="bg-accent/10 border-l-4 border-l-accent p-6">
         <div className="flex items-start justify-between mb-2">
