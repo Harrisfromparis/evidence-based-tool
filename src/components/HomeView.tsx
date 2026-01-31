@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk } from '@phosphor-icons/react'
+import { BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk, Users } from '@phosphor-icons/react'
 import { NarrationControls } from '@/components/NarrationControls'
 
 interface HomeViewProps {
@@ -92,6 +92,22 @@ export function HomeView({ onNavigate }: HomeViewProps) {
               <CardDescription>
                 Practical planning tools including the "Choose 3 EBPs" planner, sensory checklist, 
                 behaviour-as-communication analyzer, and transition support builder.
+              </CardDescription>
+            </CardHeader>
+          </Card>
+
+          <Card 
+            className="cursor-pointer transition-colors hover:bg-secondary border-2 warm-card"
+            onClick={() => onNavigate('parents')}
+          >
+            <CardHeader>
+              <div className="flex items-center gap-3 mb-2">
+                <Users className="w-6 h-6 text-secondary" />
+                <CardTitle className="text-xl handwritten">Parent & Caregiver Hub</CardTitle>
+              </div>
+              <CardDescription className="text-foreground/80">
+                Home implementation guides for all 28 EBPs, child profile creator with export options, 
+                and practical tools for supporting your family.
               </CardDescription>
             </CardHeader>
           </Card>

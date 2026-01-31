@@ -8,10 +8,10 @@
 }
 
 :root {
-  --background: oklch(96.7% 0.003 264.542);
+  --background: oklch(0.98 0 0);
   --foreground: oklch(0.15 0 0);
   
-  --card: oklch(89.4% 0.057 293.283);
+  --card: oklch(0.985 0.005 150);
   --card-foreground: oklch(0.15 0 0);
   
   --popover: oklch(0.98 0 0);
@@ -20,31 +20,33 @@
   --primary: oklch(0.15 0 0);
   --primary-foreground: oklch(0.98 0 0);
   
-  --secondary: oklch(70.4% 0.04 256.788);
+  --secondary: oklch(0.576 0.152 144.5);
   --secondary-foreground: oklch(0.98 0 0);
   
-  --muted: oklch(0.92 0.01 150);
+  --muted: oklch(0.96 0 0);
   --muted-foreground: oklch(0.45 0 0);
   
-  --accent: oklch(0.65 0.18 55);
+  --accent: oklch(0.707 0.15 41.16);
   --accent-foreground: oklch(0.15 0 0);
+  
+  --soft-green: oklch(0.893 0.08 144.5);
+  --soft-orange: oklch(0.918 0.065 55);
   
   --destructive: oklch(0.55 0.20 30);
   --destructive-foreground: oklch(0.98 0 0);
   
-  --border: oklch(72.3% 0.219 149.579);
-  --input: oklch(0.85 0.01 150);
-  --ring: oklch(70.4% 0.04 256.788);
+  --border: oklch(0.88 0.01 150);
+  --input: oklch(0.92 0.01 150);
+  --ring: oklch(0.576 0.152 144.5);
   
-  --radius: 0.75rem;
+  --radius: 0.875rem;
   
   --font-sans: Mona Sans;
+  --font-serif: IBM Plex Serif;
+  --font-mono: Roboto Mono;
+  --font-handwritten: Caveat;
   
   --spacing: 0.3rem;
-  
-  --font-serif: IBM Plex Serif;
-  
-  --font-mono: Roboto Mono;
 }
 
 @theme {
@@ -62,6 +64,8 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-soft-green: var(--soft-green);
+  --color-soft-orange: var(--soft-orange);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -118,4 +122,21 @@ h3 {
   box-shadow: 0 0 0 2px var(--accent);
   font-weight: 600;
   transform: scale(1.05);
+}
+
+.handwritten {
+  font-family: var(--font-handwritten), cursive;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.warm-card {
+  background: linear-gradient(135deg, var(--soft-green) 0%, var(--soft-orange) 100%);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.organic-shape {
+  border-radius: 2rem 1rem 2rem 1rem;
 }

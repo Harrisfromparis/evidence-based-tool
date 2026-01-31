@@ -180,6 +180,13 @@ The app provides structured navigation through educational content with search, 
 - Progression: Describe student situation → Select primary need areas (checkboxes) → Describe current challenges → Describe desired outcomes → Generate recommendations → View 3-5 recommended EBPs with detailed rationale for each → Each recommendation shows EBP name, confidence score, specific relevance explanation, implementation priority (immediate/short-term/long-term), and considerations → Link to full EBP details → Save recommendation report → Export recommendations
 - Success criteria: Recommendations are contextually appropriate; rationales are specific and actionable; confidence scores help prioritize; links seamlessly to EBP library for full details; recommendation reports can be saved and exported; generates recommendations in under 10 seconds
 
+**Parent & Caregiver Hub** [IMPLEMENTED - SECTION 15]
+- Functionality: Dedicated parent-facing section with three main areas: (1) Home Implementation Guide covering all 28 EBPs with plain-language home examples, safety notes, and step-by-step home adaptations, (2) Child Profile Creator allowing parents to document their child's strengths, interests, sensory preferences, communication methods, supports that work/don't work, with full export functionality (print, download, email), (3) Parent Tools section with practical home adaptations for daily routines and quick-start visual supports
+- Purpose: Bridge school and home by empowering parents/caregivers with accessible EBP information they can implement in home settings. Enable parents to create comprehensive child profiles to share with educators and support staff. Provide warm, supportive guidance without jargon.
+- Trigger: User navigates to "Parents" tab in main navigation
+- Progression: Access Parent Hub → Choose between Guide/Profile/Tools tabs → Home Guide: Browse 28 EBPs by category, search, view home examples and step-by-step adaptations → Child Profile: Create new profile with comprehensive fields (name, age, strengths, interests, sensory preferences, communication, supports) → Save profile → View saved profiles → Export via print/download/email → Parent Tools: Browse home tools by category, review daily routine adaptations
+- Success criteria: All 28 EBPs have complete home implementation guidance; child profiles capture comprehensive information; export functions work reliably across print/download/email; warm, character-rich visual design using handwritten fonts and organic shapes; completely neuro-affirming and trauma-informed language; no clinical or institutional tone
+
 **AI Writing Assistant for Documentation** [NEW - AI ENHANCEMENT]
 - Functionality: Context-aware writing helper that assists teachers with professional documentation tasks. Supports multiple document types: IEP goals, progress reports, parent communication, incident reports, and accommodation plans. AI helps structure content, suggests appropriate language, ensures neuro-affirming terminology, and maintains professional tone while preserving teacher's specific details.
 - Purpose: Reduce documentation burden on teachers while maintaining quality and professional standards. Ensure documentation uses respectful, neuro-affirming language. Help teachers communicate effectively with parents, administrators, and support teams.
@@ -209,26 +216,30 @@ The design should evoke the feeling of opening a well-organized, professionally 
 
 ## Color Selection
 
-A bold, distinctive palette using the brand colors of black, green, and orange that feels professional yet approachable.
+A warm, human-centered palette that balances professional authority with character and approachability. Uses the approved colour system with calm, friendly tones.
 
 - **Primary Color**: Black (oklch(0.15 0 0)) — Conveys authority, professionalism, and clarity appropriate for educational content; used for headings and primary elements
-- **Secondary Color**: Forest Green (oklch(0.55 0.15 150)) — A grounding, natural color for interactive elements and secondary actions; represents growth and calm support
-- **Accent Color**: Warm Orange (oklch(0.65 0.18 55)) — An energizing highlight for important callouts and attention-drawing elements; creates warmth and approachability
-- **Supporting Colors**: Soft Grey (oklch(0.45 0 0)) for body text; Light Green Tint (oklch(0.92 0.01 150)) for subtle section backgrounds and hover states
+- **Secondary Color**: Green (oklch(0.576 0.152 144.5)) — A grounding, natural color (#2ECC71 family) for interactive elements and secondary actions; represents growth and calm support
+- **Accent Color**: Warm Orange (oklch(0.707 0.15 41.16)) — An energizing highlight (#F39C12 family) for important callouts and attention-drawing elements; creates warmth and approachability
+- **Soft Green**: (oklch(0.893 0.08 144.5)) — Gentle green tint (#A8E6CF) for subtle backgrounds, hover states, and warm card designs
+- **Soft Orange**: (oklch(0.918 0.065 55)) — Gentle orange tint (#FFD3B6) for warm accents and gradient backgrounds
+- **Supporting Colors**: Soft Grey (oklch(0.45 0 0)) for body text; Light backgrounds (oklch(0.96 0 0)) for subtle section backgrounds; Neutral Grey (#F2F2F2) for borders
 - **Foreground/Background Pairings**: 
   - Background White (oklch(0.98 0 0)): Black text (oklch(0.15 0 0)) - Ratio 14.8:1 ✓
-  - Forest Green (oklch(0.55 0.15 150)): White text (oklch(0.98 0 0)) - Ratio 4.9:1 ✓
-  - Warm Orange accent (oklch(0.65 0.18 55)): Black text (oklch(0.15 0 0)) - Ratio 5.2:1 ✓
+  - Green (oklch(0.576 0.152 144.5)): White text (oklch(0.98 0 0)) - Ratio 4.9:1 ✓
+  - Warm Orange accent (oklch(0.707 0.15 41.16)): Black text (oklch(0.15 0 0)) - Ratio 5.8:1 ✓
   - Soft Grey text (oklch(0.45 0 0)): White background - Ratio 7.5:1 ✓
 
 ## Font Selection
 
-Typography should convey scholarly credibility while maintaining high readability for extended reading sessions, suitable for users with dyslexia.
+Typography balances scholarly credibility with warmth and character. Includes a handwritten-style font for emphasis and personality.
 
 - **Display/Headings**: Merriweather (serif) - Brings editorial authority and traditional publishing credibility; distinguished without being decorative
 - **Body Text**: Inter (sans-serif) - Exceptional readability, dyslexia-friendly letterforms, neutral professionalism
+- **Handwritten Accent**: Caveat (handwritten-style) - Warm, human, legible handwritten font used ONLY for headings, emphasis, and character elements; never for body text or long paragraphs; adds personality without compromising professionalism
 - **Typographic Hierarchy**: 
   - H1 (Section Titles): Merriweather Bold / 32px / letter-spacing -0.02em / line-height 1.2
+  - H1 (Handwritten Accent): Caveat SemiBold / 32-36px / letter-spacing 0.02em / Used for Parent Hub and warm section headers
   - H2 (Subsection Titles): Merriweather Bold / 24px / letter-spacing -0.01em / line-height 1.3
   - H3 (Card Titles): Inter SemiBold / 18px / letter-spacing 0 / line-height 1.4
   - Body (Primary Content): Inter Regular / 16px / letter-spacing 0.01em / line-height 1.6
@@ -242,29 +253,42 @@ Motion should be minimal and purposeful — a subtle acknowledgment of interacti
 
 - **Components**: 
   - Navigation: Tabs component for main sections (flat, rectangular, clear active state)
-  - Content Cards: Card component for EBPs and case studies (flat, bordered, generous padding)
+  - Content Cards: Card component for EBPs and case studies (flat, bordered, generous padding) with warm gradient variants for Parent Hub
   - Search: Input with search icon (functional, no decorative styling)
   - Filters: Checkbox and Select components for case study filtering (standard form controls)
   - Dialogs: Dialog component for full EBP details and tools (overlay with clear close action)
   - Lists: Accordion component for collapsible content sections within EBPs
   - Bookmarks: Simple star/bookmark icon toggle (functional indicator only)
-  - Buttons: Button component - flat, rectangular, high contrast, clear labels
+  - Buttons: Button component - rounded, soft shadows, clear labels with character
   
 - **Customizations**: 
-  - Remove all border-radius except minimal 2px for anti-aliasing
-  - Increase padding throughout (24px standard, 32px for cards)
+  - Warm gradient cards using soft-green and soft-orange for Parent Hub sections
+  - Organic rounded shapes (border-radius: 2rem 1rem 2rem 1rem) for character elements
+  - Handwritten font class (.handwritten) for warm, human headings
+  - Soft shadows (0 2px 8px rgba(0,0,0,0.08)) for gentle depth
+  - Increased radius throughout (--radius: 0.875rem) for friendly, approachable feel
   - Custom bookmark icon (simple outline star, no fill animation)
   - Breadcrumb component for navigation context
   
+- **Visual Character Elements**:
+  - Soft rounded shapes throughout (buttons, cards, inputs use generous border-radius)
+  - Gentle shadows for subtle depth without harsh contrast
+  - Friendly icons from Phosphor set (Heart, Users, House, Lightbulb, ShieldCheck)
+  - Warm gradient backgrounds for Parent Hub (linear-gradient from soft-green to soft-orange)
+  - Organic lines and accents (asymmetric rounded corners for character)
+  - Colour-rich but calm: green and orange accents used liberally but thoughtfully
+  - Character without childishness: sophisticated use of warmth and personality
+  
 - **States**: 
-  - Buttons: Black background → Forest Green on hover (no shadow, no transform)
-  - Cards: Flat with border → Subtle light green background on hover (no elevation)
-  - Inputs: Border only → Border + subtle light green background on focus
+  - Buttons: Black background → Green on hover (soft transition, gentle shadow increase)
+  - Cards: Flat with border → Subtle soft-green/soft-orange background on hover (no harsh elevation)
+  - Inputs: Border only → Border + subtle tinted background on focus
   - Bookmarks: Outline star → Filled orange star (instant, no animation)
   
 - **Icon Selection**: 
-  - Phosphor icons (regular weight) used sparingly: MagnifyingGlass (search), BookmarkSimple (saved items), Funnel (filters), X (close), CaretLeft (back navigation), House (home)
-  - No decorative icons; icons supplement labels, never replace them
+  - Phosphor icons (regular weight) used frequently: MagnifyingGlass (search), BookmarkSimple (saved items), Funnel (filters), X (close), CaretLeft (back navigation), House (home), Heart (parents), Users (community), Lightbulb (ideas), ShieldCheck (safety)
+  - Icons supplement labels, never replace them
+  - Colour used on icons to add warmth (green, orange accents)
   
 - **Spacing**: 
   - Base unit: 8px
@@ -280,6 +304,18 @@ Motion should be minimal and purposeful — a subtle acknowledgment of interacti
   - Font sizes remain same (accessibility priority)
   - Touch targets minimum 44x44px
   - Single column layout throughout
+
+## Visual Character & Warmth Implementation
+
+Per Section 14 requirements, the application implements:
+
+- **Warm Visual Identity**: Soft gradients, rounded shapes, handwritten fonts for headings, friendly colour palette
+- **Colour System**: Black (#000000), Green (#2ECC71), Orange (#F39C12), Soft Green (#A8E6CF), Soft Orange (#FFD3B6), Neutral Grey (#F2F2F2)
+- **Handwritten Font**: Caveat font family used for Parent Hub headings, emphasis elements, and warm section titles
+- **Character Elements**: Organic rounded corners, soft shadows, friendly icons, gentle gradients, warm tinted backgrounds
+- **Neuro-Affirming**: All visual enhancements remain calm, predictable, accessible, and free from overstimulation
+- **Applied Throughout**: Parent Hub cards, child profile interface, home guide sections, navigation highlights
+- **Professional Yet Warm**: Sophisticated use of colour and shape maintains authority while adding human warmth
 
 ## Content Asset System
 

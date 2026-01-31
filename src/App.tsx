@@ -5,6 +5,7 @@ import { EBPLibraryView } from '@/components/EBPLibraryView'
 import { CaseStudiesView } from '@/components/CaseStudiesView'
 import { RightsEthicsView } from '@/components/RightsEthicsView'
 import { ToolsView } from '@/components/ToolsView'
+import { ParentView } from '@/components/ParentView'
 import { SavedPlansManager } from '@/components/SavedPlansManager'
 import { AdminDashboard } from '@/components/AdminDashboard'
 import { Toaster } from '@/components/ui/sonner'
@@ -36,6 +37,8 @@ function App() {
         return <RightsEthicsView />
       case 'tools':
         return <ToolsView onNavigateToEBP={navigateToEBP} />
+      case 'parents':
+        return <ParentView />
       case 'saved-plans':
         return <SavedPlansManager onBack={() => setActiveTab('tools')} />
       case 'admin':

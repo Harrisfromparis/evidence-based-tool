@@ -1,4 +1,4 @@
-import { House, BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk } from '@phosphor-icons/react'
+import { House, BookBookmark, FolderOpen, Scales, Wrench, FloppyDisk, Users } from '@phosphor-icons/react'
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { NarrationSettings } from '@/components/NarrationSettings'
 
@@ -63,6 +63,13 @@ export function Layout({ children, activeTab, onTabChange }: LayoutProps) {
               >
                 <Wrench className="w-4 h-4" />
                 <span className="hidden sm:inline">Tools</span>
+              </TabsTrigger>
+              <TabsTrigger 
+                value="parents"
+                className="gap-2 data-[state=active]:bg-secondary rounded-none border-b-2 border-transparent data-[state=active]:border-primary"
+              >
+                <Users className="w-4 h-4" />
+                <span className="hidden sm:inline">Parents</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="saved-plans"
