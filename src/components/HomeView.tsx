@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { NarrationControls } from '@/components/NarrationControls'
-import brandingImage from '@/assets/images/logo_for_wix_Steffen.png'
 
 interface HomeViewProps {
   onNavigate: (tab: string) => void
@@ -11,14 +10,6 @@ export function HomeView({ onNavigate }: HomeViewProps) {
 
   return (
     <div className="space-y-12">
-      <section className="relative rounded-xl overflow-hidden shadow-lg border-2 border-border">
-        <img 
-          src={brandingImage} 
-          alt="Autism and Me" 
-          className="w-full h-40 object-cover object-center"
-        />
-      </section>
-
       <section className="bg-primary text-primary-foreground p-8 rounded-xl border-2 border-primary shadow-md">
         <h1 className="text-4xl md:text-5xl mb-3">Evidence-Based Practice Navigator</h1>
         <p className="text-lg md:text-xl opacity-95">
