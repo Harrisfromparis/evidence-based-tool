@@ -1,0 +1,65 @@
+{
+  "colours": {
+    "brand": {
+      "black": {
+        "value": "#000000",
+        "oklch": "oklch(0.15 0 0)",
+        "usage": "Primary text, headings, key UI elements",
+        "purpose": "Authority and professionalism"
+      },
+      "green": {
+        "value": "#2ECC71",
+        "oklch": "oklch(0.55 0.15 150)",
+        "usage": "Interactive elements, success states",
+        "purpose": "Growth and support"
+      },
+      "orange": {
+        "value": "#F39C12",
+        "oklch": "oklch(0.65 0.18 55)",
+        "usage": "Accent highlights, calls-to-action",
+        "purpose": "Warmth and attention"
+      },
+      "softGreen": {
+        "value": "#A8E6CF",
+        "oklch": "oklch(0.92 0.01 150)",
+        "usage": "Backgrounds, hover states",
+        "purpose": "Calm support"
+      },
+      "softOrange": {
+        "value": "#FFD3B6",
+        "oklch": "oklch(0.88 0.08 55)",
+        "usage": "Secondary backgrounds, warm accents",
+        "purpose": "Approachability"
+      },
+      "neutralGrey": {
+        "value": "#F2F2F2",
+        "oklch": "oklch(0.96 0 0)",
+        "usage": "Page backgrounds, neutral spaces",
+        "purpose": "Clean professional canvas"
+      }
+    },
+    "semantic": {
+      "background": "oklch(0.98 0 0)",
+      "foreground": "oklch(0.15 0 0)",
+      "primary": "oklch(0.15 0 0)",
+      "primaryForeground": "oklch(0.98 0 0)",
+      "secondary": "oklch(0.55 0.15 150)",
+      "secondaryForeground": "oklch(0.98 0 0)",
+      "accent": "oklch(0.65 0.18 55)",
+      "accentForeground": "oklch(0.15 0 0)",
+      "muted": "oklch(0.92 0.01 150)",
+      "mutedForeground": "oklch(0.45 0 0)",
+      "destructive": "oklch(0.55 0.20 30)",
+      "destructiveForeground": "oklch(0.98 0 0)",
+      "border": "oklch(0.85 0.01 150)",
+      "input": "oklch(0.85 0.01 150)",
+      "ring": "oklch(0.55 0.15 150)"
+    },
+    "contrast": {
+      "backgroundWithForeground": "14.8:1",
+      "greenWithWhite": "4.9:1",
+      "orangeWithBlack": "5.2:1",
+      "mutedTextWithWhite": "7.5:1"
+    }
+  }
+}

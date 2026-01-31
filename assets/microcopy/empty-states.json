@@ -1,0 +1,67 @@
+{
+  "bookmarks": {
+    "title": "No saved items yet",
+    "message": "When you find an EBP, case study, or tool you want to return to, tap the bookmark icon to save it here.",
+    "action": "Browse EBP Library"
+  },
+  "searchResults": {
+    "title": "No results found",
+    "message": "We could not find any content matching your search. Try different keywords or browse by category.",
+    "action": "Clear search"
+  },
+  "caseStudyFilters": {
+    "title": "No matching case studies",
+    "message": "Your current filters are not returning any results. Try removing some filters to see more case studies.",
+    "action": "Clear filters"
+  },
+  "savedPlans": {
+    "title": "No saved plans yet",
+    "message": "Plans you create in the Tools section will appear here. Start by creating a lesson script, transition plan, or assessment.",
+    "action": "Go to Tools"
+  },
+  "lessonScripts": {
+    "title": "No saved lesson scripts",
+    "message": "Generate your first lesson script to see it saved here for future reference.",
+    "action": "Create lesson script"
+  },
+  "transitionPlans": {
+    "title": "No saved transition plans",
+    "message": "Build your first transition support plan to see it saved here.",
+    "action": "Create transition plan"
+  },
+  "parentAssessments": {
+    "title": "No parent assessments yet",
+    "message": "Parent assessments help bridge home and school support. Complete your first assessment to see it here.",
+    "action": "Create parent assessment"
+  },
+  "schoolPlans": {
+    "title": "No school plans yet",
+    "message": "School daily plans will appear here once you create them using parent assessment data.",
+    "action": "Create school plan"
+  },
+  "studentProfiles": {
+    "title": "No student profiles yet",
+    "message": "Student voice profiles help centre planning on student experience. Create your first profile here.",
+    "action": "Create student profile"
+  },
+  "socialNarratives": {
+    "title": "No social narratives saved",
+    "message": "Social narratives you create will be saved here for future use and adaptation.",
+    "action": "Create social narrative"
+  },
+  "vrScenarios": {
+    "title": "No VR scenarios saved",
+    "message": "VR learning scenario plans you create will appear here for reference and implementation.",
+    "action": "Create VR scenario"
+  },
+  "vrTransitionPlans": {
+    "title": "No VR transition plans saved",
+    "message": "VR-based transition preparation plans will be saved here once created.",
+    "action": "Create VR transition plan"
+  },
+  "recentActivity": {
+    "title": "No recent activity",
+    "message": "Your recently viewed EBPs and case studies will appear here for quick access.",
+    "action": "Browse content"
+  }
+}

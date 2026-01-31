@@ -1,0 +1,73 @@
+{
+  "name": "Jamal",
+  "age": 16,
+  "setting": "Mainstream secondary school, Transition Year",
+  "profile": "Jamal is a 16-year-old in Transition Year who is highly capable academically but experiences significant anxiety around social situations, new environments, and unstructured time. He masks extensively at school, appearing to cope well, but experiences shutdowns at home. Jamal is interested in pursuing medicine but worries about work experience placements and interviews.",
+  "challenges": [
+    "Severe social anxiety leading to avoidance of work experience opportunities",
+    "Masking at school resulting in exhaustion and home shutdowns",
+    "Difficulty with job interviews and professional social situations",
+    "Fear of new environments and unpredictable social demands",
+    "Lack of awareness among school staff about masking and autistic burnout"
+  ],
+  "goals": [
+    "Complete work experience placement with appropriate supports",
+    "Develop interview skills and professional communication strategies",
+    "Reduce need for masking through environmental accommodations",
+    "Build confidence for post-secondary transitions"
+  ],
+  "recommendedEBPs": [
+    {
+      "id": "cognitive-behavioral-intervention",
+      "title": "Cognitive Behavioural Intervention",
+      "rationale": "Addresses anxiety thoughts and develops coping strategies for social situations"
+    },
+    {
+      "id": "social-narratives",
+      "title": "Social Narratives",
+      "rationale": "Prepares Jamal for work experience and interview situations with clear expectations"
+    },
+    {
+      "id": "video-modeling",
+      "title": "Video Modeling",
+      "rationale": "Demonstrates interview behaviours and workplace social interactions"
+    },
+    {
+      "id": "self-management",
+      "title": "Self-Management",
+      "rationale": "Supports Jamal in monitoring stress levels and requesting accommodations"
+    },
+    {
+      "id": "parent-implemented-intervention",
+      "title": "Parent-Implemented Intervention",
+      "rationale": "Involves family in supporting Jamal's wellbeing and reducing masking pressure"
+    },
+    {
+      "id": "virtual-reality",
+      "title": "Virtual Reality",
+      "rationale": "Allows Jamal to practise interviews and explore work environments safely"
+    }
+  },
+  "implementation": {
+    "cognitiveIntervention": "School counsellor worked with Jamal on anxiety management, identifying unhelpful thoughts ('Everyone will think I'm weird') and developing realistic alternatives ('Some people will be understanding, and I can ask for what I need').",
+    "socialNarratives": "Jamal and counsellor co-created narratives describing his work experience placement, what to expect, how to ask for breaks, and what to do if overwhelmed.",
+    "videoModeling": "Jamal watched and analysed videos of medical professionals in workplace settings and mock job interviews, identifying helpful behaviours.",
+    "selfManagement": "Jamal used a discrete anxiety scale (1-10) on his phone to monitor stress levels throughout the day and signal when he needed support.",
+    "parentIntervention": "Family meeting with school discussed masking, autistic burnout, and home-school communication plan. Parents and school agreed on reduced homework during high-stress placement period.",
+    "virtualReality": "Jamal used VR to virtually explore the hospital where his placement would occur and practised interview scenarios multiple times in a safe, controlled environment."
+  },
+  "outcomes": [
+    "Jamal completed 2-week work experience placement in local hospital with accommodations (quiet break space, clear schedule, designated staff contact)",
+    "Successfully navigated interview process for college open day medical programme, disclosing autism and requesting accommodations",
+    "School implemented 'masking awareness' training for all TY teachers",
+    "Jamal reports feeling 'less alone' and more confident requesting supports",
+    "Home shutdowns reduced from 4 per week to 1 per week during placement period"
+  ],
+  "reflections": "This case highlighted how masking can make autistic students 'invisible' to support systems. Jamal appeared to be coping until family raised concerns. The VR component was transformative - Jamal practised interview scenarios 15 times before his real interview, which he said made it feel 'almost routine'. Collaboration with parents was essential; school initially thought Jamal was 'doing fine' because he wasn't displaying obvious distress. The placement succeeded because the hospital was briefed in advance and provided specific accommodations. Staff training on masking and burnout was valuable for identifying other students who might need support.",
+  "context": {
+    "duration": "20 weeks preparation, 2 weeks placement, ongoing support",
+    "schoolType": "Mainstream secondary (high-achieving academic school)",
+    "location": "County Limerick",
+    "supportLevel": "Tier 2 - counsellor support, family liaison, and workplace accommodations"
+  }
+}

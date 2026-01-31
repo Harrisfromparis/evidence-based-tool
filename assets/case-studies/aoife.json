@@ -1,0 +1,60 @@
+{
+  "name": "Aoife",
+  "age": 8,
+  "setting": "Mainstream primary school, Third Class",
+  "profile": "Aoife is a bright, verbal 8-year-old who loves reading and animals. She becomes overwhelmed during unstructured times like break and lunch, often returning to class distressed. She seeks adult proximity and finds group work challenging unless she has a clearly defined role. Aoife experiences sensory sensitivities to noise and touch.",
+  "challenges": [
+    "Overwhelm during unstructured break times",
+    "Difficulty with group work without clear roles",
+    "Sensory sensitivities to noise and unexpected touch",
+    "Anxiety during transitions between activities",
+    "Struggles with changes to routine"
+  ],
+  "goals": [
+    "Reduce distress during break times",
+    "Increase positive participation in group activities",
+    "Develop self-advocacy skills for sensory needs",
+    "Build confidence during transitions"
+  ],
+  "recommendedEBPs": [
+    {
+      "id": "visual-supports",
+      "title": "Visual Supports",
+      "rationale": "Provides predictability during transitions and clearly defines group roles"
+    },
+    {
+      "id": "antecedent-based-intervention",
+      "title": "Antecedent-Based Intervention",
+      "rationale": "Modifies break environment to reduce sensory overwhelm before it occurs"
+    },
+    {
+      "id": "self-management",
+      "title": "Self-Management",
+      "rationale": "Supports Aoife in monitoring her own comfort levels and requesting breaks"
+    },
+    {
+      "id": "social-narratives",
+      "title": "Social Narratives",
+      "rationale": "Prepares Aoife for changes and explains social situations in advance"
+    }
+  ],
+  "implementation": {
+    "visualSupports": "Teacher created a visual schedule showing break structure and a 'group work roles' card showing Aoife's specific job during collaborative activities.",
+    "antecedentModification": "School provided a quiet corner of the library during break where Aoife could choose to spend time with one friend, with adult supervision nearby.",
+    "selfManagement": "Aoife learned to use a simple 'check-in' system where she could show a green, yellow, or red card to indicate her comfort level, with staff responding appropriately.",
+    "socialNarratives": "Teacher prepared short social narratives before field trips, assemblies, and other non-routine events."
+  },
+  "outcomes": [
+    "Aoife now uses the library break option 3 days per week and returns to class calm",
+    "Distressed incidents reduced from daily to once per fortnight",
+    "Aoife successfully advocated for a 'quiet corner' role during a group project",
+    "Family reports increased confidence and reduced Sunday evening anxiety"
+  ],
+  "reflections": "The key was prevention rather than responding to distress. Giving Aoife agency over her environment and clear information about expectations made a significant difference. Staff initially worried the library option was 'giving in' but reframed it as reasonable accommodation.",
+  "context": {
+    "duration": "12 weeks",
+    "schoolType": "Mainstream primary",
+    "location": "County Cork",
+    "supportLevel": "Tier 2 - some additional resource hours"
+  }
+}

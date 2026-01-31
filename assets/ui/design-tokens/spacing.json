@@ -1,0 +1,40 @@
+{
+  "spacing": {
+    "base": "8px",
+    "scale": {
+      "0": "0",
+      "1": "4px",
+      "2": "8px",
+      "3": "12px",
+      "4": "16px",
+      "5": "20px",
+      "6": "24px",
+      "8": "32px",
+      "10": "40px",
+      "12": "48px",
+      "16": "64px",
+      "20": "80px",
+      "24": "96px"
+    },
+    "component": {
+      "buttonPadding": "16px 24px",
+      "cardPadding": "24px",
+      "cardPaddingMobile": "16px",
+      "inputPadding": "12px 16px",
+      "sectionSpacing": "48px",
+      "listItemGap": "16px"
+    },
+    "layout": {
+      "contentMaxWidth": "720px",
+      "containerPadding": "24px",
+      "containerPaddingMobile": "16px",
+      "gridGap": "24px",
+      "gridGapMobile": "16px"
+    }
+  },
+  "touchTargets": {
+    "minimum": "44px",
+    "comfortable": "48px",
+    "description": "All interactive elements must meet minimum 44x44px touch target size for accessibility"
+  }
+}

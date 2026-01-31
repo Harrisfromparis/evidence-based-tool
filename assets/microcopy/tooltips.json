@@ -1,0 +1,50 @@
+{
+  "navigation": {
+    "home": "Return to home page",
+    "ebpLibrary": "Browse all evidence-based practices",
+    "caseStudies": "Explore real-world examples",
+    "rightsEthics": "View rights and ethical guidelines",
+    "tools": "Access planning and assessment tools",
+    "savedPlans": "View your saved plans and assessments"
+  },
+  "actions": {
+    "bookmark": "Save this item to your bookmarks",
+    "removeBookmark": "Remove from bookmarks",
+    "email": "Send via email",
+    "export": "Export to file",
+    "print": "Print this content",
+    "share": "Share with colleagues",
+    "save": "Save your progress",
+    "delete": "Permanently delete this item",
+    "edit": "Make changes to this item"
+  },
+  "information": {
+    "ethicalNote": "Important ethical consideration",
+    "evidenceBase": "Research supporting this practice",
+    "whenToUse": "Appropriate situations for this approach",
+    "relatedEBPs": "Similar or complementary practices",
+    "irishContext": "Example from Irish educational settings"
+  },
+  "tools": {
+    "lessonGenerator": "Create classroom-ready lesson scripts using evidence-based practices",
+    "transitionBuilder": "Plan structured support for transitions between activities or settings",
+    "parentAssessment": "Gather parent insights about effective strategies at home",
+    "schoolPlanner": "Build daily plans incorporating parent-recommended approaches",
+    "studentVoice": "Record student perspectives on helpful and unhelpful strategies",
+    "socialNarrative": "Generate personalised social stories for challenging situations",
+    "vrScenarioPlanner": "Design virtual reality learning experiences for skill practice",
+    "vrTransitionPrep": "Create VR-based familiarisation plans for new environments",
+    "caseStudyGenerator": "Generate contextually relevant case study examples",
+    "ebpRecommendation": "Get intelligent suggestions for relevant evidence-based practices",
+    "writingAssistant": "Assistance with professional documentation and communication"
+  },
+  "accessibility": {
+    "narrationToggle": "Turn audio narration on or off",
+    "narrationPlay": "Read this section aloud",
+    "narrationPause": "Pause audio narration",
+    "narrationStop": "Stop audio narration",
+    "narrationSettings": "Adjust voice, speed, and volume",
+    "highContrast": "Increase visual contrast",
+    "fontSize": "Adjust text size"
+  }
+}

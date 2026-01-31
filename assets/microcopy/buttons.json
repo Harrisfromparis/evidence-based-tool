@@ -1,0 +1,59 @@
+{
+  "primary": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "continue": "Continue",
+    "done": "Done"
+  },
+  "actions": {
+    "saveChanges": "Save changes",
+    "discardChanges": "Discard changes",
+    "exportPlan": "Export plan",
+    "emailPlan": "Email plan",
+    "viewDetails": "View details",
+    "learnMore": "Learn more",
+    "tryAgain": "Try again",
+    "goBack": "Go back",
+    "startOver": "Start over",
+    "addNew": "Add new",
+    "removeItem": "Remove",
+    "clearAll": "Clear all"
+  },
+  "navigation": {
+    "home": "Home",
+    "ebpLibrary": "EBP Library",
+    "caseStudies": "Case Studies",
+    "rightsEthics": "Rights & Ethics",
+    "tools": "Tools",
+    "savedPlans": "Saved Plans",
+    "backToHome": "Back to home",
+    "backToTools": "Back to tools",
+    "backToLibrary": "Back to library"
+  },
+  "confirmation": {
+    "confirmDelete": "Delete",
+    "confirmCancel": "Yes, cancel",
+    "keepEditing": "Keep editing",
+    "confirmReset": "Yes, reset",
+    "confirmClear": "Yes, clear"
+  },
+  "loading": {
+    "generating": "Generating...",
+    "saving": "Saving...",
+    "loading": "Loading...",
+    "processing": "Processing..."
+  },
+  "status": {
+    "saved": "Saved",
+    "exported": "Exported",
+    "deleted": "Deleted",
+    "updated": "Updated",
+    "completed": "Completed"
+  }
+}

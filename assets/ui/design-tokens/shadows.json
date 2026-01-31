@@ -1,0 +1,45 @@
+{
+  "shadows": {
+    "none": "none",
+    "subtle": "0 1px 2px rgba(0, 0, 0, 0.05)",
+    "small": "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.06)",
+    "medium": "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)",
+    "large": "0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05)",
+    "focus": "0 0 0 3px rgba(46, 204, 113, 0.3)"
+  },
+  "usage": {
+    "default": "none",
+    "cards": "subtle or none (prefer flat design)",
+    "modals": "medium",
+    "dropdowns": "medium",
+    "focusRing": "focus",
+    "notes": "This application uses minimal shadows. Prefer flat design with clear borders over elevation effects."
+  },
+  "borderRadius": {
+    "none": "0",
+    "minimal": "2px",
+    "small": "4px",
+    "medium": "8px",
+    "large": "12px",
+    "full": "9999px"
+  },
+  "radiusUsage": {
+    "default": "minimal (2px)",
+    "buttons": "minimal (2px for anti-aliasing only)",
+    "cards": "minimal (2px)",
+    "inputs": "minimal (2px)",
+    "notes": "This application uses minimal border radius throughout for professional, document-like appearance."
+  },
+  "transitions": {
+    "fast": "100ms",
+    "normal": "200ms",
+    "slow": "300ms",
+    "easing": "ease-out"
+  },
+  "transitionUsage": {
+    "buttonPress": "100-150ms",
+    "stateChange": "200-300ms",
+    "pageTransition": "300-500ms",
+    "notes": "All transitions use ease-out curve. Avoid bouncing, elastic, or decorative animation effects."
+  }
+}

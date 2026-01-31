@@ -280,3 +280,40 @@ Motion should be minimal and purposeful — a subtle acknowledgment of interacti
   - Font sizes remain same (accessibility priority)
   - Touch targets minimum 44x44px
   - Single column layout throughout
+
+## Content Asset System
+
+A comprehensive content asset system has been created in the `/assets` directory containing all required branding, microcopy, content, UI specifications, templates, and documentation. See `/assets/README.md` for complete specification.
+
+### Asset Structure
+- **Branding**: Colour palette and typography standards
+- **Microcopy**: UI text for buttons, tooltips, empty states, onboarding (JSON)
+- **Case Studies**: 4 comprehensive Irish case studies (Aoife, Liam, Maya, Jamal)
+- **EBP Content**: 29 markdown files covering all evidence-based practices
+- **Tools**: 6 tool documentation files for practical planning resources
+- **UI Components**: 5 component specifications (button, card, accordion, tab, input)
+- **Design Tokens**: JSON files for colours, spacing, typography, shadows
+- **Onboarding**: Flow documentation with 4-screen sequence
+- **Audio Scripts**: Narration scripts for introduction, app usage, and EBP template
+- **Templates**: 5 exportable template definitions (sensory profile, visual schedule, goal-setting sheet, behaviour support plan, home-school communication)
+
+### Content Standards
+All content follows:
+- UK English spelling
+- Plain language principles  
+- Neuro-affirming framing
+- Trauma-informed approaches
+- No jargon or technical language
+- Irish educational context examples
+- UDL-aligned structure
+- Accessibility requirements
+
+### Implementation
+Developers should reference the asset system for:
+- All interface microcopy (from JSON files)
+- Design implementation (from design tokens)
+- Content population (from markdown files)
+- Component specifications (from UI component docs)
+- Template generation (from template definitions)
+
+**Reference**: `/assets/README.md` for complete authoritative specification

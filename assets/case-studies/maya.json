@@ -1,0 +1,67 @@
+{
+  "name": "Maya",
+  "age": 11,
+  "setting": "Special school, mixed-ability class",
+  "profile": "Maya is an 11-year-old with significant communication challenges. She is non-speaking and uses a communication device inconsistently. Maya has strong sensory-seeking behaviours and often engages in repetitive movements. She demonstrates clear preferences and dislikes but struggles to communicate these effectively, leading to frustration and occasional aggressive behaviours when needs are unmet.",
+  "challenges": [
+    "Limited functional communication resulting in unmet needs",
+    "Aggressive behaviours (hitting, biting) during high frustration",
+    "Inconsistent use of communication device",
+    "Difficulty participating in academic activities",
+    "Staff uncertainty about how to interpret and respond to behaviours"
+  ],
+  "goals": [
+    "Increase functional communication for basic needs and preferences",
+    "Reduce aggressive incidents through improved communication",
+    "Increase engagement in structured learning activities",
+    "Support staff in understanding and responding to Maya's communication"
+  ],
+  "recommendedEBPs": [
+    {
+      "id": "functional-communication-training",
+      "title": "Functional Communication Training",
+      "rationale": "Teaches Maya alternative communication methods to replace aggression"
+    },
+    {
+      "id": "augmentative-alternative-communication",
+      "title": "Augmentative & Alternative Communication",
+      "rationale": "Provides consistent, accessible communication system suited to Maya's needs"
+    },
+    {
+      "id": "functional-behavior-assessment",
+      "title": "Functional Behaviour Assessment",
+      "rationale": "Identifies what Maya is communicating through aggressive behaviours"
+    },
+    {
+      "id": "naturalistic-intervention",
+      "title": "Naturalistic Intervention",
+      "rationale": "Embeds communication teaching in naturally occurring activities and routines"
+    },
+    {
+      "id": "reinforcement",
+      "title": "Reinforcement",
+      "rationale": "Systematically reinforces communication attempts to increase frequency"
+    }
+  ],
+  "implementation": {
+    "functionalCommunication": "Staff identified that hitting often communicated 'I need space' or 'This is too hard'. Maya was taught to hand over a 'break' card or push away materials as alternative communication.",
+    "aacSystem": "Speech therapist simplified Maya's device to 12 core words and added tactile symbols for key preferences. Staff modelled device use throughout the day.",
+    "behaviourAssessment": "Detailed ABC (Antecedent-Behaviour-Consequence) data revealed aggression was most common during loud, busy activities and when demands exceeded Maya's capacity.",
+    "naturalisticTeaching": "Staff embedded communication teaching into snack time, transitions, and play, rather than isolated 'communication sessions'.",
+    "reinforcement": "When Maya used device, cards, or gestures to communicate, staff responded immediately and enthusiastically, reinforcing the communication."
+  },
+  "outcomes": [
+    "Aggressive incidents reduced from 12 per week to 2 per week over 10 weeks",
+    "Maya now consistently uses 'break' card and pushes materials away to communicate needs",
+    "Device use increased from 3 times daily to 15+ times daily",
+    "Maya participated in full group art activity for first time, using device to request materials",
+    "Staff report feeling more confident in understanding and responding to Maya"
+  ],
+  "reflections": "The functional behaviour assessment was crucial - it shifted staff perspective from 'Maya is aggressive' to 'Maya is communicating distress'. Teaching alternatives only worked because staff committed to responding immediately and positively to all communication attempts. Simplifying the AAC device was counterintuitive but essential - fewer options led to more actual use. Embedding communication teaching into daily routines was far more effective than isolated therapy sessions.",
+  "context": {
+    "duration": "10 weeks intensive, ongoing maintenance",
+    "schoolType": "Special school (ASD-specific)",
+    "location": "County Galway",
+    "supportLevel": "Tier 3 - high support with SLT and behaviour specialist involvement"
+  }
+}

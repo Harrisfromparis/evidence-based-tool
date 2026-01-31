@@ -1,0 +1,61 @@
+{
+  "name": "Liam",
+  "age": 14,
+  "setting": "Mainstream secondary school, Second Year",
+  "profile": "Liam is a 14-year-old who excels in mathematics and computer science but struggles significantly with open-ended assignments and group discussions. He finds eye contact uncomfortable, prefers concrete instructions, and becomes anxious when expectations are unclear. Liam has difficulty recognising when peers are frustrated with him and often continues behaviours that others find annoying.",
+  "challenges": [
+    "Extreme anxiety with ambiguous assignments",
+    "Difficulty interpreting social cues from peers",
+    "Struggles with unstructured group work",
+    "Avoidance of subjects requiring creative writing or interpretation",
+    "Peer conflicts arising from misunderstandings"
+  ],
+  "goals": [
+    "Complete open-ended assignments with reduced anxiety",
+    "Improve peer relationships through increased social understanding",
+    "Develop self-advocacy skills for requesting clarification",
+    "Build confidence in subjects beyond STEM"
+  ],
+  "recommendedEBPs": [
+    {
+      "id": "structured-work-systems",
+      "title": "Structured Work Systems",
+      "rationale": "Breaks ambiguous assignments into clear, sequential steps"
+    },
+    {
+      "id": "social-skills-training",
+      "title": "Social Skills Training",
+      "rationale": "Explicitly teaches recognition and interpretation of social cues"
+    },
+    {
+      "id": "peer-mediated-instruction",
+      "title": "Peer-Mediated Instruction",
+      "rationale": "Structures positive peer interactions with trained classmates"
+    },
+    {
+      "id": "video-modeling",
+      "title": "Video Modeling",
+      "rationale": "Demonstrates expected behaviours in social and academic contexts"
+    }
+  ],
+  "implementation": {
+    "structuredWork": "Teachers provided step-by-step assignment sheets with specific success criteria and examples. Open-ended tasks were scaffolded with choices rather than complete freedom.",
+    "socialSkills": "Liam met weekly with school counsellor to practise interpreting facial expressions, tone of voice, and body language using video examples and role-play.",
+    "peerMediation": "Two volunteer classmates were trained to include Liam in group work, provide gentle cues, and check in about task requirements.",
+    "videoModeling": "Liam watched short videos showing appropriate group work behaviours, turn-taking in conversation, and asking for help."
+  },
+  "outcomes": [
+    "Liam completed three open-ended English assignments with teacher-provided structure",
+    "Peer conflicts reduced significantly after 8 weeks of social skills work",
+    "Liam successfully self-advocated for clarification in geography class",
+    "Peer-mediated group work resulted in positive experience in science project",
+    "Teachers report Liam appears more relaxed and engaged in non-STEM subjects"
+  ],
+  "reflections": "Initially, subject teachers felt providing structure was 'lowering standards', but came to recognise that clarity about expectations allowed Liam to demonstrate his actual ability. The peer-mediation component was surprisingly powerful - having trained peer support reduced Liam's reliance on adult intervention. Social skills training needed to be very explicit and example-based; abstract social advice was unhelpful.",
+  "context": {
+    "duration": "16 weeks",
+    "schoolType": "Mainstream secondary",
+    "location": "County Dublin",
+    "supportLevel": "Tier 2 - resource teacher support and counsellor access"
+  }
+}

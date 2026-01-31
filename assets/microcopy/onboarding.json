@@ -1,0 +1,71 @@
+{
+  "welcome": {
+    "title": "Welcome to Autism & Me",
+    "subtitle": "Evidence-based practices for neuro-affirming autism support",
+    "description": "This toolkit provides educators with practical, rights-based approaches grounded in research and Irish educational contexts."
+  },
+  "chooseRole": {
+    "title": "Who are you?",
+    "options": [
+      {
+        "id": "teacher",
+        "label": "Teacher",
+        "description": "Primary, secondary, or special school educator"
+      },
+      {
+        "id": "sna",
+        "label": "Special Needs Assistant",
+        "description": "Supporting students in educational settings"
+      },
+      {
+        "id": "parent",
+        "label": "Parent or Caregiver",
+        "description": "Supporting an autistic child or young person"
+      },
+      {
+        "id": "professional",
+        "label": "Other Professional",
+        "description": "Therapist, counsellor, or education specialist"
+      }
+    ],
+    "skipLabel": "Skip this step"
+  },
+  "whatDoYouNeed": {
+    "title": "What would you like to do today?",
+    "options": [
+      {
+        "id": "learn-ebps",
+        "label": "Learn about evidence-based practices",
+        "description": "Explore the 29 EBPs with plain-English guidance"
+      },
+      {
+        "id": "see-examples",
+        "label": "See real-world examples",
+        "description": "Browse case studies from Irish educational settings"
+      },
+      {
+        "id": "create-plan",
+        "label": "Create a support plan",
+        "description": "Use planning tools to design targeted interventions"
+      },
+      {
+        "id": "understand-rights",
+        "label": "Understand rights and ethics",
+        "description": "Review legal frameworks and ethical considerations"
+      }
+    ]
+  },
+  "getStarted": {
+    "title": "You are all set",
+    "message": "You can change these preferences at any time in settings.",
+    "primaryAction": "Explore EBPs",
+    "secondaryAction": "Browse Tools"
+  },
+  "tips": [
+    "All content works offline once loaded",
+    "Bookmark items you want to return to quickly",
+    "Use audio narration for accessible content consumption",
+    "Search works across all EBPs, case studies, and tools",
+    "No account needed - your data stays on your device"
+  ]
+}
