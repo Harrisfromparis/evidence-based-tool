@@ -43,6 +43,7 @@ import { SavedPlansManager } from '@/components/SavedPlansManager'
 import { AICaseStudyGenerator } from '@/components/AICaseStudyGenerator'
 import { EBPRecommendationEngine } from '@/components/EBPRecommendationEngine'
 import { CboardIntegration } from '@/components/CboardIntegration'
+import { GComprisIntegration } from '@/components/GComprisIntegration'
 import { SectionHeader } from '@/components/SectionHeader'
 
 interface ToolsViewProps {
@@ -216,6 +217,10 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
     return <CboardIntegration onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'gcompris-integration') {
+    return <GComprisIntegration onBack={() => setSelectedTool(null)} />
+  }
+
   const implementedTools = [
     'lesson-script-generator', 
     'transition-support', 
@@ -251,7 +256,8 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
     'vr-demonstrations',
     'ai-case-study-generator',
     'ebp-recommendation-engine',
-    'cboard-integration'
+    'cboard-integration',
+    'gcompris-integration'
   ]
 
   return (

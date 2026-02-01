@@ -1208,6 +1208,14 @@ export const tools: Tool[] = [
     category: 'Communication Tools',
     icon: 'SpeakerHigh',
     ebpCategories: ['Communication', 'Technology', 'AAC']
+  },
+  {
+    id: 'gcompris-integration',
+    title: 'GCompris Educational Software',
+    description: 'Free educational software with 190+ activities for maths, science, reading, and computer skills with accessible, self-paced learning',
+    category: 'Educational Software',
+    icon: 'GameController',
+    ebpCategories: ['Technology', 'Instruction', 'Visual Supports']
   }
 ]
 
