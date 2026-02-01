@@ -429,6 +429,256 @@ export function ParentTechnologyGuide({ onBack }: ParentTechnologyGuideProps) {
           </p>
         </CardContent>
       </Card>
+
+      <Card className="warm-card">
+        <CardHeader>
+          <CardTitle className="handwritten text-2xl">Learn and Thrive</CardTitle>
+          <CardDescription className="text-base">
+            Essential life skills resources for young people with learning disabilities
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="aspect-video w-full rounded-lg overflow-hidden bg-black">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/WjVjPNw6Pgw"
+              title="Learn and Thrive Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+          <div className="space-y-3 text-foreground leading-relaxed">
+            <p>
+              Learn and Thrive aims to provide every young person with learning disabilities the chance to dream big, make their own choices, and shape their own future. Their simple, engaging video lessons and activity packs give families and professionals the tools to teach essential life skills - helping young people grow in confidence, build safe relationships, and live more independent lives.
+            </p>
+            <p>
+              With over 170 videos and over 1000 ready-to-use resources, they're already used to support over 35,000 children and young people at home, in school, and in support groups.
+            </p>
+            <p>
+              Learn more about their work and resources on their website:{' '}
+              <a
+                href="https://www.learnandthrive.org.uk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline font-medium"
+              >
+                https://www.learnandthrive.org.uk/
+              </a>
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="handwritten text-2xl">Irish Organisations - YouTube Resources</CardTitle>
+          <CardDescription className="text-base">
+            Official YouTube channels from major Irish organisations providing communication, social skills, mental health, and disability support resources
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-foreground">HSE (Health Service Executive)</h3>
+              <div className="space-y-3 ml-4">
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">HSE Ireland - Main Channel</h4>
+                  <p className="text-sm text-muted-foreground mb-2">General health information, mental health campaigns, disability awareness</p>
+                  <a href="https://www.youtube.com/user/HSEIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/user/HSEIreland
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">HSE Mental Health</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Youth mental health, wellbeing, coping skills, CAMHS information</p>
+                  <a href="https://www.youtube.com/@HSEMentalHealth" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@HSEMentalHealth
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">HSE Health & Wellbeing</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Parenting, child development, emotional wellbeing</p>
+                  <a href="https://www.youtube.com/@HSEHealthWellbeing" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@HSEHealthWellbeing
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-foreground">Early Childhood (0-6 years)</h3>
+              <div className="space-y-3 ml-4">
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Lámh - Irish Sign System</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Communication, early language, AAC, and inclusive practice</p>
+                  <a href="https://www.youtube.com/@LamhSigns" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@LamhSigns
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Aistear / NCCA</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Play, early learning, communication, social development</p>
+                  <a href="https://www.youtube.com/@NCCAIE" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@NCCAIE
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Barnardos Ireland</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Parenting, early childhood development, emotional regulation</p>
+                  <a href="https://www.youtube.com/@BarnardosIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@BarnardosIreland
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Tusla - Parenting 24/7</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Parenting guidance, routines, behaviour, relationships</p>
+                  <a href="https://www.youtube.com/@TuslaIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@TuslaIreland
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-foreground">Primary School Age (6-12 years)</h3>
+              <div className="space-y-3 ml-4">
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">NCSE - National Council for Special Education</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Supports for teachers, SNAs, parents; autism, language, social skills, behaviour</p>
+                  <a href="https://www.youtube.com/@ncseireland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@ncseireland
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">NEPS - National Educational Psychological Service</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Wellbeing, anxiety, study skills, behaviour support</p>
+                  <a href="https://www.youtube.com/@Education_Ireland/search?query=NEPS" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@Education_Ireland (search NEPS)
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">AsIAm - Autism Supports</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Communication, sensory needs, social skills, school inclusion</p>
+                  <a href="https://www.youtube.com/@AsIAmIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@AsIAmIreland
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-foreground">Teens (12-18 years)</h3>
+              <div className="space-y-3 ml-4">
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Jigsaw - Youth Mental Health (12-25)</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Anxiety, friendships, communication, coping skills, school stress</p>
+                  <a href="https://www.youtube.com/@JigsawYMH" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@JigsawYMH
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">SpunOut - Youth Information</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Relationships, mental health, communication, identity, safety</p>
+                  <a href="https://www.youtube.com/@spunout" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@spunout
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">BelongTo - LGBTQ+ Youth</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Identity, belonging, communication, relationships</p>
+                  <a href="https://www.youtube.com/@BeLonGToYouthServices" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@BeLonGToYouthServices
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Webwise - Online Safety</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Digital communication, cyberbullying, social skills online</p>
+                  <a href="https://www.youtube.com/@WebwiseIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@WebwiseIreland
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-foreground">Older Teens & Young Adults (16-25 years)</h3>
+              <div className="space-y-3 ml-4">
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">National Learning Network (NLN)</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Life skills, employment skills, communication, independence</p>
+                  <a href="https://www.youtube.com/@NationalLearningNetwork" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@NationalLearningNetwork
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">EmployAbility Service</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Workplace communication, job skills, inclusion</p>
+                  <a href="https://www.youtube.com/@EmployAbilityService" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@EmployAbilityService
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">MyMind - Low-Cost Counselling</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Mental health, communication, emotional wellbeing</p>
+                  <a href="https://www.youtube.com/@MyMindOrg" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@MyMindOrg
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-foreground">Disability, Neurodiversity & Inclusion (All Ages)</h3>
+              <div className="space-y-3 ml-4">
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Inclusion Ireland</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Rights, communication supports, accessible information</p>
+                  <a href="https://www.youtube.com/@InclusionIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@InclusionIreland
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Down Syndrome Ireland</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Communication, language, social development</p>
+                  <a href="https://www.youtube.com/@DownSyndromeIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@DownSyndromeIreland
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Irish Deaf Society</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Communication, sign language, accessibility</p>
+                  <a href="https://www.youtube.com/@IrishDeafSociety" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@IrishDeafSociety
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-foreground">Parent & Family Supports</h3>
+              <div className="space-y-3 ml-4">
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Parentline</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Parenting challenges, communication, behaviour</p>
+                  <a href="https://www.youtube.com/@ParentlineIreland" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@ParentlineIreland
+                  </a>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground mb-1">Family Resource Centres (FRCs)</h4>
+                  <p className="text-sm text-muted-foreground mb-2">Community supports, parenting, wellbeing</p>
+                  <a href="https://www.youtube.com/@familyresourcecentres" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm">
+                    youtube.com/@familyresourcecentres
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
