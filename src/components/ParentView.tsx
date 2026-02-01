@@ -5,11 +5,17 @@ import { ParentGuide } from '@/components/ParentGuide'
 import { ChildProfileCreator } from '@/components/ChildProfileCreator'
 import { ParentTools } from '@/components/ParentTools'
 import { ParentEBPReflection } from '@/components/ParentEBPReflection'
-import { Heart, BookOpen, Users, Lightbulb } from '@phosphor-icons/react'
+import { ParentTechnologyGuide } from '@/components/ParentTechnologyGuide'
+import { Heart, BookOpen, Users, Lightbulb, Desktop } from '@phosphor-icons/react'
 import { SectionHeader } from '@/components/SectionHeader'
 
 export function ParentView() {
   const [activeTab, setActiveTab] = useState('guide')
+  const [showTechGuide, setShowTechGuide] = useState(false)
+
+  if (showTechGuide) {
+    return <ParentTechnologyGuide onBack={() => setShowTechGuide(false)} />
+  }
 
   return (
     <div className="h-full flex flex-col">
@@ -23,7 +29,7 @@ export function ParentView() {
       </div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col">
-        <TabsList className="grid w-full grid-cols-4 mb-6">
+        <TabsList className="grid w-full grid-cols-5 mb-6">
           <TabsTrigger value="guide" className="gap-2 rounded-xl">
             <BookOpen size={20} />
             Home Guide
@@ -39,6 +45,10 @@ export function ParentView() {
           <TabsTrigger value="tools" className="gap-2 rounded-xl">
             <Users size={20} />
             Parent Tools
+          </TabsTrigger>
+          <TabsTrigger value="tech" className="gap-2 rounded-xl" onClick={() => setShowTechGuide(true)}>
+            <Desktop size={20} />
+            Tech Guide
           </TabsTrigger>
         </TabsList>
 

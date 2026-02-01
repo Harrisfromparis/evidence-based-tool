@@ -1216,6 +1216,14 @@ export const tools: Tool[] = [
     category: 'Educational Software',
     icon: 'GameController',
     ebpCategories: ['Technology', 'Instruction', 'Visual Supports']
+  },
+  {
+    id: 'open-source-tools',
+    title: 'Open-Source Tools Library',
+    description: 'Comprehensive collection of free, open-source software supporting autistic individuals: GCompris, Cboard, Khan Academy, Scratch, Code.org, and more',
+    category: 'Educational Software',
+    icon: 'Desktop',
+    ebpCategories: ['Technology', 'AAC', 'Communication', 'Instruction', 'Visual Supports']
   }
 ]
 

@@ -44,6 +44,7 @@ import { AICaseStudyGenerator } from '@/components/AICaseStudyGenerator'
 import { EBPRecommendationEngine } from '@/components/EBPRecommendationEngine'
 import { CboardIntegration } from '@/components/CboardIntegration'
 import { GComprisIntegration } from '@/components/GComprisIntegration'
+import { OpenSourceToolsLibrary } from '@/components/OpenSourceToolsLibrary'
 import { SectionHeader } from '@/components/SectionHeader'
 
 interface ToolsViewProps {
@@ -221,6 +222,10 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
     return <GComprisIntegration onBack={() => setSelectedTool(null)} />
   }
 
+  if (selectedTool === 'open-source-tools') {
+    return <OpenSourceToolsLibrary onBack={() => setSelectedTool(null)} />
+  }
+
   const implementedTools = [
     'lesson-script-generator', 
     'transition-support', 
@@ -257,7 +262,8 @@ export function ToolsView({ onNavigateToEBP }: ToolsViewProps = {}) {
     'ai-case-study-generator',
     'ebp-recommendation-engine',
     'cboard-integration',
-    'gcompris-integration'
+    'gcompris-integration',
+    'open-source-tools'
   ]
 
   return (
